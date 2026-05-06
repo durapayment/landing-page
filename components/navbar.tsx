@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MdMenu, MdClose } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 import { NavDropdown } from "./NavDropdown";
 import { FlagDropdown } from "./FlagDropdown";
 import { MobileMenu } from "./MobileDrawer";
@@ -10,6 +10,7 @@ export const NavBar = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [focusIndex, setFocusIndex] = useState(-1);
+  const [scrolled, setScrolled] = useState(false);
 
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -25,7 +26,7 @@ export const NavBar = () => {
     setActiveMenu((prev) => (prev === menu ? null : menu));
   };
 
-  /* ENTERPRISE: OUTSIDE CLICK HANDLER */
+  /* OUTSIDE CLICK */
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -36,6 +37,7 @@ export const NavBar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  /* KEYBOARD NAV */
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeAll();
@@ -53,12 +55,24 @@ export const NavBar = () => {
     return () => document.removeEventListener("keydown", handler);
   }, []);
 
+  /* SCROLL BACKGROUND LOGIC */
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <nav
       ref={navRef}
-      className="w-full fixed top-0 z-50 bg-green-50 font-black  ">
-      <div className="max-w-360 mx-auto flex items-center justify-between font-500 h-16   font-black text-[15px] text-black font-500 leading-[19.5px] text-#abbbbcpx-6">
-        {/* ================= FIRST DIV ================= */}
+      className={`w-full fixed top-0 z-50 font-black transition-all duration-300
+      ${scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-green-50"}
+      `}>
+      <div className="max-w-360 mx-auto flex items-center justify-between h-16 text-[15px] text-black px-6">
+        {/* ================= LOGO + MENU ================= */}
         <div className="flex items-center gap-10">
           {/* LOGO */}
           <div className="flex items-center gap-2">
@@ -89,7 +103,7 @@ export const NavBar = () => {
           </ul>
         </div>
 
-        {/* ================= SECOND DIV ================= */}
+        {/* ================= RIGHT SIDE ================= */}
         <div className="hidden md:flex items-center gap-6 text-[14px] font-medium">
           <ul className="flex items-center gap-10 list-none">
             <NavDropdown

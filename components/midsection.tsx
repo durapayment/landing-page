@@ -238,7 +238,7 @@ export const MidSection = () => {
         <div>
           {/* RIGHT: IMAGE */}
           <div className="flex-1 flex justify-center md:justify-end">
-            <div className="w-[300px] sm:w-[360px] md:w-[420px] h-[320px] sm:h-[420px] bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
+            <div className="w-75 sm:w-90 md:w-105 h-80 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
               <img
                 src="/Robust.png"
                 alt="feature image"
@@ -255,7 +255,7 @@ export const MidSection = () => {
       <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12 py-16">
         {/* LEFT: ANIMATION */}
         <div className="flex-1 flex justify-center md:justify-start">
-          <div className="relative w-[300px] sm:w-[360px] md:w-[420px] h-[320px] sm:h-[420px] bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative w-75 sm:w-90 md:w-105 h-80 sm:h-105 bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
             <div className="absolute w-16 h-16 bg-green-500 rounded-full animate-circleMove"></div>
           </div>
         </div>
@@ -271,46 +271,29 @@ export const MidSection = () => {
               color: "rgb(1, 27, 51)",
             }}
             className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
-            Build custom payments experiences with well-documented APIs
+            Protect yourself and your customers with advanced fraud detection
           </h3>
 
           <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-8">
-            Developers love our thorough, well-documented APIs that let you
-            build everything from simple weekend projects to complex financial
-            products.
+            Paystack’s combination of automated and manual fraud systems protect
+            you from fraudulent transactions and associated chargeback claims.
           </p>
+          <h3
+            style={{
+              fontFamily:
+                'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+              fontWeight: 700,
+              lineHeight: "1.2",
+              color: "rgb(1, 27, 51)",
+            }}
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+            Detailed reporting for accounting, reconciliation, and audits
+          </h3>
 
-          <div className="flex flex-col gap-5 mb-8">
-            {[
-              "Collect one-time and recurring payments from your app or website",
-              "Make instant transfers",
-              "Retrieve all your transaction and customer data",
-              "Verify the identity of customers",
-            ].map((item, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <span className="text-green-600">✔</span>
-                <p className="text-[rgb(1,27,51)] font-medium">{item}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center transition group-hover:scale-105">
-              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
-                <path
-                  d="M9 18l6-6-6-6"
-                  stroke="white"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            <p className="text-[rgb(1,27,51)] font-medium group-hover:underline">
-              Durapayment API quick start guide
-            </p>
-          </div>
+          <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-8">
+            Understand your customers’ purchase patterns and do easy
+            reconciliations with a robust data Dashboard and easy exports.
+          </p>
         </div>
       </div>
 
