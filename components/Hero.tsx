@@ -28,8 +28,8 @@ export const Hero = () => {
   return (
     <section className="w-full min-h-screen bg-green-50 overflow-hidden">
       {/* NAV */}
-      <div className="max-w-[1240px] mx-auto flex items-center justify-between py-5 px-5 sm:px-8 md:px-12 lg:px-0">
-        <div className="font-bold text-[#011B33] text-lg">Paystack</div>
+      <div className="max-w-310 mx-auto flex items-center justify-between py-5 px-5 sm:px-8 md:px-12 lg:px-0">
+        <div className="font-bold text-[#011B33] text-lg">Durapayment</div>
 
         <button className="lg:hidden">
           <Menu />
@@ -37,10 +37,10 @@ export const Hero = () => {
       </div>
 
       {/* HERO */}
-      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 md:px-12 lg:px-0">
+      <div className="max-w-310 mx-auto px-5 sm:px-8 md:px-12 lg:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-20 pt-10 sm:pt-14 md:pt-16 lg:pt-24">
           {/* TEXT BLOCK */}
-          <div className="w-full max-w-[640px] text-left justify-self-start">
+          <div className="w-full max-w-160 text-left justify-self-start">
             <h1
               style={{
                 fontFamily:
@@ -57,7 +57,7 @@ export const Hero = () => {
               Modern online and offline payments for Africa
             </h1>
 
-            <p className="text-[#011B33] max-w-[520px] mb-7 text-sm sm:text-base md:text-lg leading-7">
+            <p className="text-[#011B33] max-w-130 mb-7 text-sm sm:text-base md:text-lg leading-7">
               Paystack helps businesses in Africa get paid by anyone, anywhere
               in the world.
             </p>
@@ -76,7 +76,7 @@ export const Hero = () => {
 
           {/* ILLUSTRATION (HIDDEN ON SM + MD, SHOW ONLY LG+) */}
           <div className="hidden lg:flex w-full justify-center lg:justify-end">
-            <div className="relative w-[430px] h-[430px]">
+            <div className="relative w-107.5 h-107.5">
               <div className="absolute inset-0 rounded-full bg-green-100 blur-2xl opacity-60" />
 
               <div className="absolute top-10 left-10 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
@@ -117,7 +117,7 @@ export const Hero = () => {
                 {logos.slice(0, 3).map((logo, i) => (
                   <div
                     key={i}
-                    className="w-[90px] sm:w-[100px] h-[28px] flex items-center justify-center shrink-0">
+                    className="w-22.5 sm:w-25 h-7 flex items-center justify-center shrink-0">
                     <img
                       src={logo}
                       className="object-contain max-h-full"
@@ -130,7 +130,7 @@ export const Hero = () => {
 
             {/* RIGHT */}
             <div className="w-full flex justify-start lg:justify-end">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 max-w-[470px]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 max-w-117.5">
                 <p className="text-sm sm:text-base text-[#011B33] md:text-end font-semibold leading-6 sm:leading-7 md:max-w-[320px] line-clamp-2">
                   Watch MTN Chief Transformation Officer, Olubayo Adekanmbi,
                   discuss working with Paystack

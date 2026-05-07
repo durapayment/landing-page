@@ -98,7 +98,7 @@ export const NavBar = () => {
         </ul>
 
         {/* ================= RIGHT MENU (lg+) ================= */}
-        <div className="hidden lg:flex items-center gap-6 text-[14px] font-medium">
+        <div className="hidden lg:flex items-center gap-6 text-[14px] font-medium list-none">
           <NavDropdown
             label="Developers"
             id="developers"

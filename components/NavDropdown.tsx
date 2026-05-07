@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -12,6 +13,21 @@ export const NavDropdown = ({
   focus,
 }: any) => {
   const open = openMenu === id;
+  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const handleOpen = () => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+    toggleMenu(id);
+  };
+
+  const handleClose = () => {
+    closeTimeout.current = setTimeout(() => {
+      toggleMenu(null);
+    }, 200);
+  };
 
   return (
     <li
@@ -20,7 +36,8 @@ export const NavDropdown = ({
       }`}
       tabIndex={0}
       onClick={() => toggleMenu(id)}
-      onMouseEnter={() => toggleMenu(id)}>
+      onMouseEnter={handleOpen}
+      onMouseLeave={handleClose}>
       {/* TRIGGER */}
       <div className="flex items-center gap-1 hover:text-black transition">
         {label}
@@ -38,11 +55,13 @@ export const NavDropdown = ({
             className={`
               absolute top-12 left-0
               bg-white shadow-2xl rounded-xl
-              z-999
+              z-[999]
               flex gap-6
               ${small ? "p-2 w-50" : "p-6"}
-            `}>
-            {/* WHY DURAPAY DROPDOWN */}
+            `}
+            onMouseEnter={handleOpen}
+            onMouseLeave={handleClose}>
+            {/* ================= WHY DURAPAY ================= */}
             {id === "whydurapay" && (
               <>
                 <div className="w-90 bg-gray-50 rounded-lg p-5 space-y-8">
@@ -77,38 +96,54 @@ export const NavDropdown = ({
                   </div>
                 </div>
 
-                <div className="w-55 bg-green-50 rounded-lg p-5">
-                  <h3 className="font-semibold mb-4">Your Growth Stage</h3>
+                <div className="w-55 bg-green-50 rounded-lg p-5 space-y-6">
+                  <h3 className="font-semibold">Your Growth Stage</h3>
 
-                  <ul className="space-y-3 text-sm">
-                    <li>For Entrepreneurs</li>
-                    <li>For Corporates</li>
-                    <li>For Global Brands</li>
-                    <li>For Startups</li>
-                  </ul>
+                  <div className="space-y-2 text-sm">
+                    <p>For Entrepreneurs</p>
+                    <p>For Corporates</p>
+                    <p>For Global Brands</p>
+                    <p>For Startups</p>
+                  </div>
 
-                  <h3 className="font-semibold mt-5 mb-4">
-                    Your Business Type
-                  </h3>
+                  <h3 className="font-semibold">Your Business Type</h3>
 
-                  <ul className="space-y-3 text-sm">
-                    <li>For Fintechs</li>
-                    <li>For Agencies</li>
-                    <li>For Schools</li>
-                    <li>For Betting</li>
-                  </ul>
+                  <div className="space-y-2 text-sm">
+                    <p>For Fintechs</p>
+                    <p>For Agencies</p>
+                    <p>For Schools</p>
+                    <p>For Betting</p>
+                  </div>
                 </div>
               </>
             )}
 
-            {/* LEARN DROPDOWN */}
+            {/* ================= DEVELOPERS ================= */}
+            {id === "developers" && (
+              <div className="flex flex-col text-sm w-full space-y-2">
+                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+                  Overview
+                </p>
+                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+                  Documentation
+                </p>
+                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+                  Integration
+                </p>
+                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+                  API Status
+                </p>
+              </div>
+            )}
+
+            {/* ================= LEARN ================= */}
             {id === "learn" && (
               <>
                 <div className="w-90 bg-gray-50 rounded-lg p-5 space-y-8">
                   <div className="flex gap-4">
-                    <img src="/bulb.svg" width={40} height={20} alt="Bulb" />
+                    <img src="/bulb.svg" width={40} alt="Bulb" />
                     <div>
-                      <h3 className="font-semibold text-black">Blog</h3>
+                      <h3 className="font-semibold">Blog</h3>
                       <p className="text-gray-600 mt-2">
                         Original lessons about making the internet work for your
                         business
@@ -117,14 +152,9 @@ export const NavDropdown = ({
                   </div>
 
                   <div className="flex gap-4">
-                    <img
-                      src="/guides.svg"
-                      width={40}
-                      height={20}
-                      alt="Guides"
-                    />
+                    <img src="/guides.svg" width={40} alt="Guides" />
                     <div>
-                      <h3 className="font-semibold text-black">Guides</h3>
+                      <h3 className="font-semibold">Guides</h3>
                       <p className="text-gray-600 mt-2">
                         Big Ideas in payment explained in simple English
                       </p>
@@ -132,16 +162,9 @@ export const NavDropdown = ({
                   </div>
 
                   <div className="flex gap-4">
-                    <img
-                      src="/tutorials.svg"
-                      width={40}
-                      height={20}
-                      alt="Tutorials"
-                    />
+                    <img src="/tutorials.svg" width={40} alt="Tutorials" />
                     <div>
-                      <h3 className="font-semibold text-black">
-                        Video Tutorials
-                      </h3>
+                      <h3 className="font-semibold">Video Tutorials</h3>
                       <p className="text-gray-600 mt-2">
                         Quick video tutorials on how to use DuraPay and grow
                         your business.
@@ -150,49 +173,42 @@ export const NavDropdown = ({
                   </div>
 
                   <div className="flex gap-4">
-                    <img
-                      src="/decode_fintech.svg"
-                      width={40}
-                      height={20}
-                      alt="Decode Fintech"
-                    />
+                    <img src="/decode_fintech.svg" width={40} alt="Fintech" />
                     <div>
-                      <h3 className="font-semibold text-black">
-                        Decode FIntech
-                      </h3>
+                      <h3 className="font-semibold">Decode Fintech</h3>
                       <p className="text-gray-600 mt-2">
-                        The trade email newsletter and podcasts for leaders in
-                        African fintech
+                        Newsletter and podcasts for African fintech leaders
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="w-55 bg-green-50 rounded-lg p-5">
-                  <h3 className="font-semibold mb-4">Company</h3>
+                <div className="w-55 bg-green-50 rounded-lg p-5 space-y-2">
+                  <h3 className="font-semibold mb-2">Company</h3>
 
-                  <ul className="space-y-3 text-sm text-gray-700">
-                    <li>About Us</li>
-                    <li>Changelog</li>
-                    <li>Subscribe</li>
-                    <li>Compliance</li>
-                    <li>Careers</li>
-                    <li>Brand</li>
-                    <li>Media Kit</li>
-                  </ul>
+                  <div className="space-y-2 text-sm text-gray-700">
+                    <p>About Us</p>
+                    <p>Changelog</p>
+                    <p>Careers</p>
+                    <p>Brand</p>
+                    <p>Media Kit</p>
+                  </div>
                 </div>
               </>
             )}
 
-            {/* SMALL DROPDOWNS */}
-            {small && (
-              <div className="flex flex-col text-sm w-full">
-                <p className="p-2 hover:bg-gray-100 rounded-md">Overview</p>
-                <p className="p-2 hover:bg-gray-100 rounded-md">
-                  Documentation
+            {/* ================= SUPPORT ================= */}
+            {id === "support" && (
+              <div className="flex flex-col text-sm w-full space-y-1">
+                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+                  Quick Help
                 </p>
-                <p className="p-2 hover:bg-gray-100 rounded-md">Integration</p>
-                <p className="p-2 hover:bg-gray-100 rounded-md">Status Page</p>
+                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+                  Contact Us
+                </p>
+                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+                  Why was I debited?
+                </p>
               </div>
             )}
           </motion.div>
