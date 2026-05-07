@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { CreditCard, Wallet, Globe, ShieldCheck, Play, X } from "lucide-react";
+import {
+  CreditCard,
+  Wallet,
+  Globe,
+  ShieldCheck,
+  Play,
+  Menu,
+} from "lucide-react";
 
 export const Hero = () => {
-  const [openVideo, setOpenVideo] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   const logos = [
     "/Dominos-plain.svg",
@@ -14,143 +21,131 @@ export const Hero = () => {
     "/axa.svg",
   ];
 
+  const setOpenVideo = (open: boolean) => {
+    setVideoOpen(open);
+  };
+
   return (
-    <section className="w-full max-h-188.25 flex flex-col items-center justify-center bg-green-50 px-6 md:px-16 mb-20 overflow-hidden">
+    <section className="w-full min-h-screen bg-green-50 overflow-hidden">
+      {/* NAV */}
+      <div className="max-w-[1240px] mx-auto flex items-center justify-between py-5 px-5 sm:px-8 md:px-12 lg:px-0">
+        <div className="font-bold text-[#011B33] text-lg">Paystack</div>
+
+        <button className="lg:hidden">
+          <Menu />
+        </button>
+      </div>
+
       {/* HERO */}
-      <div className="flex flex-col md:flex-row w-full max-w-310 items-center justify-between">
-        {/* TEXT */}
-        <div className="flex-1 max-w-140 text-center md:text-left">
-          <h1
-            style={{
-              fontFamily:
-                'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-              fontWeight: 800,
-              lineHeight: "1.2",
-              color: "rgb(1, 27, 51)",
-            }}
-            className="
-    mb-6
-    
-    text-[20px]
-    sm:text-[36px]
-    md:text-[48px]
-    leading-tight
-    tracking-[-0.02em]
-    line-clamp-2
+      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 md:px-12 lg:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-20 pt-10 sm:pt-14 md:pt-16 lg:pt-24">
+          {/* TEXT BLOCK */}
+          <div className="w-full max-w-[640px] text-left justify-self-start">
+            <h1
+              style={{
+                fontFamily:
+                  'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+                fontWeight: 800,
+                lineHeight: "1.1",
+                color: "rgb(1, 27, 51)",
+              }}
+              className="
+    mb-5 sm:mb-6 tracking-[-0.03em]
+    text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px]
+    max-w-[22ch] sm:max-w-[26ch] md:max-w-[28ch] md:leading-[1.1] lg:max-w-[30ch]
   ">
-            Modern online and offline payments for Africa
-          </h1>
-          <p
-            style={{
-              fontFamily:
-                '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-              fontWeight: 400,
-              lineHeight: "30px",
-              color: "rgb(1, 27, 51)",
-            }}
-            className="mb-8 text-base sm:text-lg md:text-[20px]">
-            Paystack helps businesses in Africa get paid by anyone, anywhere in
-            the world.
-          </p>
+              Modern online and offline payments for Africa
+            </h1>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center md:justify-start">
-            <button className="bg-green-600 text-white px-6 py-3 rounded-md font-medium hover:bg-green-700 transition w-full sm:w-auto">
-              Create a free account
-            </button>
+            <p className="text-[#011B33] max-w-[520px] mb-7 text-sm sm:text-base md:text-lg leading-7">
+              Paystack helps businesses in Africa get paid by anyone, anywhere
+              in the world.
+            </p>
 
-            {/* VIDEO CTA */}
-            <button
-              onClick={() => setOpenVideo(true)}
-              className="flex items-center gap-3 text-green-700 font-medium hover:underline">
-              <div className="w-9 h-9 rounded-full bg-[#00c3f7] flex items-center justify-center">
-                <Play className="text-white w-4 h-4 ml-0.5" />
-              </div>
-              Watch video
-            </button>
-          </div>
-        </div>
-
-        {/* SVG-STYLE ILLUSTRATION (CLEAN FINTECH LOOK) */}
-        <div className="flex-1 flex justify-center mt-10 md:mt-0">
-          <div className="relative w-75 h-75 sm:w-90 sm:h-90 md:w-105 md:h-105">
-            <div className="absolute inset-0 rounded-full bg-green-100 blur-2xl opacity-60 animate-pulse" />
-
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 3 }}
-              className="absolute top-10 left-10 w-14 h-14 rounded-full bg-white shadow flex items-center justify-center">
-              <CreditCard className="text-green-700 w-6 h-6" />
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 4 }}
-              className="absolute top-16 right-8 w-14 h-14 rounded-full bg-white shadow flex items-center justify-center">
-              <Wallet className="text-green-700 w-6 h-6" />
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3.5 }}
-              className="absolute bottom-16 left-14 w-14 h-14 rounded-full bg-white shadow flex items-center justify-center">
-              <Globe className="text-green-700 w-6 h-6" />
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 4.2 }}
-              className="absolute bottom-10 right-16 w-14 h-14 rounded-full bg-white shadow flex items-center justify-center">
-              <ShieldCheck className="text-green-700 w-6 h-6" />
-            </motion.div>
-
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-36 h-36 rounded-full bg-white shadow-md flex items-center justify-center text-sm text-green-700 font-medium">
-                Payments Flow
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 🔄 AUTO-SCROLL LOGO TICKER */}
-      <div className="w-full mt-12 overflow-hidden border-t border-green-100 py-6">
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          className="flex gap-16 w-max">
-          {[...logos, ...logos].map((logo, i) => (
-            <img
-              key={i}
-              src={logo}
-              alt="partner logo"
-              className="h-6 md:h-8 opacity-70"
-            />
-          ))}
-        </motion.div>
-      </div>
-
-      {/* 🎥 VIDEO MODAL */}
-      <AnimatePresence>
-        {openVideo && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-            <div className="bg-white w-[90%] md:w-175 h-100 rounded-lg relative">
-              <button
-                onClick={() => setOpenVideo(false)}
-                className="absolute top-3 right-3">
-                <X />
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+              <button className="bg-green-600 text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-md text-sm font-medium hover:bg-green-700 transition w-full sm:w-auto">
+                Create a free account
               </button>
 
-              <div className="w-full h-full flex items-center justify-center text-gray-500">
-                Video Placeholder
+              <span className="text-[15px] font-medium text-green-600">
+                or Contact Sales
+              </span>
+            </div>
+          </div>
+
+          {/* ILLUSTRATION (HIDDEN ON SM + MD, SHOW ONLY LG+) */}
+          <div className="hidden lg:flex w-full justify-center lg:justify-end">
+            <div className="relative w-[430px] h-[430px]">
+              <div className="absolute inset-0 rounded-full bg-green-100 blur-2xl opacity-60" />
+
+              <div className="absolute top-10 left-10 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
+                <CreditCard className="text-green-700 w-6 h-6" />
+              </div>
+
+              <div className="absolute top-16 right-8 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
+                <Wallet className="text-green-700 w-6 h-6" />
+              </div>
+
+              <div className="absolute bottom-16 left-14 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
+                <Globe className="text-green-700 w-6 h-6" />
+              </div>
+
+              <div className="absolute bottom-10 right-16 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
+                <ShieldCheck className="text-green-700 w-6 h-6" />
+              </div>
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 bg-white rounded-full shadow-md flex items-center justify-center text-sm text-green-700 font-medium">
+                  Payments Flow
+                </div>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+
+        {/* PARTNERS */}
+        <div className="border-t border-green-100 mt-12 sm:mt-14 pt-6 pb-10">
+          <div className="flex flex-col md:flex-row slg:flex-row items-start lg:items-center justify-between gap-8">
+            {/* LEFT */}
+            <div className="text-left w-full lg:w-auto">
+              <p className="text-sm font-medium text-[#011B33] mb-3">
+                Trusted by over 200,000 businesses
+              </p>
+
+              <div className="flex flex-nowrap items-center gap-3 sm:gap-4">
+                {logos.slice(0, 3).map((logo, i) => (
+                  <div
+                    key={i}
+                    className="w-[90px] sm:w-[100px] h-[28px] flex items-center justify-center shrink-0">
+                    <img
+                      src={logo}
+                      className="object-contain max-h-full"
+                      alt="logo"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT */}
+            <div className="w-full flex justify-start lg:justify-end">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 max-w-[470px]">
+                <p className="text-sm sm:text-base text-[#011B33] md:text-end font-semibold leading-6 sm:leading-7 md:max-w-[320px] line-clamp-2">
+                  Watch MTN Chief Transformation Officer, Olubayo Adekanmbi,
+                  discuss working with Paystack
+                </p>
+
+                <button
+                  onClick={() => setOpenVideo(true)}
+                  className="w-10 h-10 bg-[#00C3F7] rounded-full flex items-center justify-center shrink-0 md:shrink-0">
+                  <Play className="text-white w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
