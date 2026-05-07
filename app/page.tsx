@@ -8,7 +8,7 @@ import { NavDropdown } from "@/components/NavDropdown";
 import { OurPartners } from "@/components/ourpartners";
 import Image from "next/image";
 
-// testing vercel
+// testing
 
 export default function Home() {
   return (
