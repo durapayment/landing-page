@@ -9,7 +9,6 @@ export const NavDropdown = ({
   id,
   openMenu,
   toggleMenu,
-  small,
   focus,
 }: any) => {
   const open = openMenu === id;
@@ -26,16 +25,16 @@ export const NavDropdown = ({
   const handleClose = () => {
     closeTimeout.current = setTimeout(() => {
       toggleMenu(null);
-    }, 200);
+    }, 150);
   };
 
   return (
     <li
-      className={`relative cursor-pointer outline-none ${
+      className={`relative cursor-pointer ${
         focus ? "ring-2 ring-green-500 rounded-md" : ""
       }`}
       tabIndex={0}
-      onClick={() => toggleMenu(id)}
+      onClick={() => toggleMenu(open ? null : id)}
       onMouseEnter={handleOpen}
       onMouseLeave={handleClose}>
       {/* TRIGGER */}
@@ -48,167 +47,145 @@ export const NavDropdown = ({
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 14 }}
+            exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.15 }}
-            className={`
+            className="
               absolute top-12 left-0
               bg-white shadow-2xl rounded-xl
-              z-[999]
+              z-999
               flex gap-6
-              ${small ? "p-2 w-50" : "p-6"}
-            `}
+              p-6
+            "
             onMouseEnter={handleOpen}
             onMouseLeave={handleClose}>
             {/* ================= WHY DURAPAY ================= */}
             {id === "whydurapay" && (
               <>
-                <div className="w-90 bg-gray-50 rounded-lg p-5 space-y-8">
-                  <div className="flex gap-4">
-                    <img src="/cup.svg" width={40} alt="Cup" />
-                    <div>
-                      <h3 className="font-semibold">Why Choose DuraPayment</h3>
-                      <p className="text-gray-600 mt-2">
-                        Over 200,000 businesses trust DuraPay.
-                      </p>
+                {/* LEFT */}
+                <div className="w-80 bg-gray-50 rounded-lg p-5 space-y-6">
+                  {[
+                    {
+                      title: "Why Choose DuraPayment",
+                      desc: "Powering modern payment infrastructure",
+                    },
+                    {
+                      title: "Success Rates",
+                      desc: "Industry-leading transaction performance",
+                    },
+                    {
+                      title: "Demo",
+                      desc: "See how DuraPay works in real time",
+                    },
+                  ].map((item) => (
+                    <div key={item.title} className="space-y-1">
+                      <h3 className="font-semibold">{item.title}</h3>
+                      <p className="text-sm text-gray-600">{item.desc}</p>
                     </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <img src="/arrow.svg" width={40} alt="Arrow" />
-                    <div>
-                      <h3 className="font-semibold">Success Rates</h3>
-                      <p className="text-gray-600 mt-2">
-                        Best success rates in the industry.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <img src="/giftbox.svg" width={40} alt="Gift Box" />
-                    <div>
-                      <h3 className="font-semibold">Demo</h3>
-                      <p className="text-gray-600 mt-2">
-                        See checkout forms and dashboards.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
-                <div className="w-55 bg-green-50 rounded-lg p-5 space-y-6">
-                  <h3 className="font-semibold">Your Growth Stage</h3>
-
-                  <div className="space-y-2 text-sm">
-                    <p>For Entrepreneurs</p>
-                    <p>For Corporates</p>
-                    <p>For Global Brands</p>
-                    <p>For Startups</p>
+                {/* RIGHT */}
+                <div className="w-48 bg-green-50 rounded-lg p-5 space-y-4">
+                  <div>
+                    <h3 className="font-semibold mb-2">Your Growth Stage</h3>
+                    {[
+                      "Entrepreneurs",
+                      "Corporates",
+                      "Global Brands",
+                      "Startups",
+                    ].map((item) => (
+                      <p key={item} className="text-sm text-gray-700">
+                        {item}
+                      </p>
+                    ))}
                   </div>
 
-                  <h3 className="font-semibold">Your Business Type</h3>
-
-                  <div className="space-y-2 text-sm">
-                    <p>For Fintechs</p>
-                    <p>For Agencies</p>
-                    <p>For Schools</p>
-                    <p>For Betting</p>
+                  <div>
+                    <h3 className="font-semibold mb-2">Business Type</h3>
+                    {["Fintechs", "Agencies", "Schools", "Betting"].map(
+                      (item) => (
+                        <p key={item} className="text-sm text-gray-700">
+                          {item}
+                        </p>
+                      ),
+                    )}
                   </div>
+                </div>
+              </>
+            )}
+
+            {/* ================= LEARN ================= */}
+            {id === "learn" && (
+              <>
+                <div className="w-80 bg-gray-50 rounded-lg p-5 space-y-6">
+                  {[
+                    {
+                      img: "/bulb.svg",
+                      title: "Blog",
+                      desc: "Original lessons about making payments work",
+                    },
+                    {
+                      img: "/guides.svg",
+                      title: "Guides",
+                      desc: "Big ideas explained simply",
+                    },
+                    {
+                      img: "/tutorials.svg",
+                      title: "Video Tutorials",
+                      desc: "Learn DuraPay step-by-step",
+                    },
+                    {
+                      img: "/decode_fintech.svg",
+                      title: "Decode Fintech",
+                      desc: "Insights for builders",
+                    },
+                  ].map((item) => (
+                    <div key={item.title} className="flex gap-4">
+                      <img src={item.img} width={40} alt="" />
+                      <div>
+                        <h3 className="font-semibold">{item.title}</h3>
+                        <p className="text-sm text-gray-600">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="w-48 bg-green-50 rounded-lg p-5 space-y-2">
+                  <h3 className="font-semibold mb-2">Company</h3>
+                  {["About", "Careers", "Brand", "Media Kit"].map((item) => (
+                    <p key={item} className="text-sm text-gray-700">
+                      {item}
+                    </p>
+                  ))}
                 </div>
               </>
             )}
 
             {/* ================= DEVELOPERS ================= */}
             {id === "developers" && (
-              <div className="flex flex-col text-sm w-full space-y-2">
-                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
-                  Overview
-                </p>
-                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
-                  Documentation
-                </p>
-                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
-                  Integration
-                </p>
-                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
-                  API Status
-                </p>
+              <div className="flex flex-col text-sm space-y-3">
+                {["Overview", "Documentation", "Integration", "API Status"].map(
+                  (item) => (
+                    <p key={item} className="cursor-pointer hover:opacity-70">
+                      {item}
+                    </p>
+                  ),
+                )}
               </div>
-            )}
-
-            {/* ================= LEARN ================= */}
-            {id === "learn" && (
-              <>
-                <div className="w-90 bg-gray-50 rounded-lg p-5 space-y-8">
-                  <div className="flex gap-4">
-                    <img src="/bulb.svg" width={40} alt="Bulb" />
-                    <div>
-                      <h3 className="font-semibold">Blog</h3>
-                      <p className="text-gray-600 mt-2">
-                        Original lessons about making the internet work for your
-                        business
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <img src="/guides.svg" width={40} alt="Guides" />
-                    <div>
-                      <h3 className="font-semibold">Guides</h3>
-                      <p className="text-gray-600 mt-2">
-                        Big Ideas in payment explained in simple English
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <img src="/tutorials.svg" width={40} alt="Tutorials" />
-                    <div>
-                      <h3 className="font-semibold">Video Tutorials</h3>
-                      <p className="text-gray-600 mt-2">
-                        Quick video tutorials on how to use DuraPay and grow
-                        your business.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <img src="/decode_fintech.svg" width={40} alt="Fintech" />
-                    <div>
-                      <h3 className="font-semibold">Decode Fintech</h3>
-                      <p className="text-gray-600 mt-2">
-                        Newsletter and podcasts for African fintech leaders
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="w-55 bg-green-50 rounded-lg p-5 space-y-2">
-                  <h3 className="font-semibold mb-2">Company</h3>
-
-                  <div className="space-y-2 text-sm text-gray-700">
-                    <p>About Us</p>
-                    <p>Changelog</p>
-                    <p>Careers</p>
-                    <p>Brand</p>
-                    <p>Media Kit</p>
-                  </div>
-                </div>
-              </>
             )}
 
             {/* ================= SUPPORT ================= */}
             {id === "support" && (
-              <div className="flex flex-col text-sm w-full space-y-1">
-                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
-                  Quick Help
-                </p>
-                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
-                  Contact Us
-                </p>
-                <p className="p-2 hover:bg-gray-100 rounded-md cursor-pointer">
-                  Why was I debited?
-                </p>
+              <div className="flex flex-col text-sm space-y-3  min-w-25 w-full max-w-sm">
+                {["Quick Help", "Contact Us", "Why was I debited?"].map(
+                  (item) => (
+                    <p key={item} className="cursor-pointer">
+                      {item}
+                    </p>
+                  ),
+                )}
               </div>
             )}
           </motion.div>

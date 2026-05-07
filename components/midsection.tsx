@@ -21,7 +21,7 @@ const AnimatedTick = () => (
 
 export const MidSection = () => {
   return (
-    <section className="w-full bg-white px-6 md:px-16 py-20 overflow-hidden">
+    <section className="w-full bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
       {/* SECTION HEADING */}
       <div className="w-full max-w-310 mx-auto text-left mb-14">
         <h2
@@ -32,7 +32,7 @@ export const MidSection = () => {
             lineHeight: "1.2",
             color: "rgb(1, 27, 51)",
           }}
-          className="mb-4 text-[20px] sm:text-[36px] md:text-[48px] leading-tight tracking-[-0.02em]">
+          className="mb-4 text-[20px] sm:text-[35px] md:text-[46px] leading-tight tracking-[-0.02em]">
           Simple, easy payments
         </h2>
 
@@ -94,7 +94,7 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+              className="text-[24px] sm:text-[35px] md:text-[36px] leading-tight tracking-[-0.02em] mb-5">
               Delight customers with a seamless payments experience
             </h3>
 
@@ -119,12 +119,12 @@ export const MidSection = () => {
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-3">
                 <AnimatedTick />
-                <span className="text-[rgb(1,27,51)] font-medium">{item}</span>
+                <span className="text-[rgb(1,27,51)] font-bold">{item}</span>
               </div>
             ))}
           </div>
 
-          <div className="mb-6 mt-10">
+          <div className="mb-8 mt-10">
             <h3
               style={{
                 fontFamily:
@@ -133,7 +133,7 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+              className="text-[24px] sm:text-[30px] md:text-[32px] leading-tight tracking-[-0.02em] mb-5">
               Enjoy phenomenal transaction success rates
             </h3>
 
@@ -143,8 +143,8 @@ export const MidSection = () => {
             </p>
 
             <div className="flex items-center gap-3 cursor-pointer group">
-              <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center group-hover:scale-105 transition">
-                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+              <div className="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center group-hover:scale-105 transition">
+                <svg viewBox="0 0 24 24" className="w-3 h-3" fill="none">
                   <path
                     d="M9 18l6-6-6-6"
                     stroke="white"
@@ -155,7 +155,7 @@ export const MidSection = () => {
                 </svg>
               </div>
 
-              <p className="text-[rgb(1,27,51)] font-medium group-hover:underline">
+              <p className="text-green-600 font-medium group-hover:underline">
                 Find out how we achieve high rates
               </p>
             </div>
@@ -164,8 +164,22 @@ export const MidSection = () => {
       </div>
 
       {/* SECOND SECTION */}
-      <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12">
-        {/* LEFT: CONTENT */}
+      <div className="w-full max-w-6xl mx-auto mt-15 flex flex-col md:flex-row items-center justify-between gap-12">
+        <div>
+          {/* LEFT: IMAGE */}
+          <div className="flex-1 flex justify-center md:justify-end">
+            <div className="w-75 sm:w-90 md:w-82 h-90 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src="/Robust.png"
+                alt="feature image"
+                width={500}
+                height={635}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+        {/* RIGHT: CONTENT */}
         <div className="flex-1 max-w-xl text-left">
           <h3
             style={{
@@ -175,50 +189,50 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[32px] leading-tight tracking-[-0.02em] mb-4">
             Build custom payments experiences with well-documented APIs
           </h3>
 
-          <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-8">
+          <p className="text-[16px] md:text-[19px] text-[rgb(1,27,51)] leading-7 mb-8  ">
             Developers love our thorough, well-documented APIs that let you to
             build everything from simple weekend projects, to complex financial
             products serving hundreds of thousands of customers. If you can
-            imagine it, you can build it with Paystack.
+            imagine it, you can build it with Durapayment.
           </p>
 
           <div className="flex flex-col gap-5 mb-8">
             <div className="flex items-start gap-3">
               <span className="text-green-600">✔</span>
-              <p className="text-[rgb(1,27,51)] font-medium">
+              <p className="text-[rgb(1,27,51)] font-bold">
                 Collect one-time and recurring payments from your app or website
               </p>
             </div>
 
             <div className="flex items-start gap-3">
               <span className="text-green-600">✔</span>
-              <p className="text-[rgb(1,27,51)] font-medium">
+              <p className="text-[rgb(1,27,51)] font-bold">
                 Make instant transfers
               </p>
             </div>
 
             <div className="flex items-start gap-3">
               <span className="text-green-600">✔</span>
-              <p className="text-[rgb(1,27,51)] font-medium">
+              <p className="text-[rgb(1,27,51)] font-bold">
                 Retrieve all your transaction and customer data
               </p>
             </div>
 
             <div className="flex items-start gap-3">
               <span className="text-green-600">✔</span>
-              <p className="text-[rgb(1,27,51)] font-medium">
+              <p className="text-[rgb(1,27,51)] font-bold">
                 Verify the identity of customers
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center transition group-hover:scale-105">
-              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+            <div className="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center transition group-hover:scale-105">
+              <svg viewBox="0 0 24 24" className="w-3 h-3" fill="none">
                 <path
                   d="M9 18l6-6-6-6"
                   stroke="white"
@@ -229,33 +243,19 @@ export const MidSection = () => {
               </svg>
             </div>
 
-            <p className="text-[rgb(1,27,51)] font-medium group-hover:underline">
+            <p className="text-green-600 font-medium group-hover:underline">
               Durapayment Api quick start guide
             </p>
           </div>
         </div>
         {/* RIGHT CONTENT */}
-        <div>
-          {/* RIGHT: IMAGE */}
-          <div className="flex-1 flex justify-center md:justify-end">
-            <div className="w-75 sm:w-90 md:w-105 h-80 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
-              <img
-                src="/Robust.png"
-                alt="feature image"
-                width={579}
-                height={635}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Anti-fraud Section */}
-      <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12 py-16">
+      <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 py-6">
         {/* LEFT: ANIMATION */}
         <div className="flex-1 flex justify-center md:justify-start">
-          <div className="relative w-75 sm:w-90 md:w-105 h-80 sm:h-105 bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative w-75 md:w-95 h-80 hidden sm:block bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
             <div className="absolute w-16 h-16 bg-green-500 rounded-full animate-circleMove"></div>
           </div>
         </div>
@@ -270,12 +270,12 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[34px] font-bold leading-tight tracking-[-0.02em] mb-4">
             Protect yourself and your customers with advanced fraud detection
           </h3>
 
           <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-8">
-            Paystack’s combination of automated and manual fraud systems protect
+            Durapay’s combination of automated and manual fraud systems protect
             you from fraudulent transactions and associated chargeback claims.
           </p>
           <h3
@@ -286,7 +286,7 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[34px] font-bold leading-tight tracking-[-0.02em] mb-4">
             Detailed reporting for accounting, reconciliation, and audits
           </h3>
 
