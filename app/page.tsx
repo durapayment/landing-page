@@ -8,6 +8,8 @@ import { NavDropdown } from "@/components/NavDropdown";
 import { OurPartners } from "@/components/ourpartners";
 import Image from "next/image";
 
+// test
+
 export default function Home() {
   return (
     <div>
