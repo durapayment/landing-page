@@ -11,7 +11,7 @@ export const Hero = () => {
     "/Dominos-Plain.svg",
     "/mtn-group-grayscale.svg",
     "/bolt.svg",
-    "/Axa.svg",
+    "/axa.svg",
   ];
 
   const setOpenVideo = (open: boolean) => {
