@@ -1,18 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import {
-  CreditCard,
-  Wallet,
-  Globe,
-  ShieldCheck,
-  Play,
-  Menu,
-} from "lucide-react";
+import { Play } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export const Hero = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
 
   const logos = [
