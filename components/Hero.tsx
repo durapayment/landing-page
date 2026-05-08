@@ -8,10 +8,10 @@ export const Hero = () => {
   const [videoOpen, setVideoOpen] = useState(false);
 
   const logos = [
-    "/Dominos-plain.svg",
+    "/Dominos-Plain.svg",
     "/mtn-group-grayscale.svg",
     "/bolt.svg",
-    "/axa.svg",
+    "/Axa.svg",
   ];
 
   const setOpenVideo = (open: boolean) => {
