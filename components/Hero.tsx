@@ -29,9 +29,9 @@ export const Hero = () => {
 
       {/* HERO */}
       <div className="max-w-310 mx-auto px-5 sm:px-8 md:px-12 lg:px-6 xl:px-0">
-        <div className="grid grid-cols-1 py-15 md:py-30 lg:grid-cols-2 items-center gap-10 lg:gap-20">
+        <div className=" py-15 md:py-30 lg:grid-cols-2 items-center gap-10 lg:gap-20">
           {/* TEXT BLOCK */}
-          <div className="w-full max-w-160 text-left justify-self-start">
+          <div className="w-full text-left justify-self-start">
             <h1
               style={{
                 fontFamily:
@@ -40,16 +40,13 @@ export const Hero = () => {
                 lineHeight: "1.1",
                 color: "rgb(1, 27, 51)",
               }}
-              className="
-    mb-5 sm:mb-6 tracking-[-0.03em]
-    text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px]
-    max-w-[22ch] sm:max-w-[26ch] md:max-w-[28ch] md:leading-[1.1] lg:max-w-[30ch]
+              className="max-w-150 mb-5 sm:mb-6 tracking-[-0.03em] text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px]bg-red-300 md:leading-[1.1]
   "
             >
               Modern online and offline payments for Africa
             </h1>
 
-            <p className="text-[#011B33] max-w-130 mb-7 text-sm sm:text-base md:text-lg leading-7">
+            <p className="text-[#011B33] mb-7 text-sm sm:text-base md:text-lg leading-7">
               {siteConfig.name} helps businesses in Africa get paid by anyone,
               anywhere in the world.
             </p>
