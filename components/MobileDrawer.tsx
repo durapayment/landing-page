@@ -3,7 +3,7 @@ export const MobileMenu = ({ open }: any) => {
   if (!open) return null;
 
   return (
-    <div className="md:hidden bg-white px-4 py-3 space-y-3">
+    <div className="lg:hidden bg-white text-black font-medium px-6 py-5 space-y-4 shadow-lg border-t">
       <p>Why DuraPay</p>
       <p>Customers</p>
       <p>Pricing</p>
