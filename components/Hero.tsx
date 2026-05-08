@@ -10,7 +10,7 @@ export const Hero = () => {
   const logos = [
     "/Dominos-Plain.svg",
     "/mtn-group-grayscale.svg",
-    "/bolt.svg",
+    "/Bolt.svg",
     "/axa.svg",
   ];
 
