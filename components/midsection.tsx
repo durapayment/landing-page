@@ -24,16 +24,15 @@ export const MidSection = () => {
   return (
     <section className="w-full bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
       {/* SECTION HEADING */}
-      <div className="w-full max-w-310 mx-auto text-left mb-14">
+      <div className="w-full flex flex-col gap-1 max-w-310 mx-auto text-left mb-14">
         <h2
           style={{
             fontFamily:
               'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
             fontWeight: 800,
-            lineHeight: "1.2",
             color: "rgb(1, 27, 51)",
           }}
-          className="mb-4 text-[20px] sm:text-[36px] md:text-[48px] leading-tight tracking-[-0.02em]"
+          className="text-[25px] md:text-[48px] leading-tight tracking-[-0.02em]"
         >
           Simple, easy payments
         </h2>
@@ -43,7 +42,6 @@ export const MidSection = () => {
             fontFamily:
               '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
             fontWeight: 400,
-            lineHeight: "30px",
             color: "rgb(1, 27, 51)",
           }}
           className="text-base sm:text-lg md:text-[20px] max-w-[45ch]"
