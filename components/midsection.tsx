@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "@/config/site";
 import { motion } from "framer-motion";
 
 // 🧩 Animated SVG

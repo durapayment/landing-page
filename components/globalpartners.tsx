@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "@/config/site";
 import { ChevronRight } from "lucide-react";
 
 export const GlobalPartners = () => {

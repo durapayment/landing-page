@@ -36,10 +36,11 @@ export const NavDropdown = ({
       tabIndex={0}
       onClick={() => toggleMenu(open ? null : id)}
       onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}>
+      onMouseLeave={handleClose}
+    >
       {/* TRIGGER */}
       <div className="flex items-center gap-1 hover:text-black transition">
-        {label}
+        <p className="font-bold"> {label}</p>
         <MdArrowDropDown />
       </div>
 
@@ -59,7 +60,8 @@ export const NavDropdown = ({
               p-6
             "
             onMouseEnter={handleOpen}
-            onMouseLeave={handleClose}>
+            onMouseLeave={handleClose}
+          >
             {/* ================= WHY DURAPAY ================= */}
             {id === "whydurapay" && (
               <>
