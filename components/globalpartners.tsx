@@ -19,7 +19,7 @@ export const GlobalPartners = () => {
     {
       image: "/y.png",
       title: "Durapayment for Large Corporations",
-      text: "Paystack helps many of the largest corporate and government organizations in Nigeria get paid quickly and securely.",
+      text: `${siteConfig.name} helps many of the largest corporate and government organizations in Nigeria get paid quickly and securely.`,
       footer: "Learn More",
     },
   ];
@@ -37,7 +37,8 @@ export const GlobalPartners = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="mb-4 sm:mb-6 text-[24px] sm:text-[32px] md:text-[48px]">
+            className="mb-4 sm:mb-6 text-[24px] sm:text-[32px] md:text-[48px]"
+          >
             Trusted by 200,000+ businesses across Africa
           </h1>
 
@@ -49,9 +50,10 @@ export const GlobalPartners = () => {
               lineHeight: "30px",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-sm sm:text-base md:text-[20px]">
-            Thousands of organizations of all sizes trust Paystack to grow their
-            business.
+            className="text-sm sm:text-base md:text-[20px]"
+          >
+            Thousands of organizations of all sizes trust {siteConfig.name} to
+            grow their business.
           </p>
         </div>
 
@@ -60,7 +62,8 @@ export const GlobalPartners = () => {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-md p-5 sm:p-6 flex flex-col gap-4 sm:gap-5">
+              className="bg-white rounded-2xl shadow-md p-5 sm:p-6 flex flex-col gap-4 sm:gap-5"
+            >
               {/* IMAGE */}
               <div className="w-full max-w-[120px] sm:max-w-[30px] h-[30px]">
                 <img

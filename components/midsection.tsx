@@ -32,7 +32,8 @@ export const MidSection = () => {
             lineHeight: "1.2",
             color: "rgb(1, 27, 51)",
           }}
-          className="mb-4 text-[20px] sm:text-[36px] md:text-[48px] leading-tight tracking-[-0.02em]">
+          className="mb-4 text-[20px] sm:text-[36px] md:text-[48px] leading-tight tracking-[-0.02em]"
+        >
           Simple, easy payments
         </h2>
 
@@ -44,7 +45,8 @@ export const MidSection = () => {
             lineHeight: "30px",
             color: "rgb(1, 27, 51)",
           }}
-          className="text-base sm:text-lg md:text-[20px] max-w-[45ch]">
+          className="text-base sm:text-lg md:text-[20px] max-w-[45ch]"
+        >
           Building a business is hard. Getting paid shouldn't be.
         </p>
       </div>
@@ -57,7 +59,8 @@ export const MidSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 flex justify-center md:justify-start">
+          className="flex-1 flex justify-center md:justify-start"
+        >
           <motion.div
             animate={{
               y: [0, -18, 0],
@@ -68,7 +71,8 @@ export const MidSection = () => {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative w-65 sm:w-[320px] md:w-105 h-125 md:h-150">
+            className="relative w-65 sm:w-[320px] md:w-105 h-125 md:h-150"
+          >
             <div className="absolute inset-0 bg-green-100 rounded-full blur-3xl opacity-50" />
 
             <div className="relative z-10 w-full h-full flex items-center justify-center">
@@ -94,14 +98,15 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+            >
               Delight customers with a seamless payments experience
             </h3>
 
             <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7">
               Give your customers the gift of modern, frictionless, painless
-              payments. Integrate Paystack once and let your customers pay you
-              however they want.
+              payments. Integrate {siteConfig.name} once and let your customers
+              pay you however they want.
             </p>
           </div>
 
@@ -133,7 +138,8 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+            >
               Enjoy phenomenal transaction success rates
             </h3>
 
@@ -175,7 +181,8 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+          >
             Build custom payments experiences with well-documented APIs
           </h3>
 
@@ -183,7 +190,7 @@ export const MidSection = () => {
             Developers love our thorough, well-documented APIs that let you to
             build everything from simple weekend projects, to complex financial
             products serving hundreds of thousands of customers. If you can
-            imagine it, you can build it with Paystack.
+            imagine it, you can build it with {siteConfig.name}.
           </p>
 
           <div className="flex flex-col gap-5 mb-8">
@@ -270,13 +277,15 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+          >
             Protect yourself and your customers with advanced fraud detection
           </h3>
 
           <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-8">
-            Paystack’s combination of automated and manual fraud systems protect
-            you from fraudulent transactions and associated chargeback claims.
+            {siteConfig.name} combination of automated and manual fraud systems
+            protect you from fraudulent transactions and associated chargeback
+            claims.
           </p>
           <h3
             style={{
@@ -286,7 +295,8 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+          >
             Detailed reporting for accounting, reconciliation, and audits
           </h3>
 

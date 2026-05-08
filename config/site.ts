@@ -1,0 +1,3 @@
+const siteConfig = {
+  name: "Durapayment",
+};

@@ -53,13 +53,14 @@ export const Hero = () => {
     mb-5 sm:mb-6 tracking-[-0.03em]
     text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px]
     max-w-[22ch] sm:max-w-[26ch] md:max-w-[28ch] md:leading-[1.1] lg:max-w-[30ch]
-  ">
+  "
+            >
               Modern online and offline payments for Africa
             </h1>
 
             <p className="text-[#011B33] max-w-130 mb-7 text-sm sm:text-base md:text-lg leading-7">
-              Paystack helps businesses in Africa get paid by anyone, anywhere
-              in the world.
+              {siteConfig.name} helps businesses in Africa get paid by anyone,
+              anywhere in the world.
             </p>
 
             {/* CTA */}
@@ -117,7 +118,8 @@ export const Hero = () => {
                 {logos.slice(0, 3).map((logo, i) => (
                   <div
                     key={i}
-                    className="w-22.5 sm:w-25 h-7 flex items-center justify-center shrink-0">
+                    className="w-22.5 sm:w-25 h-7 flex items-center justify-center shrink-0"
+                  >
                     <img
                       src={logo}
                       className="object-contain max-h-full"
@@ -133,12 +135,13 @@ export const Hero = () => {
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 max-w-117.5">
                 <p className="text-sm sm:text-base text-[#011B33] md:text-end font-semibold leading-6 sm:leading-7 md:max-w-[320px] line-clamp-2">
                   Watch MTN Chief Transformation Officer, Olubayo Adekanmbi,
-                  discuss working with Paystack
+                  discuss working with {siteConfig.name}
                 </p>
 
                 <button
                   onClick={() => setOpenVideo(true)}
-                  className="w-10 h-10 bg-[#00C3F7] rounded-full flex items-center justify-center shrink-0 md:shrink-0">
+                  className="w-10 h-10 bg-[#00C3F7] rounded-full flex items-center justify-center shrink-0 md:shrink-0"
+                >
                   <Play className="text-white w-4 h-4" />
                 </button>
               </div>
