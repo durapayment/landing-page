@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { MdMenu, MdClose, MdKeyboardArrowLeft } from "react-icons/md";
 import { FlagDropdown } from "./FlagDropdown";
 import { NavDropdown } from "./NavDropdown";
+import Link from "next/link";
 
 export const NavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -15,7 +16,6 @@ export const NavBar = () => {
   const toggleDropdown = (menu: string) => {
     setActiveDropdown((prev) => (prev === menu ? null : menu));
   };
-  
 
   const closeAll = () => {
     setMobileOpen(false);
@@ -45,35 +45,42 @@ export const NavBar = () => {
     <nav
       ref={navRef}
       className={`w-full fixed top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-sm" : "bg-green-50"
-      }`}>
+        scrolled ? "bg-white/90 shadow-sm" : "bg-tertiary/2"
+      }`}
+    >
       {/* NAV CONTAINER */}
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-6">
-        {/* LOGO */}
-        <div className="flex items-center gap-2">
-          <img src="/dura-logo.png" width={20} height={20} alt="logo" />
-          <h3 className="text-green-950 text-xl font-bold">DuraPayment</h3>
+        <div className="flex items-center gap-5 lg:gap-10">
+          {/* LOGO */}
+          <Link href={"/"} className="flex items-center cursor-pointer gap-2">
+            <img src="/dura-logo.png" width={20} height={20} alt="logo" />
+            <h3 className="text-accent text-xl font-semibold">DuraPayment</h3>
+          </Link>
+
+          {/* DESKTOP NAV */}
+          <ul className="hidden lg:flex items-center gap-5 xl:gap-10 text-[14px] font-medium text-gray-800 list-none">
+            <NavDropdown
+              label="Why DuraPay"
+              id="whydurapay"
+              openMenu={activeDropdown}
+              toggleMenu={toggleDropdown}
+            />
+
+            <li className="cursor-pointer font-bold hover:text-black">
+              Customers
+            </li>
+            <li className="cursor-pointer font-bold hover:text-black">
+              Pricing
+            </li>
+
+            <NavDropdown
+              label="Learn"
+              id="learn"
+              openMenu={activeDropdown}
+              toggleMenu={toggleDropdown}
+            />
+          </ul>
         </div>
-
-        {/* DESKTOP NAV */}
-        <ul className="hidden lg:flex items-center gap-10 text-[14px] font-medium text-gray-800 list-none">
-          <NavDropdown
-            label="Why DuraPay"
-            id="whydurapay"
-            openMenu={activeDropdown}
-            toggleMenu={toggleDropdown}
-          />
-
-          <li className="cursor-pointer hover:text-black">Customers</li>
-          <li className="cursor-pointer hover:text-black">Pricing</li>
-
-          <NavDropdown
-            label="Learn"
-            id="learn"
-            openMenu={activeDropdown}
-            toggleMenu={toggleDropdown}
-          />
-        </ul>
 
         {/* RIGHT MENU (DESKTOP) */}
         <div className="hidden lg:flex items-center gap-6 text-[14px] font-medium text-black list-none">
@@ -85,17 +92,17 @@ export const NavBar = () => {
             small
           />
 
-          <NavDropdown
+          {/* <NavDropdown
             label="Support"
             id="support"
             openMenu={activeDropdown}
             toggleMenu={toggleDropdown}
             small
-          />
+          /> */}
 
           <li className="cursor-pointer">Login</li>
 
-          <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+          <button className="bg-accent cursor-pointer text-white px-4 py-2 rounded-md hover:bg-tertiary transition">
             Create free account
           </button>
 
@@ -105,7 +112,8 @@ export const NavBar = () => {
         {/* MOBILE MENU ICON */}
         <div
           className="lg:hidden cursor-pointer text-black"
-          onClick={() => setMobileOpen(!mobileOpen)}>
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
           {mobileOpen ? (
             <MdClose size={32} className="font-bold text-black" />
           ) : (
@@ -122,7 +130,8 @@ export const NavBar = () => {
             <>
               <button
                 onClick={() => toggleDropdown("whydurapay")}
-                className="block w-full text-left ">
+                className="block w-full text-left "
+              >
                 Why DuraPay
               </button>
 
@@ -131,25 +140,28 @@ export const NavBar = () => {
 
               <button
                 onClick={() => toggleDropdown("learn")}
-                className="block w-full text-left ">
+                className="block w-full text-left "
+              >
                 Learn
               </button>
 
               <button
                 onClick={() => toggleDropdown("developers")}
-                className="block w-full text-left ">
+                className="block w-full text-left "
+              >
                 Developers
               </button>
 
               <button
                 onClick={() => toggleDropdown("support")}
-                className="block w-full text-left ">
+                className="block w-full text-left "
+              >
                 Support
               </button>
 
               <p className="text-green-500">Login</p>
 
-              <button className="bg-green-500 text-white px-4 py-3 rounded-md w-full">
+              <button className="bg-accent text-white px-4 py-3 rounded-md w-full">
                 Create free account
               </button>
             </>
@@ -160,7 +172,8 @@ export const NavBar = () => {
             <div className="text-sm space-y-6">
               <button
                 onClick={() => setActiveDropdown(null)}
-                className="flex items-center gap-2 opacity-70 text-gray-500">
+                className="flex items-center gap-2 opacity-70 text-gray-500"
+              >
                 <MdKeyboardArrowLeft />
                 <p>Back</p>
               </button>
@@ -195,7 +208,8 @@ export const NavBar = () => {
               {/* Back */}
               <button
                 onClick={() => setActiveDropdown(null)}
-                className="flex items-center gap-2 opacity-70 text-gray-500">
+                className="flex items-center gap-2 opacity-70 text-gray-500"
+              >
                 <MdKeyboardArrowLeft />
                 <p>Back</p>
               </button>
@@ -228,7 +242,8 @@ export const NavBar = () => {
             <div className="text-sm space-y-6 ">
               <button
                 onClick={() => setActiveDropdown(null)}
-                className="flex items-center gap-2 font-medium ">
+                className="flex items-center gap-2 font-medium "
+              >
                 <MdKeyboardArrowLeft />
                 Back
               </button>
@@ -245,7 +260,8 @@ export const NavBar = () => {
             <div className="text-sm space-y-4 bg-green-50">
               <button
                 onClick={() => setActiveDropdown(null)}
-                className="flex items-center gap-2 font-medium">
+                className="flex items-center gap-2 font-medium"
+              >
                 <MdKeyboardArrowLeft />
                 Back
               </button>

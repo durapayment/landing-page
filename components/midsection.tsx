@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "@/config/site";
 import { motion } from "framer-motion";
 
 // 🧩 Animated SVG
@@ -23,16 +24,16 @@ export const MidSection = () => {
   return (
     <section className="w-full bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
       {/* SECTION HEADING */}
-      <div className="w-full max-w-310 mx-auto text-left mb-14">
+      <div className="w-full flex flex-col gap-1 max-w-310 mx-auto text-left mb-14">
         <h2
           style={{
             fontFamily:
               'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
             fontWeight: 800,
-            lineHeight: "1.2",
             color: "rgb(1, 27, 51)",
           }}
-          className="mb-4 text-[20px] sm:text-[35px] md:text-[46px] leading-tight tracking-[-0.02em]">
+          className="text-[25px] md:text-[48px] leading-tight tracking-[-0.02em]"
+        >
           Simple, easy payments
         </h2>
 
@@ -41,10 +42,10 @@ export const MidSection = () => {
             fontFamily:
               '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
             fontWeight: 400,
-            lineHeight: "30px",
             color: "rgb(1, 27, 51)",
           }}
-          className="text-base sm:text-lg md:text-[20px] max-w-[45ch]">
+          className="text-base sm:text-lg md:text-[20px] max-w-[45ch]"
+        >
           Building a business is hard. Getting paid shouldn't be.
         </p>
       </div>
@@ -57,7 +58,8 @@ export const MidSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 flex justify-center md:justify-start">
+          className="flex-1 flex justify-center md:justify-start"
+        >
           <motion.div
             animate={{
               y: [0, -18, 0],
@@ -68,7 +70,8 @@ export const MidSection = () => {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative w-65 sm:w-[320px] md:w-105 h-125 md:h-150">
+            className="relative w-65 sm:w-[320px] md:w-105 h-125 md:h-150"
+          >
             <div className="absolute inset-0 bg-green-100 rounded-full blur-3xl opacity-50" />
 
             <div className="relative z-10 w-full h-full flex items-center justify-center">
@@ -94,14 +97,15 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[35px] md:text-[36px] leading-tight tracking-[-0.02em] mb-5">
+              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+            >
               Delight customers with a seamless payments experience
             </h3>
 
             <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7">
               Give your customers the gift of modern, frictionless, painless
-              payments. Integrate Paystack once and let your customers pay you
-              however they want.
+              payments. Integrate {siteConfig.name} once and let your customers
+              pay you however they want.
             </p>
           </div>
 
@@ -133,7 +137,8 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[30px] md:text-[32px] leading-tight tracking-[-0.02em] mb-5">
+              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+            >
               Enjoy phenomenal transaction success rates
             </h3>
 
@@ -189,7 +194,8 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[32px] leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+          >
             Build custom payments experiences with well-documented APIs
           </h3>
 
@@ -197,7 +203,7 @@ export const MidSection = () => {
             Developers love our thorough, well-documented APIs that let you to
             build everything from simple weekend projects, to complex financial
             products serving hundreds of thousands of customers. If you can
-            imagine it, you can build it with Durapayment.
+            imagine it, you can build it with Paystack.
           </p>
 
           <div className="flex flex-col gap-5 mb-8">
@@ -270,12 +276,13 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[34px] font-bold leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+          >
             Protect yourself and your customers with advanced fraud detection
           </h3>
 
           <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-8">
-            Durapay’s combination of automated and manual fraud systems protect
+            Paystack’s combination of automated and manual fraud systems protect
             you from fraudulent transactions and associated chargeback claims.
           </p>
           <h3
@@ -286,7 +293,8 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[34px] font-bold leading-tight tracking-[-0.02em] mb-4">
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
+          >
             Detailed reporting for accounting, reconciliation, and audits
           </h3>
 

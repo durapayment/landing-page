@@ -33,7 +33,8 @@ export const FlagDropdown = () => {
       {/* FLAG TRIGGER */}
       <div
         className="flex items-center gap-1 cursor-pointer py-2"
-        onClick={toggleDropdown}>
+        onClick={toggleDropdown}
+      >
         <img src="/ng.svg" alt="Nigeria" width={16} height={15} />
       </div>
 
