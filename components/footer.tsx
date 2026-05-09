@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
           {/* 1st DIV */}
           <div>
-            <h3 className="font-semibold mb-4">Why Paystack</h3>
+            <h3 className="font-semibold mb-4">Why Durapayment</h3>
             <ul className="space-y-2">
               <li className={linkClass}>Why Choose Paystack</li>
               <li className={linkClass}>Success rates</li>
