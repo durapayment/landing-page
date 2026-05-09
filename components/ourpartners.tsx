@@ -25,8 +25,7 @@ export const OurPartners = () => {
   const mobileLogos = logos.slice(0, 6);
 
   return (
-    <section className="w-full bg-white px-8 md:px-12 mb-20">
-      {/* CENTERED CONTAINER ALIGNED WITH PADDING */}
+    <section className="w-full bg-white px-8 md:px-12 mb-32 md:mb-40">
       <div className="max-w-310 mx-auto pt-12 sm:pt-16 md:pt-20">
         {/* TEXT SECTION */}
         <div className="w-full text-left mb-10 sm:mb-12 md:mb-14">
@@ -50,13 +49,13 @@ export const OurPartners = () => {
               lineHeight: "34px",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[16px] sm:text-[18px] md:text-[22px]  max-w-[56ch]">
+            className="text-[16px] sm:text-[18px] md:text-[22px] max-w-[56ch]">
             Durapayment is a growth engine for a new generation of innovative,
             forward-looking organizations operating in Africa.
           </p>
         </div>
 
-        {/* MOBILE GRID (ONLY 6 LOGOS) */}
+        {/* MOBILE GRID */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:hidden">
           {mobileLogos.map((logo, index) => (
             <div key={index} className="flex items-center justify-start w-full">
@@ -69,7 +68,7 @@ export const OurPartners = () => {
           ))}
         </div>
 
-        {/* DESKTOP GRID (ALL LOGOS - ALIGNED WITH TEXT) */}
+        {/* DESKTOP GRID */}
         <div className="hidden md:grid w-full grid-cols-6 gap-x-10 gap-y-16 items-center justify-items-start">
           {logos.map((logo, index) => (
             <div key={index} className="flex items-center justify-start w-full">
