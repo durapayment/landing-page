@@ -41,8 +41,7 @@ export const Hero = () => {
                 color: "rgb(1, 27, 51)",
               }}
               className="max-w-150 mb-5 sm:mb-6 tracking-[-0.03em] text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px]bg-red-300 md:leading-[1.1]
-  "
-            >
+  ">
               Modern online and offline payments for Africa
             </h1>
 
@@ -106,8 +105,7 @@ export const Hero = () => {
                 {logos.slice(0, 3).map((logo, i) => (
                   <div
                     key={i}
-                    className="w-22.5 sm:w-25 h-7 flex items-center justify-center shrink-0"
-                  >
+                    className="w-22.5 sm:w-25 h-7 flex items-center justify-center shrink-0">
                     <img
                       src={logo}
                       className="object-contain max-h-full"
@@ -127,8 +125,7 @@ export const Hero = () => {
 
                 <button
                   onClick={() => setOpenVideo(true)}
-                  className="w-10 h-10 bg-tertiary rounded-full flex items-center justify-center shrink-0 md:shrink-0"
-                >
+                  className="w-10 h-10 bg-tertiary rounded-full flex items-center justify-center shrink-0 md:shrink-0">
                   <Play className="text-white w-4 h-4" />
                 </button>
               </div>

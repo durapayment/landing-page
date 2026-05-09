@@ -46,8 +46,7 @@ export const NavBar = () => {
       ref={navRef}
       className={`w-full fixed top-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-white/90 shadow-sm" : "bg-tertiary/2"
-      }`}
-    >
+      }`}>
       {/* NAV CONTAINER */}
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-6">
         <div className="flex items-center gap-5 lg:gap-10">
@@ -112,8 +111,7 @@ export const NavBar = () => {
         {/* MOBILE MENU ICON */}
         <div
           className="lg:hidden cursor-pointer text-black"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
+          onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? (
             <MdClose size={32} className="font-bold text-black" />
           ) : (
@@ -130,8 +128,7 @@ export const NavBar = () => {
             <>
               <button
                 onClick={() => toggleDropdown("whydurapay")}
-                className="block w-full text-left "
-              >
+                className="block w-full text-left ">
                 Why DuraPay
               </button>
 
@@ -140,22 +137,19 @@ export const NavBar = () => {
 
               <button
                 onClick={() => toggleDropdown("learn")}
-                className="block w-full text-left "
-              >
+                className="block w-full text-left ">
                 Learn
               </button>
 
               <button
                 onClick={() => toggleDropdown("developers")}
-                className="block w-full text-left "
-              >
+                className="block w-full text-left ">
                 Developers
               </button>
 
               <button
                 onClick={() => toggleDropdown("support")}
-                className="block w-full text-left "
-              >
+                className="block w-full text-left ">
                 Support
               </button>
 
@@ -172,8 +166,7 @@ export const NavBar = () => {
             <div className="text-sm space-y-6">
               <button
                 onClick={() => setActiveDropdown(null)}
-                className="flex items-center gap-2 opacity-70 text-gray-500"
-              >
+                className="flex items-center gap-2 opacity-70 text-gray-500">
                 <MdKeyboardArrowLeft />
                 <p>Back</p>
               </button>
@@ -208,8 +201,7 @@ export const NavBar = () => {
               {/* Back */}
               <button
                 onClick={() => setActiveDropdown(null)}
-                className="flex items-center gap-2 opacity-70 text-gray-500"
-              >
+                className="flex items-center gap-2 opacity-70 text-gray-500">
                 <MdKeyboardArrowLeft />
                 <p>Back</p>
               </button>
@@ -242,8 +234,7 @@ export const NavBar = () => {
             <div className="text-sm space-y-6 ">
               <button
                 onClick={() => setActiveDropdown(null)}
-                className="flex items-center gap-2 font-medium "
-              >
+                className="flex items-center gap-2 font-medium ">
                 <MdKeyboardArrowLeft />
                 Back
               </button>
@@ -260,8 +251,7 @@ export const NavBar = () => {
             <div className="text-sm space-y-4 bg-green-50">
               <button
                 onClick={() => setActiveDropdown(null)}
-                className="flex items-center gap-2 font-medium"
-              >
+                className="flex items-center gap-2 font-medium">
                 <MdKeyboardArrowLeft />
                 Back
               </button>
