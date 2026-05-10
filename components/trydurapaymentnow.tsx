@@ -1,6 +1,6 @@
 export const TryDurapayNow = () => {
   return (
-    <section className="w-full bg-white py-16 sm:py-20 md:py-28">
+    <section className="w-full bg-[#f9fbfc] py-16 sm:py-20 md:py-28">
       <div className="max-w-[1300px] mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-10">
         {/* LEFT SIDE */}
         <div className="text-left max-w-2xl">

@@ -1,96 +1,195 @@
+"use client";
+
+import { IoMdArrowDropright } from "react-icons/io";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
+
 export const Footer = () => {
-  const linkClass =
-    "text-sm text-gray-700 hover:text-black cursor-pointer transition";
+  // ✅ GRAPHIK TYPOGRAPHY SYSTEM CLASS
+  const footerText =
+    "font-graphik text-[16px] leading-[24px] font-normal text-[#011b33]";
+
+  const linkClass = "cursor-pointer transition hover:text-black " + footerText;
+
+  const arrowTitles = [
+    "Why Durapayment",
+    "Pricing",
+    "Developers",
+    "About",
+    "Learn",
+    "Community",
+    "Support",
+    "Customers",
+  ];
+
+  const Title = ({ text }: { text: string }) => {
+    const showArrow = arrowTitles.includes(text);
+
+    return (
+      <h3 className="font-semibold mb-3 flex items-center justify-between text-[#011b33]">
+        <span>{text}</span>
+        {showArrow && (
+          <IoMdArrowDropright className="w-4 h-4 block md:hidden" />
+        )}
+      </h3>
+    );
+  };
+
+  const locations = [
+    {
+      name: "Lagos HQ",
+      address: "Victoria Island",
+      phone: "+234 801 234 5678",
+    },
+    { name: "Abuja", address: "CBD", phone: "+234 802 345 6789" },
+    { name: "Accra", address: "Airport City", phone: "+233 201 234 567" },
+    { name: "Nairobi", address: "Westlands", phone: "+254 712 345 678" },
+    { name: "Cape Town", address: "Waterfront", phone: "+27 82 123 4567" },
+    { name: "London", address: "Canary Wharf", phone: "+44 20 7946 0958" },
+    { name: "New York", address: "Manhattan", phone: "+1 212 555 0198" },
+  ];
 
   return (
-    <footer className="w-full bg-white text-black pt-20 pb-10 border-t border-gray-200">
+    <footer className="w-full bg-white pt-20 pb-10 border-t border-gray-200">
       <div className="max-w-[1300px] mx-auto px-6">
-        {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-          {/* 1st DIV */}
-          <div>
-            <h3 className="font-semibold mb-4">Why Durapayment</h3>
-            <ul className="space-y-2">
+        {/* MAIN GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* COLUMN 1 */}
+          <div className={footerText}>
+            <Title text="Why Durapayment" />
+            <ul className="hidden md:block space-y-2">
               <li className={linkClass}>Why Choose Paystack</li>
               <li className={linkClass}>Success rates</li>
-              <li className={linkClass}>For Entrepreneurs</li>
+              <li className={linkClass + " mt-6"}>For Entrepreneurs</li>
               <li className={linkClass}>For Corporates</li>
-              <li className={linkClass}>For International Companies</li>
               <li className={linkClass}>For Startups</li>
-              <li className={linkClass}>For Fintechs</li>
+              <li className={linkClass}>For International Companies</li>
+              <li className={linkClass + " mt-6"}>For Fintechs</li>
               <li className={linkClass}>For Agencies</li>
               <li className={linkClass}>For Schools</li>
-              <li className={linkClass}>For Betting</li>
+              <li className={linkClass}>For Bettings</li>
             </ul>
           </div>
 
-          {/* 2nd DIV */}
-          <div>
-            <h3 className="font-semibold mb-4">Pricing</h3>
-            <ul className="space-y-2">
+          {/* COLUMN 2 */}
+          <div className={footerText}>
+            <Title text="Pricing" />
+            <ul className="hidden md:block space-y-2">
               <li className={linkClass}>Nigeria</li>
               <li className={linkClass}>Ghana</li>
               <li className={linkClass}>South Africa</li>
               <li className={linkClass}>Kenya</li>
-              <li className={linkClass}>Côte d'Ivoire</li>
-              <li className={linkClass}>Customers</li>
-              <li className={linkClass}>Testimonials</li>
-              <li className={linkClass}>Learn</li>
+
+              <li className="mt-3 font-semibold text-[#011b33]">Learn</li>
               <li className={linkClass}>Blog</li>
               <li className={linkClass}>Guides</li>
-              <li className={linkClass}>Video Tutorials</li>
-              <li className={linkClass}>Decode Fintech</li>
-              <li className={linkClass}>Commerce</li>
-              <li className={linkClass}>Terminal</li>
+              <li className={linkClass}>API Reference</li>
             </ul>
           </div>
 
-          {/* 3rd DIV */}
-          <div>
-            <h3 className="font-semibold mb-4">Developers</h3>
-            <ul className="space-y-2">
-              <li className={linkClass}>Overview</li>
+          {/* COLUMN 3 */}
+          <div className={footerText}>
+            <Title text="Developers" />
+            <ul className="hidden md:block space-y-2">
               <li className={linkClass}>Documentation</li>
               <li className={linkClass}>Integrations</li>
               <li className={linkClass}>Status Page</li>
-              <li className={linkClass}>Community</li>
-              <li className={linkClass}>Service Partner Directory</li>
-              <li className={linkClass}>Nigeria Logos</li>
-              <li className={linkClass}>Support</li>
-              <li className={linkClass}>Help Desk</li>
-              <li className={linkClass}>Contact Us</li>
-              <li className={linkClass}>Why was I debited?</li>
-              <li className={linkClass}>Register your business</li>
+
+              <li className="mt-3 font-semibold text-[#011b33]">Community</li>
+              <li className={linkClass}>Forum</li>
+              <li className={linkClass}>Slack</li>
+              <li className={linkClass}>Events</li>
             </ul>
           </div>
 
-          {/* 4th DIV */}
-          <div>
-            <h3 className="font-semibold mb-4">About</h3>
-            <ul className="space-y-2">
+          {/* COLUMN 4 */}
+          <div className={footerText}>
+            <Title text="About" />
+            <ul className="hidden md:block space-y-2">
               <li className={linkClass}>Company</li>
-              <li className={linkClass}>Changelog</li>
-              <li className={linkClass}>Subscribe</li>
-              <li className={linkClass}>Compliance</li>
               <li className={linkClass}>Careers</li>
               <li className={linkClass}>Media Kit</li>
               <li className={linkClass}>Privacy & Terms</li>
-              <li className={linkClass}>Cookies Settings</li>
+
+              <li className="mt-3 font-semibold text-[#011b33]">Support</li>
+              <li className={linkClass}>Help Center</li>
+              <li className={linkClass}>Contact Support</li>
+
+              <li className="mt-3 font-semibold text-[#011b33]">Customers</li>
+              <li className={linkClass}>Testimonials</li>
+              <li className={linkClass}>Case Studies</li>
             </ul>
           </div>
         </div>
 
-        {/* BOTTOM */}
-        <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-600">
+        {/* CONTACT SECTION */}
+        <div className="mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* CONTACT */}
+            <div className={footerText}>
+              <h3 className="font-semibold mb-4 text-[#011b33]">Contact</h3>
+
+              <p className={footerText}>hello@durapayment.com</p>
+
+              <div className="flex gap-4 text-lg mt-4">
+                <FaFacebookF className="cursor-pointer hover:text-black" />
+                <FaTwitter className="cursor-pointer hover:text-black" />
+                <FaInstagram className="cursor-pointer hover:text-black" />
+                <FaLinkedinIn className="cursor-pointer hover:text-black" />
+                <FaYoutube className="cursor-pointer hover:text-black" />
+              </div>
+
+              <div className="mt-5">
+                <p className={footerText}>Durapay is a Stripe company</p>
+                <img src="/stripe.png" alt="Stripe" className="w-20 mt-2" />
+              </div>
+            </div>
+
+            {/* LOCATIONS COL 1 */}
+            <div className="space-y-4">
+              {locations.slice(0, 3).map((loc, i) => (
+                <div key={i} className={footerText}>
+                  <p className="font-semibold">{loc.name}</p>
+                  <p>{loc.address}</p>
+                  <p>{loc.phone}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* LOCATIONS COL 2 */}
+            <div className="space-y-4">
+              {locations.slice(3, 5).map((loc, i) => (
+                <div key={i} className={footerText}>
+                  <p className="font-semibold">{loc.name}</p>
+                  <p>{loc.address}</p>
+                  <p>{loc.phone}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* LOCATIONS COL 3 */}
+            <div className="space-y-4">
+              {locations.slice(5).map((loc, i) => (
+                <div key={i} className={footerText}>
+                  <p className="font-semibold">{loc.name}</p>
+                  <p>{loc.address}</p>
+                  <p>{loc.phone}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* COPYRIGHT */}
+        <div className="border-t border-gray-200 mt-10 pt-4">
+          <p className={footerText}>
             © {new Date().getFullYear()} Durapay. All rights reserved.
           </p>
-
-          <div className="flex gap-4 text-sm text-gray-600">
-            <span className="hover:text-black cursor-pointer">Twitter</span>
-            <span className="hover:text-black cursor-pointer">LinkedIn</span>
-            <span className="hover:text-black cursor-pointer">Instagram</span>
-          </div>
         </div>
       </div>
     </footer>
