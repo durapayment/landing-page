@@ -1,5 +1,6 @@
 import { WhyDurapayHero } from "@/components/whydurapayhero";
 import { WhyDurapayMidSection } from "@/components/whydurapaymidsection";
+import { WhyDurapayLastSection } from "@/components/whydurapaylastsection";
 
 export default function WhyChooseDurapay() {
   return (
@@ -7,6 +8,7 @@ export default function WhyChooseDurapay() {
       <main>
         <WhyDurapayHero />
         <WhyDurapayMidSection />
+        <WhyDurapayLastSection />
       </main>
     </div>
   );

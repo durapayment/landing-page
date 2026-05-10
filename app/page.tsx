@@ -20,7 +20,7 @@ export default function Home() {
         <MidSection />
         <BusinessGrowth />
         <OurPartners />
-        <GlobalPartners />
+        <GlobalPartners />n
         <TryDurapayNow />
       </main>
     </div>
