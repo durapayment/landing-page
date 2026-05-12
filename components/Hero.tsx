@@ -51,10 +51,16 @@ export const Hero = () => {
             </p>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-              <button className="bg-accent cursor-pointer text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-md text-sm font-medium hover:bg-tertiary transition w-full sm:w-auto">
-                Create a free account
-              </button>
+           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+  <a
+    href="https://online.durapayment.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-accent cursor-pointer text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-md text-sm font-medium hover:bg-tertiary transition w-full sm:w-auto text-center"
+  >
+    Create a free account
+  </a>
+</div>
 
               <span className="text-[15px] cursor-pointer font-medium text-accent">
                 or Contact Sales

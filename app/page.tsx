@@ -21,7 +21,6 @@ export default function Home() {
         <BusinessGrowth />
         <OurPartners />
         <GlobalPartners />
-        <TryDurapayNow />
       </main>
     </div>
   );
