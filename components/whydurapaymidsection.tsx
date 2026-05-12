@@ -6,7 +6,7 @@ import { ChevronRight, Check } from "lucide-react"; // ✅ FIXED: added Check
 
 // Shared styles (Paystack-like consistency)
 const HEADING_CLASS =
-  "text-[24px] sm:text-[30px] md:text-[40px] font-bold text-[rgb(1,27,51)] leading-[1.15] mb-4";
+  "text-[48px] sm:text-[30px] md:text-[40px] font-bold text-[rgb(1,27,51)] leading-[1.15] mb-4";
 
 const PARAGRAPH_CLASS =
   "text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7";

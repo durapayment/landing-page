@@ -2,7 +2,7 @@
 
 export const WhyDurapayHero = () => {
   return (
-    <section className="w-full min-h-svh bg-green-50 pt-20 md:pt-24 flex items-center">
+    <section className="w-full max-h-[535.2px] bg-green-50 pt-20 md:pt-24 flex items-center">
       <div className="max-w-4xl mx-auto px-6 text-center">
         {/* H1 */}
         <h1

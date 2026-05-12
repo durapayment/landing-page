@@ -8,6 +8,7 @@ import {
   FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa";
+import Link from "next/link";
 
 export const Footer = () => {
   // ✅ GRAPHIK TYPOGRAPHY SYSTEM CLASS
@@ -63,16 +64,49 @@ export const Footer = () => {
           <div className={footerText}>
             <Title text="Why Durapayment" />
             <ul className="hidden md:block space-y-2">
-              <li className={linkClass}>Why Choose Paystack</li>
-              <li className={linkClass}>Success rates</li>
-              <li className={linkClass + " mt-6"}>For Entrepreneurs</li>
-              <li className={linkClass}>For Corporates</li>
-              <li className={linkClass}>For Startups</li>
-              <li className={linkClass}>For International Companies</li>
-              <li className={linkClass + " mt-6"}>For Fintechs</li>
-              <li className={linkClass}>For Agencies</li>
-              <li className={linkClass}>For Schools</li>
-              <li className={linkClass}>For Bettings</li>
+              <ul>
+                <li className={linkClass}>
+                  <Link href="/why-choose-durapay">Why Choose Durapayment</Link>
+                </li>
+
+                <li className={linkClass}>
+                  <Link href="/success-rates">Success rates</Link>
+                </li>
+
+                <li className={linkClass + " mt-6"}>
+                  <Link href="/entrepreneurs">For Entrepreneurs</Link>
+                </li>
+
+                <li className={linkClass}>
+                  <Link href="/for-corporates">For Corporates</Link>
+                </li>
+
+                <li className={linkClass}>
+                  <Link href="/for-startups">For Startups</Link>
+                </li>
+
+                <li className={linkClass}>
+                  <Link href="/for-international-companies">
+                    For International Companies
+                  </Link>
+                </li>
+
+                <li className={linkClass + " mt-6"}>
+                  <Link href="/for-fintechs">For Fintechs</Link>
+                </li>
+
+                <li className={linkClass}>
+                  <Link href="/for-agencies">For Agencies</Link>
+                </li>
+
+                <li className={linkClass}>
+                  <Link href="/for-schools">For Schools</Link>
+                </li>
+
+                <li className={linkClass}>
+                  <Link href="/for-bettings">For Bettings</Link>
+                </li>
+              </ul>
             </ul>
           </div>
 
