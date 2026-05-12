@@ -1,6 +1,6 @@
 import { SuccessRates } from "@/components/successrate";
 
-export default function WhyChooseDurapay() {
+export default function Success() {
   return (
     <div>
       <main>

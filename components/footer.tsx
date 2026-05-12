@@ -66,7 +66,9 @@ export const Footer = () => {
             <ul className="hidden md:block space-y-2">
               <ul>
                 <li className={linkClass}>
-                  <Link href="/why-choose-durapay">Why Choose Durapayment</Link>
+                  <Link href="/why-choose-durapayment">
+                    Why Choose Durapayment
+                  </Link>
                 </li>
 
                 <li className={linkClass}>
@@ -78,7 +80,7 @@ export const Footer = () => {
                 </li>
 
                 <li className={linkClass}>
-                  <Link href="/for-corporates">For Corporates</Link>
+                  <Link href="/for_corporates">For Corporates</Link>
                 </li>
 
                 <li className={linkClass}>

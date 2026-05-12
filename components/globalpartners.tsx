@@ -35,8 +35,8 @@ export const GlobalPartners = () => {
           </h1>
 
           <p className="text-sm sm:text-base md:text-[20px] text-[#011B33] leading-8">
-            Paystack is backed by notable investors as well as some of the best
-            payments companies on the planet.
+            Durapayment is backed by notable investors as well as some of the
+            best payments companies on the planet.
           </p>
         </div>
 

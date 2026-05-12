@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Play, ChevronRight, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/config/site";
+import Image from "next/image";
 
 // MID SECTION STYLES
 const HEADING_CLASS =
@@ -35,6 +36,9 @@ const AnimatedTick = () => (
 );
 
 export const Entrepreneur = () => {
+  const handleRedirect = () => {
+    window.open("https://online.durapayment.com", "_blank");
+  };
   const [videoOpen, setVideoOpen] = useState(false);
 
   const logos = [
@@ -82,7 +86,9 @@ export const Entrepreneur = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-              <button className="bg-accent cursor-pointer text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-md text-sm font-medium hover:bg-tertiary transition w-full sm:w-auto">
+              <button
+                onClick={handleRedirect}
+                className="bg-accent cursor-pointer text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-md text-sm font-medium hover:bg-tertiary transition w-full sm:w-auto">
                 Create a free account
               </button>
             </div>
@@ -145,36 +151,24 @@ export const Entrepreneur = () => {
               website, Paystack's collection of payments tools will help you get
               paid.
             </p>
-
-            <ul className="mt-6 space-y-3">
-              {[
-                "Collect recurring payments",
-                "Make instant transfers",
-                "Retrieve customer data",
-                "Verify customers",
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <Check className="text-green-600 w-4 h-4" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex items-center gap-2 mt-6 cursor-pointer">
-              <div className="w-6 h-6 rounded-full border border-green-500 flex items-center justify-center">
-                <ChevronRight className="w-4 h-4 text-green-600" />
-              </div>
-              <p>Durapayment API Quickstart</p>
+          </div>
+          <div className="flex-1 flex justify-center md:justify-start">
+            <div className={IMAGE_BOX}>
+              <img
+                src="/acceptpay.jpg"
+                className="w-full h-full object-cover"
+                alt="payment"
+              />
             </div>
           </div>
         </div>
 
         {/* SECTION 01 */}
-        <div className={`${SECTION_WRAPPER} mt-10`}>
+        <div className={SECTION_WRAPPER}>
           <div className="flex-1 flex justify-center md:justify-start">
             <div className={IMAGE_BOX}>
               <img
-                src="/payment.jpg"
+                src="/gettingpaid.jpg"
                 className="w-full h-full object-cover"
                 alt="payment"
               />
@@ -182,40 +176,20 @@ export const Entrepreneur = () => {
           </div>
 
           <div className="flex-1 max-w-xl">
-            <p className="text-[28px] font-bold text-[rgba(1,27,51,0.2)] mb-2">
-              01
-            </p>
-
             <h3 className={HEADING_CLASS}>
-              Start accepting payments instantly
+              Get paid even if you don’t have a website
             </h3>
 
             <p className={PARAGRAPH_CLASS}>
-              Durapayment is the fastest, simplest way to start accepting online
-              payments in Nigeria.
-            </p>
-          </div>
-        </div>
-
-        {/* SECTION 02 */}
-        <div className={SECTION_WRAPPER}>
-          <div className="flex-1 max-w-xl">
-            <p className="text-[28px] font-bold text-[rgba(1,27,51,0.2)] mb-2">
-              02
-            </p>
-
-            <h3 className={HEADING_CLASS}>Build custom payment experiences</h3>
-
-            <p className={PARAGRAPH_CLASS}>
-              Developers love our APIs that help build custom payment products.
+              Create a Payment Page in 2 mins, and share that link via SMS,
+              Instagram DM, WhatsApp chat, or however you communicate with your
+              customers.
             </p>
 
             <ul className="mt-6 space-y-3">
               {[
-                "Collect recurring payments",
-                "Make instant transfers",
-                "Retrieve customer data",
-                "Verify customers",
+                "No developers needed",
+                "Your customers will be able to click and pay you instantly",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <Check className="text-green-600 w-4 h-4" />
@@ -228,18 +202,76 @@ export const Entrepreneur = () => {
               <div className="w-6 h-6 rounded-full border border-green-500 flex items-center justify-center">
                 <ChevronRight className="w-4 h-4 text-green-600" />
               </div>
-              <p>Durapayment API Quickstart</p>
+              <p>Learn more about payment pages and other commercial tools</p>
+            </div>
+          </div>
+        </div>
+        {/* SECTION 02 */}
+        <div className={`${SECTION_WRAPPER} mt-10`}>
+          <div className="flex-1 max-w-xl">
+            <h3 className={HEADING_CLASS}>
+              Build trust with a beautiful, branded Checkout Form
+            </h3>
+
+            <p className={PARAGRAPH_CLASS}>
+              Give customers confidence in your business with a beautiful
+              checkout form that shows off your brand.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {[
+                "No redirects - keep customers on the same page",
+                "Multiple payment channels",
+                "If transaction fails, the Paystack Checkout Form smartly suggests other payment channels",
+                "Automatic translation (Coming Soon)",
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <Check className="text-green-600 w-4 h-4" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex-1 flex justify-center md:justify-start">
+            <div className={IMAGE_BOX}>
+              <img
+                src="/checkoutform.png"
+                className="w-full h-full object-cover"
+                alt="payment"
+              />
+            </div>
+          </div>
+        </div>
+        {/* SECTION 03 */}
+        <div className={SECTION_WRAPPER}>
+          <div className="flex-1 flex justify-center md:justify-start">
+            <div className={IMAGE_BOX}>
+              <img
+                src="/getpaid.gif"
+                className="w-full h-full object-cover"
+                alt="payment"
+              />
             </div>
           </div>
 
-          <div className="flex-1 flex justify-center md:justify-end">
-            <div className={IMAGE_BOX}>
-              <img
-                src="/Collect.gif"
-                className="w-full h-full object-cover"
-                alt="collect gif"
-              />
-            </div>
+          <div className="flex-1 max-w-xl">
+            <h3 className={HEADING_CLASS}>
+              Delight customers with a seamless payments experience
+            </h3>
+
+            <p className={PARAGRAPH_CLASS}>
+              Give your customers the gift of modern, frictionless, painless
+              payments. Integrate Paystack once and let your customers pay you
+              however they want.
+            </p>
+
+            <ul className="mt-6 space-y-3">
+              {["Mobile Money", "Card", "Apple Pay"].map((item, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <Check className="text-green-600 w-4 h-4" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

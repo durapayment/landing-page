@@ -22,7 +22,7 @@ const AnimatedTick = () => (
 
 export const MidSection = () => {
   return (
-    <section className="w-full bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
+    <section className="w-full mt-20 bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
       {/* SECTION HEADING */}
       <div className="w-full flex flex-col gap-1 max-w-310 mx-auto text-left mb-14">
         <h2
@@ -32,8 +32,7 @@ export const MidSection = () => {
             fontWeight: 800,
             color: "rgb(1, 27, 51)",
           }}
-          className="text-[25px] md:text-[48px] leading-tight tracking-[-0.02em]"
-        >
+          className="text-[25px] md:text-[48px] leading-tight tracking-[-0.02em]">
           Simple, easy payments
         </h2>
 
@@ -44,22 +43,20 @@ export const MidSection = () => {
             fontWeight: 400,
             color: "rgb(1, 27, 51)",
           }}
-          className="text-base sm:text-lg md:text-[20px] max-w-[45ch]"
-        >
+          className="text-base sm:text-lg md:text-[20px] max-w-[45ch]">
           Building a business is hard. Getting paid shouldn't be.
         </p>
       </div>
 
       {/* MAIN ROW */}
-      <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* LEFT: ANIMATION */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 flex justify-center md:justify-start"
-        >
+          className="flex-1 flex justify-center md:justify-start">
           <motion.div
             animate={{
               y: [0, -18, 0],
@@ -70,8 +67,7 @@ export const MidSection = () => {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative w-65 sm:w-[320px] md:w-105 h-125 md:h-150"
-          >
+            className="relative w-65 sm:w-[320px] md:w-105 h-125 md:h-150">
             <div className="absolute inset-0 bg-green-100 rounded-full blur-3xl opacity-50" />
 
             <div className="relative z-10 w-full h-full flex items-center justify-center">
@@ -86,7 +82,7 @@ export const MidSection = () => {
         </motion.div>
 
         {/* RIGHT: CONTENT */}
-        <div className="flex-1 max-w-xl text-left">
+        <div className="flex-1 max-w-xl text-left mt-20">
           {/* FIRST BLOCK */}
           <div className="mb-8">
             <h3
@@ -97,8 +93,7 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
-            >
+              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
               Delight customers with a seamless payments experience
             </h3>
 
@@ -137,8 +132,7 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
-            >
+              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
               Enjoy phenomenal transaction success rates
             </h3>
 
@@ -170,20 +164,6 @@ export const MidSection = () => {
 
       {/* SECOND SECTION */}
       <div className="w-full max-w-6xl mx-auto mt-15 flex flex-col md:flex-row items-center justify-between gap-12">
-        <div>
-          {/* LEFT: IMAGE */}
-          <div className="flex-1 flex justify-center md:justify-end">
-            <div className="w-75 sm:w-90 md:w-82 h-90 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
-              <img
-                src="/Robust.png"
-                alt="feature image"
-                width={500}
-                height={635}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
         {/* RIGHT: CONTENT */}
         <div className="flex-1 max-w-xl text-left">
           <h3
@@ -194,8 +174,7 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
-          >
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
             Build custom payments experiences with well-documented APIs
           </h3>
 
@@ -255,10 +234,24 @@ export const MidSection = () => {
           </div>
         </div>
         {/* RIGHT CONTENT */}
+        <div>
+          {/* LEFT: IMAGE */}
+          <div className="flex-1 flex justify-center md:justify-end">
+            <div className="w-75 sm:w-90 md:w-82 h-90 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src="/Robust.png"
+                alt="feature image"
+                width={500}
+                height={635}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Anti-fraud Section */}
-      <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 py-6">
+      <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12 py-6">
         {/* LEFT: ANIMATION */}
         <div className="flex-1 flex justify-center md:justify-start">
           <div className="relative w-75 md:w-95 h-80 hidden sm:block bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
@@ -276,8 +269,7 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
-          >
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
             Protect yourself and your customers with advanced fraud detection
           </h3>
 
@@ -293,8 +285,7 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4"
-          >
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
             Detailed reporting for accounting, reconciliation, and audits
           </h3>
 

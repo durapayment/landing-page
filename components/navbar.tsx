@@ -7,6 +7,10 @@ import { NavDropdown } from "./NavDropdown";
 import Link from "next/link";
 
 export const NavBar = () => {
+  // Redirect function for all buttons
+  const handleRedirect = () => {
+    window.open("https://online.durapayment.com", "_blank");
+  };
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -101,7 +105,9 @@ export const NavBar = () => {
 
           <li className="cursor-pointer">Login</li>
 
-          <button className="bg-accent cursor-pointer text-white px-4 py-2 rounded-md hover:bg-tertiary transition">
+          <button
+            onClick={handleRedirect}
+            className="bg-accent cursor-pointer text-white px-4 py-2 rounded-md hover:bg-tertiary transition">
             Create free account
           </button>
 

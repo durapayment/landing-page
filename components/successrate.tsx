@@ -78,7 +78,7 @@ export const SuccessRates = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="mb-4 sm:mb-6 text-[24px] sm:text-[32px] md:text-[48px]">
+              className="mb-4 sm:mb-6 text-[15px] sm:text-[32px] md:text-[48px]">
               How Durapayment achieves stellar success rates
             </h1>
           </div>

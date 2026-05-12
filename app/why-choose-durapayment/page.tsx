@@ -2,7 +2,7 @@ import { WhyDurapayHero } from "@/components/whydurapayhero";
 import { WhyDurapayMidSection } from "@/components/whydurapaymidsection";
 import { WhyDurapayLastSection } from "@/components/whydurapaylastsection";
 
-export default function WhyChooseDurapay() {
+export default function WhyChooseDurapayment() {
   return (
     <div>
       <main>

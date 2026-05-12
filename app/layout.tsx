@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DuraPay",
+  title: "Durapayment",
   description: "A modern payment solution",
 };
 

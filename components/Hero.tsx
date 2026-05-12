@@ -1,141 +1,144 @@
 "use client";
 
 import { useState } from "react";
-import { Play, ChevronRight, Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { Play } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
-export const Entrepreneur = () => {
-  const [videoOpen, setVideoOpen] = useState(false);
-
+export const Hero = () => {
   // Redirect function for all buttons
   const handleRedirect = () => {
     window.open("https://online.durapayment.com", "_blank");
   };
+  const [videoOpen, setVideoOpen] = useState(false);
 
   const logos = [
-    "/Dominos-Plain.svg",
+    "/dominos-plain.svg",
     "/mtn-group-grayscale.svg",
-    "/bolt-grayscale.svg",
-    "/axa-mansard.svg",
-    "/crocs.svg",
+    "/bolt.svg",
+    "/axa.svg",
   ];
 
+  const setOpenVideo = (open: boolean) => {
+    setVideoOpen(open);
+  };
+
   return (
-    <div className="w-full bg-white">
-      {/* HERO SECTION */}
-      <section className="px-6 md:px-16 py-16">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          {/* Left Content */}
-          <div>
-            <h1 className="text-[rgb(1,27,51)] font-bold text-4xl md:text-6xl leading-tight">
-              Accept payments anywhere in Africa
+    <section className="w-full max-h-svh bg-tertiary/10 overflow-hidden">
+      {/* NAV */}
+      <div className="max-w-310 mx-auto flex items-center justify-between py-5 px-5 sm:px-8 md:px-12 lg:px-0">
+        {/* <div className="font-bold text-[#011B33] text-lg">Durapayment</div> */}
+
+        <button className="lg:hidden">{/* <Menu /> */}</button>
+      </div>
+
+      {/* HERO */}
+      <div className="max-w-310 mx-auto px-5 sm:px-8 md:px-12 lg:px-6 xl:px-0">
+        <div className=" py-15 md:py-30 lg:grid-cols-2 items-center gap-10 lg:gap-20">
+          {/* TEXT BLOCK */}
+          <div className="w-full text-left justify-self-start">
+            <h1
+              style={{
+                fontFamily:
+                  'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+                fontWeight: 800,
+                lineHeight: "1.1",
+                color: "rgb(1, 27, 51)",
+              }}
+              className="max-w-150 mb-5 sm:mb-6 tracking-[-0.03em] text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px]bg-red-300 md:leading-[1.1]
+  ">
+              Modern online and offline payments for Africa
             </h1>
 
-            <p className="mt-6 text-gray-600 text-lg">
-              Grow your business with seamless payment solutions built for
-              entrepreneurs.
+            <p className="text-[#011B33] mb-7 text-sm sm:text-base md:text-lg leading-7">
+              {siteConfig.name} helps businesses in Africa get paid by anyone,
+              anywhere in the world.
             </p>
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
               <button
                 onClick={handleRedirect}
-                className="bg-accent text-white px-6 py-3 rounded-lg cursor-pointer">
-                Get Started
+                className="bg-accent cursor-pointer text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-md text-sm font-medium hover:bg-tertiary transition w-full sm:w-auto">
+                Create a free account
               </button>
 
-              <button
-                onClick={() => setVideoOpen(true)}
-                className="flex items-center gap-2 text-[rgb(1,27,51)] font-medium">
-                <Play size={18} />
-                Watch Demo
-              </button>
+              <span className="text-[15px] cursor-pointer font-medium text-accent">
+                or Contact Sales
+              </span>
             </div>
           </div>
 
-          {/* Right Image */}
-          <div>
-            <img
-              src="/hero-image.png"
-              alt="Hero"
-              className="w-full rounded-xl"
-            />
+          {/* ILLUSTRATION (HIDDEN ON SM + MD, SHOW ONLY LG+) */}
+          {/* <div className="hidden lg:flex w-full justify-center lg:justify-end">
+            <div className="relative w-107.5 h-107.5">
+              <div className="absolute inset-0 rounded-full bg-green-100 blur-2xl opacity-60" />
+
+              <div className="absolute top-10 left-10 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
+                <CreditCard className="text-green-700 w-6 h-6" />
+              </div>
+
+              <div className="absolute top-16 right-8 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
+                <Wallet className="text-green-700 w-6 h-6" />
+              </div>
+
+              <div className="absolute bottom-16 left-14 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
+                <Globe className="text-green-700 w-6 h-6" />
+              </div>
+
+              <div className="absolute bottom-10 right-16 w-14 h-14 bg-white rounded-full shadow flex items-center justify-center">
+                <ShieldCheck className="text-green-700 w-6 h-6" />
+              </div>
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 bg-white rounded-full shadow-md flex items-center justify-center text-sm text-green-700 font-medium">
+                  Payments Flow
+                </div>
+              </div>
+            </div>
+          </div> */}
+        </div>
+
+        {/* PARTNERS */}
+        <div className="border-t border-green-20 py-10">
+          <div className="flex flex-col md:flex-row slg:flex-row items-start lg:items-center justify-between gap-8">
+            {/* LEFT */}
+            <div className="text-left w-full lg:w-auto">
+              <p className="text-sm font-medium text-[#011B33] mb-3">
+                Trusted by over 200,000 businesses
+              </p>
+
+              <div className="flex flex-nowrap items-center gap-3 sm:gap-4">
+                {logos.slice(0, 3).map((logo, i) => (
+                  <div
+                    key={i}
+                    className="w-22.5 sm:w-25 h-7 flex items-center justify-center shrink-0">
+                    <img
+                      src={logo}
+                      className="object-contain max-h-full"
+                      alt="logo"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT */}
+            <div className="w-full flex justify-start lg:justify-end">
+              <div className="flex flex-row items-center sm:items-center gap-3 max-w-117.5">
+                <p className="text-sm sm:text-base text-[#011B33] md:text-end font-semibold leading-6 sm:leading-7 md:max-w-[320px] line-clamp-2">
+                  Watch {siteConfig.name}
+                </p>
+
+                <button
+                  onClick={() => setOpenVideo(true)}
+                  className="w-10 h-10 bg-tertiary rounded-full flex items-center justify-center shrink-0 md:shrink-0">
+                  <Play className="text-white w-4 h-4" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* LOGO SECTION */}
-      <section className="px-6 md:px-16 py-10 border-t border-gray-100">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
-          {logos.map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt="Company Logo"
-              className="w-28 mx-auto grayscale"
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* MID SECTION */}
-      <section className="px-6 md:px-16 py-20 border-t border-gray-100">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-[rgb(1,27,51)] text-3xl md:text-5xl font-bold">
-              Build custom payment experiences
-            </h2>
-
-            <p className="mt-5 text-gray-600 text-lg">
-              Developers love our APIs that help build payment experiences for
-              businesses of all sizes.
-            </p>
-
-            <ul className="mt-6 space-y-3">
-              <li className="flex items-center gap-2">
-                <Check size={18} /> Collect one-time payments
-              </li>
-              <li className="flex items-center gap-2">
-                <Check size={18} /> Make instant transfers
-              </li>
-              <li className="flex items-center gap-2">
-                <Check size={18} /> Retrieve customer data
-              </li>
-            </ul>
-
-            <button
-              onClick={handleRedirect}
-              className="mt-8 bg-accent text-white px-6 py-3 rounded-lg cursor-pointer">
-              Start Building
-            </button>
-          </div>
-
-          <div>
-            <img src="/api-image.png" alt="API" className="w-full rounded-xl" />
-          </div>
-        </div>
-      </section>
-
-      {/* VIDEO MODAL */}
-      {videoOpen && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg relative w-[90%] md:w-[600px]">
-            <button
-              onClick={() => setVideoOpen(false)}
-              className="absolute top-4 right-4 text-black text-xl">
-              ×
-            </button>
-
-            <iframe
-              className="w-full h-[300px]"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Demo Video"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      )}
-    </div>
+      </div>
+    </section>
   );
 };
