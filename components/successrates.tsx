@@ -17,24 +17,6 @@ const HEADING_CLASS =
 const PARAGRAPH_CLASS =
   "text-[16px] md:text-[18px] text-[rgba(1,27,51,0.8)] leading-[28px] mt-4";
 
-/* ---------------- Animated Tick ---------------- */
-const AnimatedTick = () => (
-  <svg
-    viewBox="0 0 24 24"
-    className="w-5 h-5 text-green-500"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2">
-    <motion.path
-      d="M5 13l4 4L19 7"
-      initial={{ pathLength: 0 }}
-      whileInView={{ pathLength: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    />
-  </svg>
-);
-
 export const SuccessRates = () => {
   return (
     <section className="w-full">

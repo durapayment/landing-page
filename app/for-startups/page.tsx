@@ -1,10 +1,10 @@
-import { SuccessRates } from "@/components/successrates";
+import { StartUps } from "@/components/startups";
 
 export default function ForCorporates() {
   return (
     <div>
       <main>
-        <SuccessRates />
+        <StartUps />
       </main>
     </div>
   );
