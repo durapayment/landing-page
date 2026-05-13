@@ -21,7 +21,7 @@ function FeeCalculator() {
   }, [amount, fee]);
 
   return (
-    <div className="w-full max-w-xl  rounded-2xl  px-8 py-10 shadow-sm bg-blue-950">
+    <div className="w-full max-w-xl text-black rounded-2xl  px-8 py-10 shadow-sm bg-blue-950">
       <h2 className="text-xl font-semibold text-[#011B33] mb-6">
         Fee Calculator
       </h2>
