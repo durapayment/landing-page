@@ -2,9 +2,8 @@
 
 import { siteConfig } from "@/config/site";
 import { motion } from "framer-motion";
-import { ChevronRight, Check } from "lucide-react"; // ✅ FIXED: added Check
+import { ChevronRight, Check } from "lucide-react";
 
-// Shared styles (Paystack-like consistency)
 const HEADING_CLASS =
   "text-[48px] sm:text-[30px] md:text-[40px] font-bold text-[rgb(1,27,51)] leading-[1.15] mb-4";
 
@@ -15,7 +14,7 @@ const SECTION_WRAPPER =
   "w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 py-16";
 
 const IMAGE_BOX =
-  "w-full max-w-[200px] h-[220px] sm:h-[240px] bg-gray-100 rounded-2xl overflow-hidden shadow-lg";
+  "w-full max-w-[500px] h-[320px] md:h-[400px] rounded-2xl overflow-hidden";
 
 const AnimatedTick = () => (
   <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
