@@ -36,15 +36,17 @@ export const Corporates = () => {
   return (
     <section className="w-full bg-tertiary/10">
       {/* NAV */}
-      <div className="max-w-[1300px] mx-auto flex items-center justify-between py-5 px-5 sm:px-8 md:px-12 lg:px-0">
+      <div className="max-w-310 mx-auto flex items-center justify-between py-5 px-5 sm:px-8 md:px-12 lg:px-0">
         <button className="lg:hidden"></button>
       </div>
 
       {/* HERO */}
-      <div className="max-w-[1300px] mx-auto px-5 sm:px-8 md:px-12 lg:px-6 xl:px-0">
+      <div className="max-w-310 mx-auto px-5 sm:px-8 md:px-12 lg:px-6 xl:px-0">
         <div className="py-16 md:py-24 lg:grid lg:grid-cols-2 items-center gap-10 lg:gap-20">
           <div className="w-full text-left justify-self-start">
-            <p className="text-xs font-bold mb-4">DURAPAYMENT FOR CORPORATES</p>
+            <p className="text-xs font-bold mb-4 mt-20">
+              DURAPAYMENT FOR CORPORATES
+            </p>
 
             <h1
               style={{
@@ -55,7 +57,9 @@ export const Corporates = () => {
                 color: "rgb(1, 27, 51)",
               }}
               className="max-w-[600px] mb-5 sm:mb-6 tracking-[-0.03em] text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px]">
-              A complete payments solution to power all scales of growth
+              A complete payments <br />
+              solution to power all <br />
+              scales of growth
             </h1>
 
             <p className="text-[#011B33] mb-7 text-sm sm:text-base md:text-lg leading-7">

@@ -72,9 +72,11 @@ export const NavBar = () => {
             <li className="cursor-pointer font-bold hover:text-black">
               Customers
             </li>
-            <li className="cursor-pointer font-bold hover:text-black">
+            <Link
+              href="/pricing"
+              className="cursor-pointer font-bold hover:text-black">
               Pricing
-            </li>
+            </Link>
 
             <NavDropdown
               label="Learn"
@@ -139,7 +141,13 @@ export const NavBar = () => {
               </button>
 
               <p>Customers</p>
-              <p>Pricing</p>
+              <li>
+                <Link
+                  href="/pricing"
+                  className="cursor-pointer font-bold hover:text-black">
+                  Pricing
+                </Link>
+              </li>
 
               <button
                 onClick={() => toggleDropdown("learn")}
