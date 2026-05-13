@@ -21,7 +21,7 @@ function FeeCalculator() {
   }, [amount, fee]);
 
   return (
-    <div className="w-full max-w-xl border rounded-2xl p-8 shadow-sm bg-blue-950">
+    <div className="w-full max-w-xl  rounded-2xl  px-8 py-10 shadow-sm bg-blue-950">
       <h2 className="text-xl font-semibold text-[#011B33] mb-6">
         Fee Calculator
       </h2>
@@ -89,13 +89,33 @@ function FeeCalculator() {
 export default function CalculatorSection() {
   return (
     <section className="w-full min-h-svh bg-tertiary/10">
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-6xl mx-auto mt-20 pt-20 pb-20 px-6 py-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* TEXT */}
           <div className="space-y-4 max-w-md">
-            <h3 className="text-3xl font-bold text-[#011B33]">Do the math</h3>
+            <h3
+              className=" mb-10"
+              style={{
+                fontFamily:
+                  'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+                fontSize: "43.2px",
+                fontWeight: 800,
+                lineHeight: "51.84px",
+                color: "rgb(1, 27, 51)",
+              }}>
+              Do the math
+            </h3>
 
-            <p className="text-gray-600 leading-relaxed">
+            <p
+              className="flex mb-2"
+              style={{
+                fontFamily:
+                  'Graphik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+                fontSize: "16px",
+                fontWeight: 500,
+                lineHeight: "24px",
+                color: "rgb(1, 27, 51)",
+              }}>
               See how much it costs to use Paystack. Enter an amount into the
               calculator to see our charges.
             </p>

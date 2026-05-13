@@ -16,8 +16,7 @@ const SECTION_WRAPPER =
   "w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 py-16";
 
 const IMAGE_BOX =
-  "w-full max-w-[200px] h-[220px] sm:h-[240px] bg-gray-100 rounded-2xl overflow-hidden shadow-lg";
-
+  "w-full max-w-[500px] h-[320px] md:h-[400px] rounded-2xl overflow-hidden";
 /* =========================
    MAIN COMPONENT
 ========================= */
