@@ -33,7 +33,7 @@ export const PricingPage = () => {
             Simple, fair pricing
           </h3>
 
-          <p className="text-[#011B33] text-center text-sm sm:text-base md:text-lg leading-6 max-w-xl mx-auto lg:mx-0">
+          <p className="text-[#011B33] text-center  text-sm sm:text-base md:text-lg leading-6 max-w-xl mx-auto lg:mx-auto">
             Durapayment only makes money when you do.
           </p>
         </div>
