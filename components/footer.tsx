@@ -57,7 +57,7 @@ export const Footer = () => {
 
   return (
     <footer className="w-full bg-white pt-20 pb-10 border-t border-gray-200">
-      <div className="max-w-[1300px] mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* COLUMN 1 */}
@@ -114,10 +114,18 @@ export const Footer = () => {
           <div className={footerText}>
             <Title text="Pricing" />
             <ul className="hidden md:block space-y-2">
-              <li className={linkClass}>Nigeria</li>
-              <li className={linkClass}>Ghana</li>
-              <li className={linkClass}>South Africa</li>
-              <li className={linkClass}>Kenya</li>
+              <li className={linkClass}>
+                <Link href="/coming-soon">Nigeria</Link>
+              </li>
+              <li className={linkClass}>
+                <Link href="/coming-soon">Ghana</Link>
+              </li>
+              <li className={linkClass}>
+                <Link href="/coming-soon">South Africa</Link>
+              </li>
+              <li className={linkClass}>
+                <Link href="/coming-soon">Kenya</Link>
+              </li>
 
               <li className="mt-3 font-semibold text-[#011b33]">Learn</li>
               <li className={linkClass}>Blog</li>
@@ -145,14 +153,27 @@ export const Footer = () => {
           <div className={footerText}>
             <Title text="About" />
             <ul className="hidden md:block space-y-2">
-              <li className={linkClass}>Company</li>
+              <li>
+                <Link href="/commerce">company</Link>
+              </li>
               <li className={linkClass}>Careers</li>
               <li className={linkClass}>Media Kit</li>
-              <li className={linkClass}>Privacy & Terms</li>
+              <li className={linkClass}>
+                <Link href="/legal">Privacy & Terms</Link>
+              </li>
 
               <li className="mt-3 font-semibold text-[#011b33]">Support</li>
-              <li className={linkClass}>Help Center</li>
-              <li className={linkClass}>Contact Support</li>
+
+              <li>
+                <Link href="/why" className={linkClass}>
+                  Help Center
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact-us" className={linkClass}>
+                  Contact Support
+                </Link>
+              </li>
 
               <li className="mt-3 font-semibold text-[#011b33]">Customers</li>
               <li className={linkClass}>Testimonials</li>
