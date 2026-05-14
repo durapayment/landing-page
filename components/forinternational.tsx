@@ -14,7 +14,7 @@ const PARAGRAPH_CLASS =
   "text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7";
 
 const SECTION_WRAPPER =
-  "w-full max-w-310 mx-auto flex flex-col md:flex-row items-center justify-between gap-12 py-16";
+  "w-full max-w-310 mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12 py-16";
 
 const IMAGE_BOX =
   "w-full max-w-[500px] h-[320px] md:h-[400px] rounded-2xl overflow-hidden";
@@ -192,10 +192,10 @@ export const ForInternational = () => {
           </div>
         </section>
       </section>
-      <div className={SECTION_WRAPPER}>
+      <div className={`${SECTION_WRAPPER}  mt-20`}>
         <div className="flex-1 flex justify-center">
           <div className={IMAGE_BOX}>
-            <img src="/payments.jpg" className="w-full h-full object-cover" />
+            <img src="/collect.gif" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="flex-1 max-w-xl">
@@ -221,6 +221,375 @@ export const ForInternational = () => {
               <li key={i} className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-green-600" />
                 {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      {/* SECTION 5 */}
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Build custom payments experiences with well-documented APIs
+          </h3>
+
+          <p className={PARAGRAPH_CLASS}>
+            Developers love our thorough, well-documented APIs that let you
+            build everything from simple weekend projects, to complex financial
+            products serving hundreds of thousands of customers. If you can
+            imagine it, you can build it with Paystack.
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "Collect one-time and recurring payments from your app or website",
+              "Make instant transfers",
+              "Retrieve all your transaction and customer data",
+              "Verify the identity of customers",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img src="/robust.png" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+      {/* SECTION 6 */}
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img
+              src="/videoframe.png"
+              className="w-full h-full object-cover"
+              alt="fraud protection"
+            />
+          </div>
+        </div>
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Protect yourself and your customers with advanced fraud detection
+          </h3>
+
+          <p className={PARAGRAPH_CLASS}>
+            Paystack’s combination of automated and manual fraud systems protect
+            you from fraudulent transactions and associated chargeback claims.
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "PCI-DSS-certified systems",
+              "Automated fraud monitoring",
+              "When a fraud attempt is discovered with any Paystack merchant, ALL Paystack merchants become protected from further attempts",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33] leading-6">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      {/* SECTION 7 */}
+      <div className={SECTION_WRAPPER}>
+        {/* TEXT RIGHT */}
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Delight customers with memorable, in-person payment experiences
+          </h3>
+
+          <p className={PARAGRAPH_CLASS}>
+            Build custom, in-person payment experiences that increase customer
+            loyalty and lifetime value.
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "Multiple payment channels (Card, Bank Transfer, USSD)",
+              "Delight customers with self-checkout experiences",
+              "Reinforce your brand with customized receipts",
+              "Build loyalty programs with deals and discounts customised for each customer",
+              "Easy and straightforward reconciliation",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33] leading-6">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* IMAGE LEFT */}
+        <div className="flex-1 flex justify-center md:justify-start">
+          <div className={IMAGE_BOX}>
+            <img
+              src="/user.jpg"
+              className="w-full h-full object-cover"
+              alt="in-person payments"
+            />
+          </div>
+        </div>
+      </div>
+      {/* SECTION 8 */}
+      <div className={SECTION_WRAPPER}>
+        {/* IMAGE RIGHT */}
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img
+              src="/customer.jpg"
+              className="w-full h-full object-cover"
+              alt="identity verification"
+            />
+          </div>
+        </div>
+        {/* TEXT LEFT */}
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Verify the identity of your customers
+          </h3>
+
+          <p className={PARAGRAPH_CLASS}>
+            Need to verify that your customer is who they say they are? Our
+            verification APIs allow you to do this in various ways.
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "Verify identity with a bank account number",
+              "Verify identity with a phone number",
+              "Verify identity with a Bank Verification Number (a unique identifier that everyone with a Nigerian bank account must have)",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33] leading-6">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      {/* SECTION 09 */}
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Detailed reporting for accounting, reconciliation, and audits
+          </h3>
+
+          <p className={PARAGRAPH_CLASS}>
+            Export your payments data however you want, whenever you want.
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "Download granular transaction, customer, and error rate data",
+              "Receive daily and weekly automated email reports",
+              "Pull in your payments data into your internal dashboards and accounting/reporting tools",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img src="/detailed.png" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img src="/slash.png" className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Slash revenue loss to chargebacks and refunds
+          </h3>
+
+          <p className={PARAGRAPH_CLASS}>
+            The traditional chargeback process can be slow and expensive.
+            Paystack lets you manage chargebacks efficiently from your
+            Dashboard.
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "Chargebacks automatically reflect on the Paystack Dashboard",
+              "Reject chargebacks and upload supporting evidence quickly",
+              "Issue partial or full refunds right from your Dashboard",
+              "Exportable record of disputes and refunds",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Control access to data with User Permissions
+          </h3>
+
+          <p className={PARAGRAPH_CLASS}>
+            Give team members exactly the permissions they need and control what
+            they can see and do on your Dashboard.
+          </p>
+        </div>
+
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img src="/image1.jpg" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img
+              src="/checkoutform.png"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            A modern, beautiful payments experience
+          </h3>
+
+          <p className={PARAGRAPH_CLASS}>
+            Give customers confidence in your business with a modern checkout
+            form.
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "No redirects - keep customers on your page",
+              "Automatic error resolution with smart payment suggestions",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Understand customer purchase patterns
+          </h3>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "See your top customers by purchases and total spend",
+              "Track new vs returning customers",
+              "Analyze busiest time of day and week",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img src="/insights.jpg" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img src="/checkout.png" className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            Monitor your business performance while on the move
+          </h3>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "Track sales and success rates",
+              "Send invoices from your phone",
+              "Look up transactions instantly",
+              "Get alerts for important updates",
+              "Access instant support",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>
+            World-class support from a dedicated Relationship Manager
+          </h3>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "Monitor transactions to ensure minimal downtime",
+              "Provide product roadmap input and insights",
+              "Ensure prompt issue resolution within SLA",
+              "Offer strategic industry guidance",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img src="/start.jpg" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+      <div className={SECTION_WRAPPER}>
+        <div className="flex-1 flex justify-center">
+          <div className={IMAGE_BOX}>
+            <img src="/fair.png" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="flex-1 max-w-xl">
+          <h3 className={HEADING_CLASS}>Fair, transparent pricing</h3>
+          <p className="{PARAGRAPH_CLASS">
+            Durapayment only charges a tiny fee per transaction, which means we
+            literally only make money when you do, and we work hard to ensure
+            every transaction succeeds.
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {[
+              "Zero integration fee",
+              "Zero maintenance fee",
+              "Bulk volume discounts",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-green-600 mt-1" />
+                <span className="text-sm text-[#011B33]">{item}</span>
               </li>
             ))}
           </ul>
