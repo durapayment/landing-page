@@ -5,15 +5,15 @@ import { TiTick } from "react-icons/ti";
 
 export const TransfersSection = () => {
   return (
-    <section className="w-full bg-white mt-20 mb-32 py-24 px-6">
-      <div className="max-w-6xl mx-auto space-y-10">
+    <section className="w-full bg-white mt-2 flex flex-col items-center py-24">
+      <div className="max-w-310 w-full space-y-10 px-6">
         {/* TRANSFERS */}
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-[#011B33]">Transfers</h2>
 
           <div className="text-[#011B33] text-[16px] leading-6 divide-y">
             <div className="flex justify-between items-start py-6">
-              <p className="flex items-start gap-3 max-w-[60%] leading-relaxed">
+              <p className="flex items-start gap-3 leading-relaxed">
                 <TiTick className="text-green-600 mt-1 shrink-0" />
                 Transfers of NGN 5,000 and below
               </p>
@@ -23,7 +23,7 @@ export const TransfersSection = () => {
             </div>
 
             <div className="flex justify-between items-start py-6">
-              <p className="flex items-start gap-3 max-w-[60%] leading-relaxed">
+              <p className="flex items-start gap-3 leading-relaxed">
                 <TiTick className="text-green-600 mt-1 shrink-0" />
                 Transfers between NGN 5,001 and NGN 50,000
               </p>
@@ -33,7 +33,7 @@ export const TransfersSection = () => {
             </div>
 
             <div className="flex justify-between items-start py-6">
-              <p className="flex items-start gap-3 max-w-[60%] leading-relaxed">
+              <p className="flex items-start gap-3 leading-relaxed">
                 <TiTick className="text-green-600 mt-1 shrink-0" />
                 Transfers above NGN 50,000
               </p>
@@ -52,7 +52,7 @@ export const TransfersSection = () => {
 
           <div className="text-[#011B33] text-[16px] leading-6 divide-y">
             <div className="flex justify-between items-start py-6">
-              <p className="flex items-start gap-3 max-w-[60%] leading-relaxed">
+              <p className="flex items-start gap-3 leading-relaxed">
                 <TiTick className="text-green-600 mt-1 shrink-0" />
                 Dedicated Virtual Accounts (DVA)
               </p>
@@ -70,7 +70,7 @@ export const TransfersSection = () => {
           </h2>
 
           <div className="text-[#011B33] text-[16px] leading-6 divide-y">
-            <div className="flex justify-between items-start py-6">
+            {/* <div className="flex justify-between items-start py-6">
               <p className="flex items-start gap-3 max-w-[60%] leading-relaxed">
                 <TiTick className="text-green-600 mt-1 shrink-0" />
                 USSD Transactions
@@ -78,10 +78,10 @@ export const TransfersSection = () => {
               <p className="font-medium whitespace-nowrap">
                 1.5% + NGN 100 (capped at NGN 2,000)
               </p>
-            </div>
+            </div> */}
 
             <div className="flex justify-between items-start py-6">
-              <p className="flex items-start gap-3 max-w-[60%] leading-relaxed">
+              <p className="flex items-start gap-3 leading-relaxed">
                 <TiTick className="text-green-600 mt-1 shrink-0" />
                 Local Card Transactions
               </p>
@@ -91,7 +91,7 @@ export const TransfersSection = () => {
             </div>
 
             <div className="flex justify-between items-start py-6">
-              <p className="flex items-start gap-3 max-w-[60%] leading-relaxed">
+              <p className="flex items-start gap-3 leading-relaxed">
                 <TiTick className="text-green-600 mt-1 shrink-0" />
                 International Card Transactions
               </p>
@@ -100,7 +100,7 @@ export const TransfersSection = () => {
           </div>
         </div>
 
-        {/* PHYSICAL TERMINAL */}
+        {/* PHYSICAL TERMINAL
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-[#011B33]">
             Physical Terminal
@@ -165,13 +165,8 @@ export const TransfersSection = () => {
               </p>
             </div>
           </div>
-        </div>
-
-       
+        </div> */}
       </div>
     </section>
   );
 };
-
-
-

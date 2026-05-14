@@ -1,15 +1,15 @@
 import CalculatorSection from "@/components/pricing-calculator";
 import { TransfersSection } from "@/components/pricing-mid";
+import { FAQSection } from "@/components/pricinglastpage";
 import { PricingPage } from "@/components/pricingpage";
 
 export default function Pricing() {
   return (
     <div>
-      <main>
-        <PricingPage />
-        <TransfersSection />
-        <CalculatorSection />
-      </main>
+      <PricingPage />
+      <TransfersSection />
+      <CalculatorSection />
+      <FAQSection />
     </div>
   );
 }

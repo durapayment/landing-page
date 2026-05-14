@@ -21,63 +21,59 @@ function FeeCalculator() {
   }, [amount, fee]);
 
   return (
-    <div className="w-full max-w-xl text-black rounded-2xl  px-8 py-10 shadow-sm bg-blue-950">
-      <h2 className="text-xl font-semibold text-[#011B33] mb-6">
-        Fee Calculator
-      </h2>
+    <div className="w-full max-w-xl text-white rounded-2xl  px-8 py-10 shadow-sm bg-[#011b33]">
+      <h2 className="text-xl font-semibold text-white mb-6">Fee Calculator</h2>
 
       <div className="mb-8">
-        <label className="text-sm text-gray-500">Your Customer Pays</label>
+        <label className="text-sm text-white">Your Customer Pays</label>
 
         <div className="flex items-center gap-2 mt-2 border rounded-xl px-4 py-3">
-          <span className="text-[#011B33] font-medium">NGN</span>
+          <span className="text-white font-medium">NGN</span>
           <input
             type="number"
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value))}
-            className="w-full outline-none text-lg font-semibold text-[#011B33]"
+            className="w-full outline-none text-lg font-semibold text-white"
           />
         </div>
       </div>
 
       <div className="space-y-5">
         <div className="flex justify-between">
-          <p className="text-gray-500">We'll settle you</p>
-          <p className="font-semibold text-[#011B33]">
+          <p className="text-white opacity-70 ">We'll settle you</p>
+          <p className="font-semibold text-white">
             NGN {settlement.toLocaleString()}
           </p>
         </div>
 
         <div className="flex justify-between">
-          <p className="text-gray-500">
+          <p className="text-white opacity-70">
             Paystack Fees ({(feeRate * 100).toFixed(1)}%)
           </p>
-          <p className="font-semibold text-[#011B33]">
-            NGN {fee.toLocaleString()}
-          </p>
+          <p className="font-semibold text-white">NGN {fee.toLocaleString()}</p>
         </div>
       </div>
 
-      <div className="mt-8 space-y-2 text-sm text-gray-500">
-        <p className="flex items-center gap-2">
-          <TiTick className="text-green-600" />
+      <div className="mt-8 space-y-2 border-b border-gray-500 pb-1 text-sm text-white opacity-70">
+        <p className="flex items-center justify-between border-b border-gray-500 pb-1 gap-2">
           Free, automatic settlement within 24 hours
-        </p>
-        <p className="flex items-center gap-2">
           <TiTick className="text-green-600" />
+        </p>
+        <p className="flex items-center justify-between border-b border-gray-500 pb-1 gap-2">
           Local fees capped at NGN 2,000
-        </p>
-        <p className="flex items-center gap-2">
           <TiTick className="text-green-600" />
+        </p>
+        <p className="flex items-center justify-between border-b border-gray-500 pb-1 gap-2">
           No hidden fees or charges
-        </p>
-        <p className="flex items-center gap-2">
           <TiTick className="text-green-600" />
+        </p>
+        <p className="flex items-center justify-between border-b border-gray-500 pb-1 gap-2">
           Zero integration fee
-        </p>
-        <p className="flex items-center gap-2">
           <TiTick className="text-green-600" />
+        </p>
+        <p className="flex items-center justify-between gap-2">
           Zero maintenance fee
+          <TiTick className="text-green-600" />
         </p>
       </div>
     </div>
@@ -89,7 +85,7 @@ function FeeCalculator() {
 export default function CalculatorSection() {
   return (
     <section className="w-full min-h-svh bg-tertiary/10">
-      <div className="max-w-6xl mx-auto mt-20 pt-20 pb-20 px-6 py-20">
+      <div className="max-w-7xl mx-auto mt-20 pt-20 pb-20 px-6 py-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* TEXT */}
           <div className="space-y-4 max-w-md">
@@ -99,7 +95,7 @@ export default function CalculatorSection() {
                 fontFamily:
                   'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
                 fontSize: "43.2px",
-                fontWeight: 800,
+                fontWeight: 700,
                 lineHeight: "51.84px",
                 color: "rgb(1, 27, 51)",
               }}>
