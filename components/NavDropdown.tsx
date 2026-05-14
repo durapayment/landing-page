@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export const NavDropdown = ({
   label,
@@ -36,11 +37,10 @@ export const NavDropdown = ({
       tabIndex={0}
       onClick={() => toggleMenu(open ? null : id)}
       onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}
-    >
+      onMouseLeave={handleClose}>
       {/* TRIGGER */}
       <div className="flex items-center gap-1 hover:text-black transition">
-        <p className="font-bold"> {label}</p>
+        <p className="font-bold">{label}</p>
         <MdArrowDropDown />
       </div>
 
@@ -52,20 +52,12 @@ export const NavDropdown = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.15 }}
-            className="
-              absolute top-12 left-0
-              bg-white shadow-2xl rounded-xl
-              z-999
-              flex gap-6
-              p-6
-            "
+            className="absolute top-12 left-0 bg-white shadow-2xl rounded-xl z-999 flex gap-6 p-6"
             onMouseEnter={handleOpen}
-            onMouseLeave={handleClose}
-          >
+            onMouseLeave={handleClose}>
             {/* ================= WHY DURAPAY ================= */}
             {id === "whydurapay" && (
               <>
-                {/* LEFT */}
                 <div className="w-80 bg-gray-50 rounded-lg p-5 space-y-6">
                   {[
                     {
@@ -82,7 +74,14 @@ export const NavDropdown = ({
                     },
                   ].map((item) => (
                     <div key={item.title} className="space-y-1">
-                      <h3 className="font-semibold">{item.title}</h3>
+                      <Link
+                        href={`/${item.title
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
+                        className="font-semibold block hover:text-green-600">
+                        {item.title}
+                      </Link>
+
                       <p className="text-sm text-gray-600">{item.desc}</p>
                     </div>
                   ))}
@@ -92,25 +91,33 @@ export const NavDropdown = ({
                 <div className="w-48 bg-green-50 rounded-lg p-5 space-y-4">
                   <div>
                     <h3 className="font-semibold mb-2">Your Growth Stage</h3>
+
                     {[
                       "Entrepreneurs",
                       "Corporates",
                       "Global Brands",
                       "Startups",
                     ].map((item) => (
-                      <p key={item} className="text-sm text-gray-700">
+                      <Link
+                        key={item}
+                        href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                        className="text-sm text-gray-700 block hover:text-green-600">
                         {item}
-                      </p>
+                      </Link>
                     ))}
                   </div>
 
                   <div>
                     <h3 className="font-semibold mb-2">Business Type</h3>
+
                     {["Fintechs", "Agencies", "Schools", "Betting"].map(
                       (item) => (
-                        <p key={item} className="text-sm text-gray-700">
+                        <Link
+                          key={item}
+                          href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                          className="text-sm text-gray-700 block hover:text-green-600">
                           {item}
-                        </p>
+                        </Link>
                       ),
                     )}
                   </div>
@@ -146,8 +153,16 @@ export const NavDropdown = ({
                   ].map((item) => (
                     <div key={item.title} className="flex gap-4">
                       <img src={item.img} width={40} alt="" />
+
                       <div>
-                        <h3 className="font-semibold">{item.title}</h3>
+                        <Link
+                          href={`/${item.title
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                          className="font-semibold block hover:text-green-600">
+                          {item.title}
+                        </Link>
+
                         <p className="text-sm text-gray-600">{item.desc}</p>
                       </div>
                     </div>
@@ -156,10 +171,14 @@ export const NavDropdown = ({
 
                 <div className="w-48 bg-green-50 rounded-lg p-5 space-y-2">
                   <h3 className="font-semibold mb-2">Company</h3>
+
                   {["About", "Careers", "Brand", "Media Kit"].map((item) => (
-                    <p key={item} className="text-sm text-gray-700">
+                    <Link
+                      key={item}
+                      href="/coming-soon"
+                      className="cursor-pointer block hover:text-green-600">
                       {item}
-                    </p>
+                    </Link>
                   ))}
                 </div>
               </>
@@ -170,9 +189,12 @@ export const NavDropdown = ({
               <div className="flex flex-col text-sm space-y-3">
                 {["Overview", "Documentation", "Integration", "API Status"].map(
                   (item) => (
-                    <p key={item} className="cursor-pointer hover:opacity-70">
+                    <Link
+                      key={item}
+                      href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="cursor-pointer hover:opacity-70 block">
                       {item}
-                    </p>
+                    </Link>
                   ),
                 )}
               </div>
@@ -180,12 +202,15 @@ export const NavDropdown = ({
 
             {/* ================= SUPPORT ================= */}
             {id === "support" && (
-              <div className="flex flex-col text-sm space-y-3  min-w-25 w-full max-w-sm">
+              <div className="flex flex-col text-sm space-y-3 min-w-25 w-full max-w-sm">
                 {["Quick Help", "Contact Us", "Why was I debited?"].map(
                   (item) => (
-                    <p key={item} className="cursor-pointer">
+                    <Link
+                      key={item}
+                      href="/coming-soon"
+                      className="cursor-pointer block hover:text-green-600">
                       {item}
-                    </p>
+                    </Link>
                   ),
                 )}
               </div>

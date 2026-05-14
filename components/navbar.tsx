@@ -69,9 +69,11 @@ export const NavBar = () => {
               toggleMenu={toggleDropdown}
             />
 
-            <li className="cursor-pointer font-bold hover:text-black">
-              Customers
-            </li>
+            <Link
+              href="/coming-soon"
+              className="cursor-pointer font-bold hover:text-black">
+              Customer
+            </Link>
             <Link
               href="/pricing"
               className="cursor-pointer font-bold hover:text-black">

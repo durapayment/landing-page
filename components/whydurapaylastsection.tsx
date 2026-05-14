@@ -28,7 +28,7 @@ export const WhyDurapayLastSection = () => {
   return (
     <section className="w-full flex flex-col items-center justify-center bg-[#eaf6fc] pt-10 px-4 pb-20 sm:px-8 md:px-12 mb-10 sm:mb-20">
       {/* WIDTH FIXED TO MATCH MID SECTION */}
-      <div className="w-full max-w-6xl mx-auto pt-12 sm:pt-16 md:pt-20">
+      <div className="w-full max-w-310 mx-auto pt-12 sm:pt-16 md:pt-20">
         {/* TEXT SECTION */}
         <div className="w-full max-w-2xl text-left mb-10 sm:mb-12 md:mb-14">
           <h1

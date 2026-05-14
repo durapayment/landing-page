@@ -80,17 +80,15 @@ export const Footer = () => {
                 </li>
 
                 <li className={linkClass}>
-                  <Link href="/for_corporates">For Corporates</Link>
+                  <Link href="/corporates">For Corporates</Link>
                 </li>
 
                 <li className={linkClass}>
-                  <Link href="/for-startups">For Startups</Link>
+                  <Link href="/startups">For Startups</Link>
                 </li>
 
                 <li className={linkClass}>
-                  <Link href="/for-international-companies">
-                    For International Companies
-                  </Link>
+                  <Link href="/global-brands">For International Companies</Link>
                 </li>
 
                 <li className={linkClass + " mt-6"}>
