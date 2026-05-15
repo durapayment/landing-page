@@ -62,7 +62,13 @@ export const OurPartners = () => {
               <img
                 src={logo}
                 alt="partner logo"
-                className="w-14 h-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                className={`h-auto object-contain grayscale hover:grayscale-0 transition duration-300 ${
+                  logo.includes("mtn") ||
+                  logo.includes("bolt") ||
+                  logo.includes("Ariiya")
+                    ? "w-12 md:w-16" // smaller size for oversized logos
+                    : "w-14 md:w-18" // normal size for others
+                }`}
               />
             </div>
           ))}
@@ -75,7 +81,14 @@ export const OurPartners = () => {
               <img
                 src={logo}
                 alt="partner logo"
-                className="w-28 h-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                className={`h-auto object-contain grayscale hover:grayscale-0 transition duration-300 ${
+                  logo.includes("mtn") ||
+                  logo.includes("bolt") ||
+                  logo.includes("ariiya") ||
+                  logo.includes("smile")
+                    ? "w-10 md:w-16" // smaller size for oversized logos
+                    : "w-22 md:w-28" // normal size for others
+                }`}
               />
             </div>
           ))}
