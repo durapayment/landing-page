@@ -1,5 +1,5 @@
 "use client";
-
+import { siteConfig } from "@/config/site";
 export const OurPartners = () => {
   const logos = [
     "/Ariiya.svg",
@@ -50,8 +50,8 @@ export const OurPartners = () => {
               color: "rgb(1, 27, 51)",
             }}
             className="text-[16px] sm:text-[18px] md:text-[22px] max-w-[56ch]">
-            Durapayment is a growth engine for a new generation of innovative,
-            forward-looking organizations operating in Africa.
+            {siteConfig.name} is a growth engine for a new generation of
+            innovative, forward-looking organizations operating in Africa.
           </p>
         </div>
 

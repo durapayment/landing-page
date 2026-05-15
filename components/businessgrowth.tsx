@@ -38,8 +38,8 @@ export const BusinessGrowth = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="mb-4 sm:mb-6 text-[24px] sm:text-[32px] md:text-[48px]">
-            Trusted by 200,000+ businesses across Africa
+            className="mb-4 sm:mb-6 text-[24px] sm:text-[32px] md:text-[42px]">
+            Built for 200,000+ businesses in Nigeria
           </h1>
 
           <p

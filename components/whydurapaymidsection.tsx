@@ -40,7 +40,7 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-start">
           <div className={IMAGE_BOX}>
             <img
-              src="/Start.jpg"
+              src="/start.jpg"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -55,9 +55,9 @@ export const WhyDurapayMidSection = () => {
           <h3 className={HEADING_CLASS}>Start accepting payments instantly</h3>
 
           <p className={PARAGRAPH_CLASS}>
-            Durapayment is the fastest, simplest way to start accepting online
-            payments in Nigeria. From signup to receiving real payments can take
-            under 15 minutes. Seriously.
+            {siteConfig.name} is the fastest, simplest way to start accepting
+            online payments in Nigeria. From signup to receiving real payments
+            can take under 15 minutes. Seriously.
           </p>
         </div>
       </div>
@@ -72,9 +72,9 @@ export const WhyDurapayMidSection = () => {
           <h3 className={HEADING_CLASS}>Start accepting payments instantly</h3>
 
           <p className={PARAGRAPH_CLASS}>
-            Durapayment is the fastest, simplest way to start accepting online
-            payments in Nigeria. From signup to receiving real payments can take
-            under 15 minutes. Seriously.
+            {siteConfig.name} is the fastest, simplest way to start accepting
+            online payments in Nigeria. From signup to receiving real payments
+            can take under 15 minutes. Seriously.
           </p>
 
           <div className="flex items-center gap-2 mt-6 group cursor-pointer">
@@ -88,7 +88,7 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-start">
           <div className={IMAGE_BOX}>
             <img
-              src="/Fair.png"
+              src="/fair.png"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -105,7 +105,7 @@ export const WhyDurapayMidSection = () => {
           viewport={{ once: true }}>
           <div className={IMAGE_BOX}>
             <img
-              src="/Collect.gif"
+              src="/collect.gif"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -176,7 +176,7 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-end">
           <div className={IMAGE_BOX}>
             <img
-              src="/Smart.png"
+              src="/smart.png"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -206,8 +206,8 @@ export const WhyDurapayMidSection = () => {
           </h3>
 
           <p className={PARAGRAPH_CLASS}>
-            Durapayment’s combination of automated and manual fraud systems
-            protect you from fraudulent transactions.
+            {siteConfig.name}’s combination of automated and manual fraud
+            systems protect you from fraudulent transactions.
           </p>
 
           <div className="grid grid-cols-1 gap-y-3 mt-6">
@@ -240,7 +240,7 @@ export const WhyDurapayMidSection = () => {
             Developers love our thorough, well-documented APIs that let you
             build everything from simple weekend projects, to complex financial
             products serving hundreds of thousands of customers. If you can
-            imagine it, you can build it with Durapayment.
+            imagine it, you can build it with {siteConfig.name}.
           </p>
 
           <ul className="mt-6 space-y-3 text-[rgb(1,27,51)] text-sm md:text-base">
@@ -267,14 +267,16 @@ export const WhyDurapayMidSection = () => {
             <div className="w-6 h-6 rounded-full bg-white border border-green-500 flex items-center justify-center group-hover:bg-green-500 transition">
               <ChevronRight className="w-4 h-4 text-green-600 group-hover:text-white" />
             </div>
-            <p className="text-[rgb(1,27,51)]">Durapayment API Quickstart</p>
+            <p className="text-[rgb(1,27,51)]">
+              {siteConfig.name} API Quickstart
+            </p>
           </div>
         </div>
 
         <div className="flex-1 flex justify-center md:justify-end">
           <div className={IMAGE_BOX}>
             <img
-              src="/Collect.gif"
+              src="/collect.gif"
               alt="API experience"
               className="w-full h-full object-cover"
             />
@@ -286,7 +288,7 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-start">
           <div className={IMAGE_BOX}>
             <img
-              src="/Insights.jpg"
+              src="/insights.jpg"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -303,8 +305,8 @@ export const WhyDurapayMidSection = () => {
           </h3>
 
           <p className={PARAGRAPH_CLASS}>
-            Durapayment provides detailed reporting, alerts, and exports, so you
-            and your team are always on top of business.
+            {siteConfig.name} provides detailed reporting, alerts, and exports,
+            so you and your team are always on top of business.
           </p>
           <div className="grid grid-cols-1 gap-y-3 mt-6">
             {[
@@ -356,7 +358,7 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-start">
           <div className={IMAGE_BOX}>
             <img
-              src="/Getpaid.gif"
+              src="/getpaid.gif"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -372,18 +374,13 @@ export const WhyDurapayMidSection = () => {
 
           <p className={PARAGRAPH_CLASS}>
             The internet has no borders, and neither should your business. With
-            Paystack, you can accept payments from international customers,
-            wherever they are in the world.
+            {siteConfig.name}, you can accept payments from international
+            customers, wherever they are in the world.
           </p>
 
           <p className={PARAGRAPH_CLASS}>
-            You can accept payments from internationally-issued cards or via
-            Apple Pay, display prices in USD, and also get settled in USD.
-          </p>
-
-          <p className={PARAGRAPH_CLASS}>
-            We also make available localized payment options - such as mobile
-            money - that are popular in certain regions of the world.
+            You can accept payments from internationally-issued cards, display
+            prices in USD, and also get settled in USD.
           </p>
         </div>
       </div>
@@ -406,7 +403,7 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-end">
           <div className={IMAGE_BOX}>
             <img
-              src="/Customer.jpg"
+              src="/customer.jpg"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -419,7 +416,7 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-start">
           <div className={IMAGE_BOX}>
             <img
-              src="/Checkout.png"
+              src="/checkout.png"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -467,19 +464,19 @@ export const WhyDurapayMidSection = () => {
           </h3>
 
           <p className={PARAGRAPH_CLASS}>
-            Above all, over 200,000 businesses love Paystack because we’re a
-            team that’s obsessed with your company’s growth. The mission of
-            Paystack is to help businesses in Africa be profitable, envied, and
-            loved, and every thing we do - from the features we build to how we
-            hire - is done with a single goal: to guarantee your business’
-            success.
+            Above all, over 200,000 businesses love {siteConfig.name} because
+            we’re a team that’s obsessed with your company’s growth. The mission
+            of {siteConfig.name} is to help businesses in Nigeria be profitable,
+            envied, and loved, and every thing we do - from the features we
+            build to how we hire - is done with a single goal: to guarantee your
+            business’ success.
           </p>
         </div>
 
         <div className="flex-1 flex justify-center md:justify-end">
           <div className={IMAGE_BOX}>
             <img
-              src="/Paystack-Team.png"
+              src="/paystack-team.png"
               className="w-full h-full object-cover"
               alt=""
             />

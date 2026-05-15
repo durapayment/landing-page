@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 const handleRedirect = () => {
-  window.open("https://online.durapayment.com", "_blank");
+  window.open("https://online.durapayment.com");
 };
 
 export const MobileMenu = ({ open }: any) => {

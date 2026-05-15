@@ -1,5 +1,5 @@
 "use client";
-
+import { siteConfig } from "@/config/site";
 import { useState } from "react";
 export const WhyWasIDebitedPage = () => {
   const [amount, setAmount] = useState("");
@@ -19,11 +19,14 @@ export const WhyWasIDebitedPage = () => {
         </h1>
 
         <p className="mt-3 text-gray-600 leading-relaxed">
-          Durapayment processes payments for over 200,000 businesses in Africa.
-          When your debit alert reads
-          <span className="font-semibold text-gray-900">{""} Durapayment</span>,
-          it means the transaction was made to a business using Paystack for
-          collections. Use the form below to identify the merchant.
+          {siteConfig.name} processes payments for over 200,000 businesses in
+          Nigeria. When your debit alert reads
+          <span className="font-semibold text-gray-900">
+            {""} {siteConfig.name}
+          </span>
+          , it means the transaction was made to a business using{" "}
+          {siteConfig.name} for collections. Use the form below to identify the
+          merchant.
         </p>
 
         {/* Form */}
