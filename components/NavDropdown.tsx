@@ -175,7 +175,7 @@ export const NavDropdown = ({
                   {["About", "Careers", "Brand", "Media Kit"].map((item) => (
                     <Link
                       key={item}
-                      href="/coming-soon"
+                      href={item === "About" ? `/about` : `/coming-soon`}
                       className="cursor-pointer block hover:text-green-600">
                       {item}
                     </Link>

@@ -17,9 +17,9 @@ export default function GuidePage() {
   const [active, setActive] = useState(sections[0]);
 
   return (
-    <main className="min-h-screen flex bg-gray-50">
+    <main className="max-h-svh max-w-7xl px-30 mt-30 flex bg-gray-50">
       {/* Sidebar */}
-      <aside className="w-full md:w-1/3 lg:w-1/4 bg-white border-r p-6">
+      <aside className="w-full   md:w-1/3 lg:w-1/4 bg-white border-r p-6">
         <h1 className="text-xl font-bold text-gray-900 mb-6">
           DuraPayment Guide
         </h1>

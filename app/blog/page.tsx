@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import { Search } from "lucide-react";
+import Link from "next/link";
 
 const categories = [
-  "All",
-  "Payments",
-  "Security",
-  "Product Updates",
-  "Engineering",
-  "Business",
+  { name: "All", slug: "all" },
+  { name: "Payments", slug: "payments" },
+  { name: "Security", slug: "security" },
+  { name: "Product Updates", slug: "product-updates" },
+  { name: "Engineering", slug: "engineering" },
+  { name: "Business", slug: "business" },
 ];
 
 const posts = [
@@ -52,13 +53,13 @@ export default function BlogPage() {
       : posts.filter((p) => p.category === activeCategory);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className=" bg-white">
       {/* HERO */}
-      <section className="bg-black text-white py-20">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      <section className="bg-tertiary/40   text-black py-20">
+        <div className="max-w-5xl mx-auto mt-25 px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold">DuraPayment Blog</h1>
 
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-black opacity-70 max-w-2xl mx-auto">
             Insights on payments, fintech infrastructure, security, and scaling
             digital commerce across Africa.
           </p>
@@ -80,16 +81,12 @@ export default function BlogPage() {
       <section className="border-b">
         <div className="max-w-5xl mx-auto px-6 py-6 flex gap-3 flex-wrap">
           {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm border transition ${
-                activeCategory === cat
-                  ? "bg-black text-white"
-                  : "hover:bg-gray-100"
-              }`}>
-              {cat}
-            </button>
+            <Link
+              key={cat.slug}
+              href={cat.slug === "all" ? "/blog" : `/blog/${cat.slug}`}
+              className="px-4 py-2 rounded-full text-sm border transition hover:bg-gray-100">
+              {cat.name}
+            </Link>
           ))}
         </div>
       </section>

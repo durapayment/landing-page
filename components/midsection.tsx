@@ -50,36 +50,15 @@ export const MidSection = () => {
 
       {/* MAIN ROW */}
       <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12">
-        {/* LEFT: ANIMATION */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1 flex justify-center md:justify-start">
-          <motion.div
-            animate={{
-              y: [0, -18, 0],
-              rotate: [0, 2, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="relative w-65 sm:w-[320px] md:w-105 h-125 md:h-150">
-            <div className="absolute inset-0 bg-green-100 rounded-full blur-3xl opacity-50" />
-
-            <div className="relative z-10 w-full h-full flex items-center justify-center">
-              <div className="w-45 sm:w-55 md:w-65 h-85 md:h-105 bg-white rounded-[40px] shadow-xl border border-green-100 flex flex-col items-center justify-center">
-                <div className="w-[85%] h-[70%] bg-green-50 rounded-2xl flex items-center justify-center text-green-700 text-sm font-medium">
-                  Payment Now
-                </div>
-                <div className="w-16 h-1 bg-gray-300 rounded-full mt-4" />
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+        <div className="w-75 sm:w-90 md:w-82 h-90 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
+          <img
+            src="/seamless.png"
+            alt="feature image"
+            width={579}
+            height={715gi}
+            className="w-full h-full object-cover"
+          />
+        </div>
 
         {/* RIGHT: CONTENT */}
         <div className="flex-1 max-w-xl text-left mt-20">
@@ -239,7 +218,7 @@ export const MidSection = () => {
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="w-75 sm:w-90 md:w-82 h-90 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="/Robust.png"
+                src="/robust.png"
                 alt="feature image"
                 width={500}
                 height={635}
