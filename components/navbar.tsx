@@ -55,7 +55,7 @@ export const NavBar = () => {
         scrolled ? "bg-white/90 shadow-sm" : "bg-tertiary/2"
       }`}>
       {/* NAV CONTAINER */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-6">
+      <div className="max-w-[1300px] mx-auto flex items-center justify-between h-16 px-6">
         <div className="flex items-center gap-5 lg:gap-10">
           {/* LOGO */}
           <Link href={"/"} className="flex items-center cursor-pointer gap-2">

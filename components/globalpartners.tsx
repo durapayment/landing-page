@@ -27,7 +27,7 @@ export const GlobalPartners = () => {
 
   return (
     <section className="w-full bg-white px-4 sm:px-8 md:px-12 py-16 mt-20 md:mt-28">
-      <div className="w-full max-w-[1300px] mx-auto">
+      <div className="w-full max-w-7xl mx-auto">
         {/* TEXT SECTION */}
         <div className="w-full max-w-2xl text-left mb-12">
           <h1 className="mb-4 text-[24px] sm:text-[40px] md:text-[48px] font-bold text-[#011B33] leading-tight">
