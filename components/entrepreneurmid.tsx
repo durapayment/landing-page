@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check, ChevronRight } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 /* =========================
    STYLES
@@ -109,8 +110,8 @@ export const EntrepreneurMid = ({
 
           <p className={PARAGRAPH_CLASS}>
             The internet has no borders, and neither should your business. With
-            Durapayment, you can accept payments from international customers,
-            wherever they are in the world.
+            {siteConfig.name}, you can accept payments from international
+            customers, wherever they are in the world.
           </p>
           <p className={`${PARAGRAPH_CLASS} mt-10`}>
             You can accept payments from internationally-issued cards, display

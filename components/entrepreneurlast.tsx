@@ -2,7 +2,7 @@
 
 import { Check, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
-
+import { siteConfig } from "@/config/site";
 /* =========================
    STYLES
 ========================= */
@@ -57,15 +57,15 @@ const sections = [
   {
     image: "/app.png",
     title: "Monitor your business performance while on the move",
-    text: "Sign up for Paystack and track your most important business metrics on your mobile device.",
+    text: "Sign up for {siteConfig.name} and track your most important business metrics on your mobile device.",
     points: [
-      "Signup for Paystack in minutes",
+      "Signup for {siteConfig.name} in minutes",
       "Send invoices from your phone",
       "Look up transactions",
       "Get alerts for important updates",
       "Get instant support",
     ],
-    ctaText: "Learn more about our Durapayment Mobile App",
+    ctaText: "Learn more about our {siteConfig.name} Mobile App",
   },
   {
     image: "/videoframe_1.png",
@@ -84,9 +84,9 @@ const sections = [
   },
   {
     image: "/suya.jpg",
-    title: "Use Durapayment with an unregistered business",
+    title: "Use {siteConfig.name} with an unregistered business",
     text: "Get started even if your business isn't registered yet.",
-    ctaText: "Learn more about Durapayment Starter Business",
+    ctaText: "Learn more about {siteConfig.name} Starter Business",
   },
 ];
 

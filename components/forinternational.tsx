@@ -42,13 +42,13 @@ export const ForInternational = () => {
     },
   ];
   const handleRedirect = () => {
-    window.open("https://online.durapayment.com", "_blank");
+    window.open("https://online.durapayment.com");
   };
 
   const logos = [
-    "/Dominos-Plain.svg",
+    "/dominos-plain.svg",
     "/mtn-group-grayscale.svg",
-    "/Bolt.svg",
+    "/bolt.svg",
     "/axa.svg",
   ];
 
@@ -75,7 +75,8 @@ export const ForInternational = () => {
             </h1>
 
             <p className="text-[#011B33] mb-7 text-sm sm:text-base md:text-lg leading-7">
-              Paystack helps international technology companies get paid quickly
+              {siteConfig.name} helps international technology companies get
+              paid quickly
               <br />
               and securely by customers in Africa.
             </p>
@@ -97,7 +98,7 @@ export const ForInternational = () => {
         {/* PARTNERS */}
         <div className="border-t py-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm font-medium">
-            Trusted by over 200,000 businesses
+            Built for over 200,000 businesses
           </p>
 
           <div className="flex gap-4">
@@ -115,7 +116,7 @@ export const ForInternational = () => {
         <div className={SECTION_WRAPPER}>
           <div className="flex-1 max-w-xl">
             <h3 className={HEADING_CLASS}>
-              Durapayment processes over 50% of all online transactions in
+              {siteConfig.name} processes over 50% of all online transactions in
               Nigeria
             </h3>
 
@@ -237,7 +238,7 @@ export const ForInternational = () => {
             Developers love our thorough, well-documented APIs that let you
             build everything from simple weekend projects, to complex financial
             products serving hundreds of thousands of customers. If you can
-            imagine it, you can build it with Paystack.
+            imagine it, you can build it with {siteConfig.name}.
           </p>
 
           <ul className="mt-6 space-y-3">
@@ -277,8 +278,9 @@ export const ForInternational = () => {
           </h3>
 
           <p className={PARAGRAPH_CLASS}>
-            Paystack’s combination of automated and manual fraud systems protect
-            you from fraudulent transactions and associated chargeback claims.
+            {siteConfig.name}’s combination of automated and manual fraud
+            systems protect you from fraudulent transactions and associated
+            chargeback claims.
           </p>
 
           <ul className="mt-6 space-y-3">
@@ -416,13 +418,13 @@ export const ForInternational = () => {
 
           <p className={PARAGRAPH_CLASS}>
             The traditional chargeback process can be slow and expensive.
-            Paystack lets you manage chargebacks efficiently from your
+            {siteConfig.name} lets you manage chargebacks efficiently from your
             Dashboard.
           </p>
 
           <ul className="mt-6 space-y-3">
             {[
-              "Chargebacks automatically reflect on the Paystack Dashboard",
+              "Chargebacks automatically reflect on the {siteConfig.name} Dashboard",
               "Reject chargebacks and upload supporting evidence quickly",
               "Issue partial or full refunds right from your Dashboard",
               "Exportable record of disputes and refunds",

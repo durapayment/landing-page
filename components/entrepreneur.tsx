@@ -42,9 +42,9 @@ export const Entrepreneur = () => {
   const [videoOpen, setVideoOpen] = useState(false);
 
   const logos = [
-    "/Dominos-Plain.svg",
+    "/dominos-plain.svg",
     "/mtn-group-grayscale.svg",
-    "/Bolt.svg",
+    "/bolt.svg",
     "/axa.svg",
   ];
 
@@ -80,7 +80,8 @@ export const Entrepreneur = () => {
             </h1>
 
             <p className="text-[#011B33] mb-7 text-sm sm:text-base md:text-lg leading-7">
-              Durapayment helps entrepreneurs like you accept payments online.
+              {siteConfig.name} helps entrepreneurs like you accept payments
+              online.
               <br />
               Fast set up. Quick payouts. No long stories.
             </p>
@@ -100,7 +101,7 @@ export const Entrepreneur = () => {
           <div className="flex flex-col md:flex-row items-start lg:items-center justify-between gap-8">
             <div className="text-left w-full lg:w-auto">
               <p className="text-sm font-medium text-[#011B33] mb-3">
-                Trusted by over 200,000 businesses
+                Built for over 200,000 businesses
               </p>
 
               <div className="flex flex-nowrap items-center gap-3 sm:gap-4">
@@ -140,16 +141,16 @@ export const Entrepreneur = () => {
         <div className={SECTION_WRAPPER}>
           <div className="flex-1 max-w-xl">
             <h3 className={HEADING_CLASS}>
-              Durapayment pays out over $20 million to Nigerian businesses every
-              month
+              {siteConfig.name} pays out over $20 million to Nigerian businesses
+              every month
             </h3>
 
             <p className={PARAGRAPH_CLASS}>
-              Durapayment helps businesses like yours get paid quickly and
+              {siteConfig.name} helps businesses like yours get paid quickly and
               securely from anyone, anywhere in the world. Whether you're
               selling on Instagram, in a physical store, or even without a
-              website, Paystack's collection of payments tools will help you get
-              paid.
+              website, {siteConfig.name}'s collection of payments tools will
+              help you get paid.
             </p>
           </div>
           <div className="flex-1 flex justify-center md:justify-start">
@@ -260,8 +261,8 @@ export const Entrepreneur = () => {
 
             <p className={PARAGRAPH_CLASS}>
               Give your customers the gift of modern, frictionless, painless
-              payments. Integrate Paystack once and let your customers pay you
-              however they want.
+              payments. Integrate {siteConfig.name} once and let your customers
+              pay you however they want.
             </p>
 
             <ul className="mt-6 space-y-3">

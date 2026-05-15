@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, ChevronRight } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 /* =========================
    STYLES
@@ -28,28 +29,28 @@ export const Testimonial = () => {
         "Simple, powerful inventory management",
         "Easy plugins and integrations with thousands of world-class seller platforms",
       ],
-      ctaText: "Sell more online with Durapayment Commerce",
+      ctaText: "Sell more online with {siteConfig.name} Commerce",
     },
   ];
 
   const cards = [
     {
       image: "/stripe.png",
-      text: "Durapayment has been amazing for my business. I no longer worry over whether a customer will pay, I simply send them a Durapayment Payment Page link.",
+      text: "{siteConfig.name} has been amazing for my business. I no longer worry over whether a customer will pay, I simply send them a {siteConfig.name} Payment Page link.",
       footerImage: "/patrick.jpg",
       name: "Patrick Collison",
       role: "CEO, Stripe",
     },
     {
       image: "/VISA.png",
-      text: "Durapayment has helped us expand our business reach & accept payments from customers worldwide.Durapayment is also very easy to use, even for non-techies.",
+      text: "{siteConfig.name} has helped us expand our business reach & accept payments from customers worldwide.{siteConfig.name} is also very easy to use, even for non-techies.",
       footerImage: "/otto-williams.jpeg",
       name: "Otto Williams",
       role: "CEO, Visa",
     },
     {
       image: "/y.png",
-      text: "Since we switched to Durapayment, our customers always commend how easy payments have become. The website and mobile options are also very easy to use.",
+      text: "Since we switched to {siteConfig.name}, our customers always commend how easy payments have become. The website and mobile options are also very easy to use.",
       footerImage: "/michael-siebel.jpeg",
       name: "Michael Seibel",
       role: "Partner, Y Combinator",
@@ -68,8 +69,8 @@ export const Testimonial = () => {
             </h1>
 
             <p className="text-sm sm:text-base md:text-[20px] text-[#011B33] leading-8">
-              Over 40,000 businesses trust Paystack to power payments. Here's
-              what some of them have to say.
+              Over 40,000 businesses trust {siteConfig.name} to power payments.
+              Here's what some of them have to say.
             </p>
           </div>
 

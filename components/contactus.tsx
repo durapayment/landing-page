@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, Phone, MapPin, MessageSquare, Clock } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export const ContactPage = () => {
   return (
@@ -8,9 +9,7 @@ export const ContactPage = () => {
       {/* HERO SECTION */}
       <section className="w-full pt-28 pb-20 px-6 lg:px-20 bg-[#f8fafc]">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-green-600 font-semibold mb-4">
-            CONTACT DURAPAYMENT
-          </p>
+          <p className="text-green-600 font-semibold mb-4">CONTACT</p>
 
           <h1 className="text-4xl md:text-6xl font-bold leading-tight max-w-4xl mx-auto">
             We’re here to help your business move money faster
@@ -47,7 +46,7 @@ export const ContactPage = () => {
                 <Phone className="text-green-600" />
                 <div>
                   <h4 className="font-semibold">Phone</h4>
-                  <p className="text-gray-600">+234 800 DURA PAY</p>
+                  <p className="text-gray-600">+234 7043396722</p>
                 </div>
               </div>
 
@@ -56,7 +55,8 @@ export const ContactPage = () => {
                 <div>
                   <h4 className="font-semibold">Office Address</h4>
                   <p className="text-gray-600">
-                    Victoria Island, Lagos, Nigeria
+                    No. 100 off salvation ministries Road,Rumuosi Town, Rivers,
+                    Nigeria
                   </p>
                 </div>
               </div>
@@ -159,11 +159,11 @@ export const ContactPage = () => {
       <section className="px-6 lg:px-20 py-24 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Ready to build with DuraPayment?
+            Ready to build with {siteConfig.name}?
           </h2>
 
           <p className="text-gray-300 mb-8">
-            Join businesses using DuraPayment to accept payments, automate
+            Join businesses using {siteConfig.name} to accept payments, automate
             transfers, and scale globally.
           </p>
 
@@ -174,4 +174,4 @@ export const ContactPage = () => {
       </section>
     </main>
   );
-}
+};

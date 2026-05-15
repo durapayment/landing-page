@@ -2,6 +2,7 @@
 
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
+import { siteConfig } from "@/config/site";
 
 /* =========================
    STYLES
@@ -48,8 +49,8 @@ const GrowthSection = () => {
         </h3>
 
         <p className={PARAGRAPH_CLASS + " mt-2 max-w-2xl"}>
-          Paystack is a growth engine for a new generation of innovative,
-          forward-looking organizations operating in Africa.
+          {siteConfig.name} is a growth engine for a new generation of
+          innovative, forward-looking organizations operating in Nigeria.
         </p>
 
         <div className="mt-20 pb-20  pt-10">
@@ -213,9 +214,9 @@ export const CorpTestimonial = () => {
     {
       image: "/paystack.png",
       title: "Monitor your business performance while on the move",
-      text: "Sign up for Durapayment and track your most important business metrics on your mobile device. Monitor info such as sales, customer information, success rates, and more!",
+      text: "Sign up for {siteConfig.name} and track your most important business metrics on your mobile device. Monitor info such as sales, customer information, success rates, and more!",
       points: [
-        "Sign up for Durpayment in minutes",
+        "Sign up for {siteConfig.name} in minutes",
         "Send invoices from your phone",
         "Look up transactions",
         "Get alerts for important updates",
@@ -236,7 +237,7 @@ export const CorpTestimonial = () => {
     {
       image: "/fair.png",
       title: "Fair, transparent pricing",
-      text: "Durapayment only charges a tiny fee per transaction, which means we literally only make money when you do, and we work hard to ensure every transaction succeeds.",
+      text: "{siteConfig.name} only charges a tiny fee per transaction, which means we literally only make money when you do, and we work hard to ensure every transaction succeeds.",
       points: [
         "Zero integration fee",
         "Zero maintenance fee",
@@ -253,7 +254,7 @@ export const CorpTestimonial = () => {
           <h1 className={HEADING_CLASS}>Customer Testimonials</h1>
 
           <p className={PARAGRAPH_CLASS + " mb-10"}>
-            Over 40,000 businesses trust Durapayment.
+            Over 40,000 businesses trust {siteConfig.name}.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
