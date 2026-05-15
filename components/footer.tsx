@@ -198,11 +198,6 @@ export const Footer = () => {
                 <FaLinkedinIn className="cursor-pointer hover:text-black" />
                 <FaYoutube className="cursor-pointer hover:text-black" />
               </div>
-
-              <div className="mt-5">
-                <p className={footerText}>Durapay is a Stripe company</p>
-                <img src="/stripe.png" alt="Stripe" className="w-20 mt-2" />
-              </div>
             </div>
 
             {/* LOCATIONS COL 1 */}

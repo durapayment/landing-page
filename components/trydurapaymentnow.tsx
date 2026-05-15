@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site";
+import Link from "next/link";
 export const TryDurapayNow = () => {
   return (
     <section className="w-full bg-[#f9fbfc] py-16 sm:py-20 md:py-28">
@@ -23,9 +25,11 @@ export const TryDurapayNow = () => {
 
         {/* RIGHT SIDE */}
         <div className="w-full md:w-auto flex md:justify-end">
-          <button className="w-full md:w-auto bg-accent cursor-pointer text-white px-7 py-3.5 rounded-md hover:bg-tertiary transition font-medium whitespace-nowrap">
+          <Link
+            href={siteConfig.links.register}
+            className="w-full md:w-auto bg-accent cursor-pointer text-white px-7 py-3.5 rounded-md hover:bg-tertiary transition font-medium whitespace-nowrap">
             Create free account
-          </button>
+          </Link>
         </div>
       </div>
     </section>

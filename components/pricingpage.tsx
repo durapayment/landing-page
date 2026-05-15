@@ -40,7 +40,7 @@ export const PricingPage = () => {
       </div>
 
       {/* CARDS WRAPPER */}
-      <div className="max-w-310 mx-auto px-5 sm:px-8 md:px-12 lg:px-0 mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+      <div className="max-w-310 mx-auto pb-10 px-5 sm:px-8 md:px-12 lg:px-0 mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
         {/* LOCAL CARD */}
         <div className="border rounded-2xl shadow-sm px-5 sm:px-7 py-8 sm:py-10 bg-white">
           <p className="text-sm sm:text-base font-medium text-[#011B33] mb-3">

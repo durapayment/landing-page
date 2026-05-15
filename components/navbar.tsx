@@ -5,6 +5,9 @@ import { MdMenu, MdClose, MdKeyboardArrowLeft } from "react-icons/md";
 import { FlagDropdown } from "./FlagDropdown";
 import { NavDropdown } from "./NavDropdown";
 import Link from "next/link";
+import { siteConfig } from "@/config/site";
+import { LogIn } from "lucide-react";
+import { href } from "react-router-dom";
 
 export const NavBar = () => {
   // Redirect function for all buttons
@@ -107,14 +110,17 @@ export const NavBar = () => {
             small
           /> */}
 
-          <li className="cursor-pointer">Login</li>
+          <li>
+            <Link href={siteConfig.links.login} className="cursor-pointer">
+              Login
+            </Link>
+          </li>
 
-          <button
-            onClick={handleRedirect}
+          <Link
+            href={siteConfig.links.register}
             className="bg-accent cursor-pointer text-white px-4 py-2 rounded-md hover:bg-tertiary transition">
             Create free account
-          </button>
-
+          </Link>
           <FlagDropdown />
         </div>
 

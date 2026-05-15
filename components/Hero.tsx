@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import Link from "next/link";
 
 export const Hero = () => {
   // Redirect function for all buttons
@@ -56,15 +57,17 @@ export const Hero = () => {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-              <button
-                onClick={handleRedirect}
+              <Link
+                href={siteConfig.links.register}
                 className="bg-accent cursor-pointer text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-md text-sm font-medium hover:bg-tertiary transition w-full sm:w-auto">
                 Create a free account
-              </button>
+              </Link>
 
-              <span className="text-[15px] cursor-pointer font-medium text-accent">
+              <Link
+                href={"contactsales"}
+                className="text-[15px] cursor-pointer font-medium text-accent">
                 or Contact Sales
-              </span>
+              </Link>
             </div>
           </div>
 
