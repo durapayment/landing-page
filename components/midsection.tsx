@@ -183,7 +183,7 @@ export const MidSection = () => {
       <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12 py-6">
         {/* LEFT: ANIMATION */}
         <div className="flex-1 flex justify-center md:justify-start">
-          <div className="relative w-75 md:w-95 h-120 hidden sm:block bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative w-75 md:w-95 h-115 hidden sm:block bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
             <div className="absolute w-16 h-25 bg-green-500 rounded-full animate-circleMove"></div>
           </div>
         </div>
