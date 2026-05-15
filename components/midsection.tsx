@@ -55,7 +55,7 @@ export const MidSection = () => {
             src="/seamless.png"
             alt="feature image"
             width={579}
-            height={715gi}
+            height={715}
             className="w-full h-full object-cover"
           />
         </div>
