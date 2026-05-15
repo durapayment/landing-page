@@ -23,33 +23,8 @@ const AnimatedTick = () => (
 export const MidSection = () => {
   return (
     <section className="w-full mt-20 bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
-      {/* SECTION HEADING */}
-      <div className="w-full flex flex-col gap-1 max-w-310 mx-auto text-left mb-14">
-        <h2
-          style={{
-            fontFamily:
-              'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-            fontWeight: 700,
-            color: "rgb(1, 27, 51)",
-          }}
-          className="text-[20px] md:text-[42px] leading-tight tracking-[-0.02em]">
-          Simple, easy payments
-        </h2>
-
-        <p
-          style={{
-            fontFamily:
-              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-            fontWeight: 400,
-            color: "rgb(1, 27, 51)",
-          }}
-          className="text-base sm:text-lg md:text-[20px] max-w-[45ch]">
-          Building a business is hard. Getting paid shouldn't be.
-        </p>
-      </div>
-
       {/* MAIN ROW */}
-      <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="w-full max-w-6xl mx-auto  flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="w-100 sm:w-90 md:w-82 h-90 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
           <img
             src="/seamless.png"
@@ -72,54 +47,30 @@ export const MidSection = () => {
                 lineHeight: "1.2",
                 color: "rgb(1, 27, 51)",
               }}
-              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
-              Delight customers with a seamless payments experience
+              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4 line-clamp-2">
+              Deliver seamless payments that build customer trust
             </h3>
 
             <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7">
-              Give your customers the gift of modern, frictionless, painless
-              payments. Integrate {siteConfig.name} once and let your customers
-              pay you however they want.
+              Give your customers a fast, reliable, and frictionless way to pay.
+              With {siteConfig.name}, you can accept payments once and instantly
+              support every preferred payment method in Nigeria.
             </p>
           </div>
 
           {/* FEATURE GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-10 mb-10">
-            {[
-              "Card",
-              "Bank Account",
-              "Bank Transfer",
-              "USSD",
-              "Apple Pay",
-              "Visa QR",
-              "Mobile Money",
-              "POS",
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <AnimatedTick />
-                <span className="text-[rgb(1,27,51)] font-bold">{item}</span>
-              </div>
-            ))}
+            {["Card", "Bank Account", "Bank Transfer", "USSD", "POS"].map(
+              (item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <AnimatedTick />
+                  <span className="text-[rgb(1,27,51)] font-bold">{item}</span>
+                </div>
+              ),
+            )}
           </div>
 
           <div className="mb-8 mt-10">
-            <h3
-              style={{
-                fontFamily:
-                  'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-                fontWeight: 700,
-                lineHeight: "1.2",
-                color: "rgb(1, 27, 51)",
-              }}
-              className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
-              Enjoy phenomenal transaction success rates
-            </h3>
-
-            <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-6">
-              We automatically route payments through the most optimal channels,
-              ensuring the highest transaction success rates in the market.
-            </p>
-
             <div className="flex items-center gap-3 cursor-pointer group">
               <div className="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center group-hover:scale-105 transition">
                 <svg viewBox="0 0 24 24" className="w-3 h-3" fill="none">
@@ -142,7 +93,7 @@ export const MidSection = () => {
       </div>
 
       {/* SECOND SECTION */}
-      <div className="w-full max-w-6xl mx-auto mt-15 flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* RIGHT: CONTENT */}
         <div className="flex-1 max-w-xl text-left">
           <h3
@@ -153,15 +104,14 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
-            Build custom payments experiences with well-documented APIs
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4 line-clamp-2">
+            Achieve industry-leading success with smart routing
           </h3>
 
           <p className="text-[16px] md:text-[19px] text-[rgb(1,27,51)] leading-7 mb-8  ">
-            Developers love our thorough, well-documented APIs that let you to
-            build everything from simple weekend projects, to complex financial
-            products serving hundreds of thousands of customers. If you can
-            imagine it, you can build it with Paystack.
+            Our smart payment infrastructure automatically selects the most
+            reliable and cost-efficient processing routes to maximize approval
+            rates and reduce failed transactions.
           </p>
 
           <div className="flex flex-col gap-5 mb-8">
@@ -233,8 +183,8 @@ export const MidSection = () => {
       <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12 py-6">
         {/* LEFT: ANIMATION */}
         <div className="flex-1 flex justify-center md:justify-start">
-          <div className="relative w-75 md:w-95 h-80 hidden sm:block bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
-            <div className="absolute w-16 h-16 bg-green-500 rounded-full animate-circleMove"></div>
+          <div className="relative w-75 md:w-95 h-120 hidden sm:block bg-blue-600 rounded-2xl overflow-hidden shadow-lg">
+            <div className="absolute w-16 h-25 bg-green-500 rounded-full animate-circleMove"></div>
           </div>
         </div>
 
@@ -248,29 +198,14 @@ export const MidSection = () => {
               lineHeight: "1.2",
               color: "rgb(1, 27, 51)",
             }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
-            Protect yourself and your customers with advanced fraud detection
+            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4 line-clamp-2">
+            Gain full financial visibility with advanced reporting tools
           </h3>
 
           <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-8">
-            Paystack’s combination of automated and manual fraud systems protect
-            you from fraudulent transactions and associated chargeback claims.
-          </p>
-          <h3
-            style={{
-              fontFamily:
-                'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-              fontWeight: 700,
-              lineHeight: "1.2",
-              color: "rgb(1, 27, 51)",
-            }}
-            className="text-[24px] sm:text-[30px] md:text-[40px] leading-tight tracking-[-0.02em] mb-4">
-            Detailed reporting for accounting, reconciliation, and audits
-          </h3>
-
-          <p className="text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7 mb-8">
-            Understand your customers’ purchase patterns and do easy
-            reconciliations with a robust data Dashboard and easy exports.
+            Track transactions, analyze customer behavior, and simplify
+            accounting with powerful dashboards, downloadable reports, and
+            automated reconciliation tools.
           </p>
         </div>
       </div>

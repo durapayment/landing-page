@@ -43,9 +43,9 @@ export const Footer = () => {
 
   const locations = [
     {
-      name: "Lagos HQ",
-      address: "Victoria Island",
-      phone: "+234 801 234 5678",
+      name: "Rivers State HQ",
+      address: " No. 100 off salvation ministries Road",
+      phone: "+234 7043396722",
     },
     // { name: "Abuja", address: "CBD", phone: "+234 802 345 6789" },
     // { name: "Accra", address: "Airport City", phone: "+233 201 234 567" },

@@ -19,7 +19,7 @@ export default function Home() {
         <Hero />
         <MidSection />
         <BusinessGrowth />
-        <OurPartners />
+        {/* <OurPartners /> */}
         <GlobalPartners />
       </main>
     </div>
