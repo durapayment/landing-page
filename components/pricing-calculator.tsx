@@ -22,7 +22,7 @@ function FeeCalculator() {
     return numericAmount - fee;
   }, [numericAmount, fee]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     let value = e.target.value;
 
     // Allow only numbers
