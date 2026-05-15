@@ -180,7 +180,7 @@ export const Footer = () => {
             <Title text="About" />
             <ul className="hidden md:block space-y-2">
               <li>
-                <Link href="/commerce">company</Link>
+                <Link href="/company">Company</Link>
               </li>
               {/* <li className={linkClass}>Careers</li>
               <li className={linkClass}>Media Kit</li> */}

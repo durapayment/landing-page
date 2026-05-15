@@ -32,7 +32,7 @@ export const MidSection = () => {
             fontWeight: 700,
             color: "rgb(1, 27, 51)",
           }}
-          className="text-[20px] md:text-[48px] leading-tight tracking-[-0.02em]">
+          className="text-[20px] md:text-[42px] leading-tight tracking-[-0.02em]">
           Simple, easy payments
         </h2>
 
