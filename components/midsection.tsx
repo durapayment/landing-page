@@ -29,10 +29,10 @@ export const MidSection = () => {
           style={{
             fontFamily:
               'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-            fontWeight: 800,
+            fontWeight: 700,
             color: "rgb(1, 27, 51)",
           }}
-          className="text-[25px] md:text-[48px] leading-tight tracking-[-0.02em]">
+          className="text-[20px] md:text-[48px] leading-tight tracking-[-0.02em]">
           Simple, easy payments
         </h2>
 
@@ -50,7 +50,7 @@ export const MidSection = () => {
 
       {/* MAIN ROW */}
       <div className="w-full max-w-6xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12">
-        <div className="w-75 sm:w-90 md:w-82 h-90 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
+        <div className="w-100 sm:w-90 md:w-82 h-90 sm:h-105 bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
           <img
             src="/seamless.png"
             alt="feature image"

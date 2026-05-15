@@ -29,6 +29,19 @@ export const NavDropdown = ({
     }, 150);
   };
 
+  // DEVELOPERS SHOULD BE A NORMAL LINK (NO DROPDOWN)
+  if (id === "developers") {
+    return (
+      <li className="list-none">
+        <Link
+          href="/developers"
+          className="font-bold hover:text-black transition cursor-pointer">
+          Developers
+        </Link>
+      </li>
+    );
+  }
+
   return (
     <li
       className={`relative cursor-pointer ${
@@ -52,7 +65,7 @@ export const NavDropdown = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-12 left-0 bg-white shadow-2xl rounded-xl z-999 flex gap-6 p-6"
+            className="absolute top-12 left-0 bg-white shadow-2xl rounded-xl z-50 flex gap-6 p-6"
             onMouseEnter={handleOpen}
             onMouseLeave={handleClose}>
             {/* ================= WHY DURAPAY ================= */}
@@ -172,32 +185,16 @@ export const NavDropdown = ({
                 <div className="w-48 bg-green-50 rounded-lg p-5 space-y-2">
                   <h3 className="font-semibold mb-2">Company</h3>
 
-                  {["About", "Careers", "Brand", "Media Kit"].map((item) => (
+                  {["About", "Careers", "Brand"].map((item) => (
                     <Link
                       key={item}
-                      href={item === "About" ? `/about` : `/coming-soon`}
+                      href={item === "About" ? "/about" : "/coming-soon"}
                       className="cursor-pointer block hover:text-green-600">
                       {item}
                     </Link>
                   ))}
                 </div>
               </>
-            )}
-
-            {/* ================= DEVELOPERS ================= */}
-            {id === "developers" && (
-              <div className="flex flex-col text-sm space-y-3">
-                {["Overview", "Documentation", "Integration", "API Status"].map(
-                  (item) => (
-                    <Link
-                      key={item}
-                      href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="cursor-pointer hover:opacity-70 block">
-                      {item}
-                    </Link>
-                  ),
-                )}
-              </div>
             )}
 
             {/* ================= SUPPORT ================= */}

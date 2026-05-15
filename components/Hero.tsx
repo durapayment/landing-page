@@ -41,11 +41,11 @@ export const Hero = () => {
               style={{
                 fontFamily:
                   'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-                fontWeight: 800,
+                fontWeight: 700,
                 lineHeight: "1.1",
                 color: "rgb(1, 27, 51)",
               }}
-              className="max-w-150 mb-5 sm:mb-6 tracking-[-0.03em] text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px]bg-red-300 md:leading-[1.1]
+              className="max-w-150 mb-5 sm:mb-6 tracking-[-0.03em] text-[30px] sm:text-[36px] md:text-[42px] lg:text-[42px]bg-red-300 md:leading-[1.1]
   ">
               Modern online and offline payments for Africa
             </h1>

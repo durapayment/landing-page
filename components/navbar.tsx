@@ -163,11 +163,12 @@ export const NavBar = () => {
                 Learn
               </button>
 
-              <button
+              <Link
+                href="/coming-soon"
                 onClick={() => toggleDropdown("developers")}
                 className="block w-full text-left ">
                 Developers
-              </button>
+              </Link>
 
               <button
                 onClick={() => toggleDropdown("support")}
@@ -212,7 +213,7 @@ export const NavBar = () => {
                 <p>For Fintechs</p>
                 <p>For Agencies</p>
                 <p>For Schools</p>
-                <p>For Betting</p>
+                <p>For Sales</p>
               </div>
             </div>
           )}
@@ -232,10 +233,6 @@ export const NavBar = () => {
               <div className="space-y-4">
                 <p className="font-bold">Blog</p>
                 <p className="font-bold">Guides</p>
-
-                <p className="font-bold">Video Tutorials</p>
-
-                <p className="font-bold">Decode Fintech</p>
                 <p className="font-bold">Commerce</p>
               </div>
 
@@ -243,10 +240,6 @@ export const NavBar = () => {
               <div className="space-y-4">
                 <p className="text-xs opacity-70">COMPANY</p>
                 <p className="font-bold">About</p>
-                <p className="font-bold">Changelog</p>
-                <p className="font-bold">Compliance</p>
-                <p className="font-bold">Careers</p>{" "}
-                <p className="font-bold">Brand</p>
               </div>
             </div>
           )}

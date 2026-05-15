@@ -24,7 +24,7 @@ export const Footer = () => {
     "About",
     "Learn",
     "Community",
-    "Support",
+
     "Customers",
   ];
 
@@ -47,12 +47,12 @@ export const Footer = () => {
       address: "Victoria Island",
       phone: "+234 801 234 5678",
     },
-    { name: "Abuja", address: "CBD", phone: "+234 802 345 6789" },
-    { name: "Accra", address: "Airport City", phone: "+233 201 234 567" },
-    { name: "Nairobi", address: "Westlands", phone: "+254 712 345 678" },
-    { name: "Cape Town", address: "Waterfront", phone: "+27 82 123 4567" },
-    { name: "London", address: "Canary Wharf", phone: "+44 20 7946 0958" },
-    { name: "New York", address: "Manhattan", phone: "+1 212 555 0198" },
+    // { name: "Abuja", address: "CBD", phone: "+234 802 345 6789" },
+    // { name: "Accra", address: "Airport City", phone: "+233 201 234 567" },
+    // { name: "Nairobi", address: "Westlands", phone: "+254 712 345 678" },
+    // { name: "Cape Town", address: "Waterfront", phone: "+27 82 123 4567" },
+    // { name: "London", address: "Canary Wharf", phone: "+44 20 7946 0958" },
+    // { name: "New York", address: "Manhattan", phone: "+1 212 555 0198" },
   ];
 
   return (
@@ -104,7 +104,7 @@ export const Footer = () => {
                 </li>
 
                 <li className={linkClass}>
-                  <Link href="/for-bettings">For Bettings</Link>
+                  <Link href="/for-sales">For sales</Link>
                 </li>
               </ul>
             </ul>
@@ -117,7 +117,7 @@ export const Footer = () => {
               <li className={linkClass}>
                 <Link href="/coming-soon">Nigeria</Link>
               </li>
-              <li className={linkClass}>
+              {/* <li className={linkClass}>
                 <Link href="/coming-soon">Ghana</Link>
               </li>
               <li className={linkClass}>
@@ -125,12 +125,24 @@ export const Footer = () => {
               </li>
               <li className={linkClass}>
                 <Link href="/coming-soon">Kenya</Link>
-              </li>
-
+              </li> */}
               <li className="mt-3 font-semibold text-[#011b33]">Learn</li>
-              <li className={linkClass}>Blog</li>
-              <li className={linkClass}>Guides</li>
-              <li className={linkClass}>API Reference</li>
+
+              <li>
+                <Link href="/blog" className={linkClass}>
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides" className={linkClass}>
+                  Guides
+                </Link>
+              </li>
+              <li>
+                <Link href="/api-reference" className={linkClass}>
+                  API Reference
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -138,14 +150,28 @@ export const Footer = () => {
           <div className={footerText}>
             <Title text="Developers" />
             <ul className="hidden md:block space-y-2">
-              <li className={linkClass}>Documentation</li>
-              <li className={linkClass}>Integrations</li>
-              <li className={linkClass}>Status Page</li>
+              <li className={linkClass}>
+                <Link href="/documentation">Documentation</Link>
+              </li>
+
+              <li className={linkClass}>
+                <Link href="/integrations">Integrations</Link>
+              </li>
+
+              <li className={linkClass}>
+                <Link href="/status-page">Status Page</Link>
+              </li>
 
               <li className="mt-3 font-semibold text-[#011b33]">Community</li>
-              <li className={linkClass}>Forum</li>
-              <li className={linkClass}>Slack</li>
-              <li className={linkClass}>Events</li>
+              {/* <li className={linkClass}>Forum</li> */}
+              {[
+                { name: "Slack", href: "/coming-soon" },
+                { name: "Events", href: "/coming-soon" },
+              ].map((item) => (
+                <li key={item.name} className={linkClass}>
+                  <Link href={item.href}>{item.name}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -156,19 +182,19 @@ export const Footer = () => {
               <li>
                 <Link href="/commerce">company</Link>
               </li>
-              <li className={linkClass}>Careers</li>
-              <li className={linkClass}>Media Kit</li>
+              {/* <li className={linkClass}>Careers</li>
+              <li className={linkClass}>Media Kit</li> */}
               <li className={linkClass}>
                 <Link href="/legal">Privacy & Terms</Link>
               </li>
 
               <li className="mt-3 font-semibold text-[#011b33]">Support</li>
 
-              <li>
+              {/* <li>
                 <Link href="/why" className={linkClass}>
                   Help Center
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/contact-us" className={linkClass}>
                   Contact Support
@@ -176,8 +202,17 @@ export const Footer = () => {
               </li>
 
               <li className="mt-3 font-semibold text-[#011b33]">Customers</li>
-              <li className={linkClass}>Testimonials</li>
-              <li className={linkClass}>Case Studies</li>
+              <li>
+                <Link href="/coming-soon" className={linkClass}>
+                  Testimonials
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/coming-soon" className={linkClass}>
+                  Case Studies
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
