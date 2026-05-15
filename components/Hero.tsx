@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Play } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
+import { ShieldCheck, Zap, Ban } from "lucide-react";
 
 export const Hero = () => {
   // Redirect function for all buttons
@@ -107,21 +108,32 @@ export const Hero = () => {
             {/* LEFT */}
             <div className="text-left w-full lg:w-auto">
               <p className="text-sm font-medium text-[#011B33] mb-3">
-                Trusted by over 200,000 businesses
+                Built for 200,000+ businesses in Nigeria.
               </p>
 
               <div className="flex flex-nowrap items-center gap-3 sm:gap-4">
-                {logos.slice(0, 3).map((logo, i) => (
-                  <div
-                    key={i}
-                    className="w-22.5 sm:w-25 h-7 flex items-center justify-center shrink-0">
-                    <img
-                      src={logo}
-                      className="object-contain max-h-full"
-                      alt="logo"
-                    />
+                <div className="flex flex-nowrap items-center gap-3 sm:gap-4 overflow-x-auto">
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 whitespace-nowrap">
+                    <Zap size={14} className="text-[#011B33]" />
+                    <span className="text-sm font-medium text-[#011B33]">
+                      Instant Settlements
+                    </span>
                   </div>
-                ))}
+
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 whitespace-nowrap">
+                    <ShieldCheck size={14} className="text-[#011B33]" />
+                    <span className="text-sm font-medium text-[#011B33]">
+                      Bank-Grade Security
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 whitespace-nowrap">
+                    <Ban size={14} className="text-[#011B33]" />
+                    <span className="text-sm font-medium text-[#011B33]">
+                      Zero Downtime
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
