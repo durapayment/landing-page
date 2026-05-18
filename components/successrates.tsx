@@ -1,153 +1,160 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 /* ---------------- STYLES ---------------- */
 const SECTION_WRAPPER =
-  "w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 py-16";
+  "w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16 py-20";
 
 const IMAGE_BOX =
-  "w-full max-w-[500px] h-[320px] md:h-[400px] rounded-2xl overflow-hidden";
+  "w-full max-w-[520px] h-[340px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl";
 
 const HEADING_CLASS =
-  "text-[24px] sm:text-[30px] md:text-[40px] font-bold text-[rgb(1,27,51)] leading-tight";
+  "text-[26px] sm:text-[32px] md:text-[38px] font-bold text-[rgb(1,27,51)] leading-tight";
 
 const PARAGRAPH_CLASS =
-  "text-[16px] md:text-[18px] text-[rgba(1,27,51,0.8)] leading-[28px] mt-4";
+  "text-[15px] md:text-[17px] text-[rgba(1,27,51,0.65)] leading-[28px] mt-4";
+
+const NUMBER_CLASS =
+  "text-[13px] font-black tracking-[0.2em] uppercase text-green-500 mb-3";
+
+const sections = [
+  {
+    num: "01",
+    title: "Direct Bank Integrations",
+    body: [
+      "Durapayment is directly integrated into some of Nigeria's largest banks, ensuring near-100% success rates for many card transactions.",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=900&auto=format&fit=crop",
+    alt: "Direct bank integrations",
+    reverse: false,
+  },
+  {
+    num: "02",
+    title: "Intelligent Routing",
+    body: [
+      "Durapayment dynamically routes transactions through different gateways and processors, ensuring optimal payment pathways and high success rates.",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&auto=format&fit=crop",
+    alt: "Intelligent routing dashboard",
+    reverse: true,
+  },
+  {
+    num: "03",
+    title: "Smart Error Resolution",
+    body: [
+      "On the rare occasion that a transaction fails, Durapayment proactively suggests alternate payment channels so customers can try a different method.",
+      "For example, if a card fails, the Checkout Form might suggest paying via QR code instead.",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&auto=format&fit=crop",
+    alt: "Smart error resolution on checkout",
+    reverse: false,
+  },
+];
 
 export const SuccessRates = () => {
   return (
-    <section className="w-full">
-      {/* HERO SECTION */}
-      <div className="w-full bg-green-50 pt-20 pb-20 md:pt-24">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1
-            className="mb-6 pt-20 text-[#011B33] font-extrabold tracking-[-0.03em]
-            text-[30px] max-w-2xl mx-auto sm:text-[36px] md:text-[42px] lg:text-[48px]
-            leading-tight lg:leading-[57.6px]"
-            style={{
-              fontFamily:
-                'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-            }}>
-            Why do 200,000+ businesses love Durapayment?
-          </h1>
+    <section className="w-full font-sans">
+      {/* ── HERO ── */}
+      <div className="relative w-full overflow-hidden bg-[#011B33] pt-32 pb-28 px-6">
+        {/* decorative rings */}
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full border border-white/5" />
+        <div className="absolute -top-16 -right-16 w-[340px] h-[340px] rounded-full border border-white/5" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-green-500/5 blur-3xl" />
 
-          <p
-            className="text-[#011B33]/80 text-sm sm:text-base md:text-lg lg:text-[20px]
-            leading-7 lg:leading-[30px] pb-20 max-w-2xl mx-auto"
-            style={{
-              fontFamily:
-                'Graphik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-            }}>
-            Durapayment is the payment processor of choice for some of the
-            fastest-growing businesses in Nigeria. Here’re 12 reasons why.
-          </p>
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-1.5 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-green-400 text-[12px] font-semibold tracking-widest uppercase">
+              Why 200,000+ businesses choose us
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-white font-extrabold text-[32px] sm:text-[42px] md:text-[52px] leading-[1.15] tracking-tight mb-6">
+            Why do 200,000+
+            <br className="hidden sm:block" /> businesses love{" "}
+            <span className="text-green-400">{siteConfig.name}?</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-white/50 text-[16px] md:text-[18px] leading-[30px] max-w-xl mx-auto">
+            {siteConfig.name} is the payment processor of choice for the
+            fastest-growing businesses in Nigeria. Here are 12 reasons why.
+          </motion.p>
         </div>
       </div>
 
-      {/* WHITE CONTENT SECTIONS */}
-      <div className="w-full  bg-white">
-        {/* SECTION 01 */}
-        <div className="w-full max-w-6xl mx-auto pt-12 sm:pt-16 md:pt-20">
-          <div className="w-full max-w-2xl text-left mb-10 sm:mb-12 md:mb-14">
-            <h1
-              style={{
-                fontFamily:
-                  'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-                fontWeight: 800,
-                lineHeight: "1.2",
-                color: "rgb(1, 27, 51)",
-              }}
-              className="mb-4 sm:mb-6 text-[15px] sm:text-[32px] md:text-[48px]">
-              How Durapayment achieves stellar success rates
-            </h1>
-          </div>
-        </div>
-        <div className={`${SECTION_WRAPPER} mt-10`}>
-          <div className="flex-1 flex justify-center md:justify-start">
-            <div className={IMAGE_BOX}>
-              <img
-                src="/Direct.png"
-                className="w-full h-full object-cover"
-                alt="Start accepting payments"
-              />
-            </div>
-          </div>
-
-          <div className="flex-1 max-w-xl">
-            <p className="text-[28px] font-bold text-[rgba(1,27,51,0.2)] mb-2">
-              01
-            </p>
-
-            <h3 className={HEADING_CLASS}>Direct Bank Integrations</h3>
-
-            <p className={PARAGRAPH_CLASS}>
-              Durapayment is directly integrated into some of Nigeria’s largest
-              banks, ensuring a near-100% success rates for many card
-              transactions.
-            </p>
-          </div>
+      {/* ── INTRO HEADING ── */}
+      <div className="w-full bg-white">
+        <div className="w-full max-w-6xl mx-auto px-6 pt-20 pb-4">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-[12px] font-black tracking-[0.25em] uppercase text-green-500 mb-3">
+            Success Rates
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-[28px] sm:text-[36px] md:text-[48px] font-extrabold text-[rgb(1,27,51)] leading-tight max-w-2xl">
+            How {siteConfig.name} achieves stellar success rates
+          </motion.h2>
         </div>
 
-        {/* SECTION 02 */}
-        <div className={SECTION_WRAPPER}>
-          <div className="flex-1 max-w-xl">
-            <p className="text-[28px] font-bold text-[rgba(1,27,51,0.2)] mb-2">
-              02
-            </p>
+        {/* ── SECTIONS ── */}
+        <div className="px-6 pb-24">
+          {sections.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className={`${SECTION_WRAPPER} ${s.reverse ? "md:flex-row-reverse" : ""}`}>
+              {/* Image */}
+              <div className="flex-1 flex justify-center">
+                <div className={IMAGE_BOX}>
+                  <img
+                    src={s.image}
+                    alt={s.alt}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+              </div>
 
-            <h3 className={HEADING_CLASS}>Intelligent Routing</h3>
+              {/* Text */}
+              <div className="flex-1 max-w-xl">
+                <p className={NUMBER_CLASS}>{s.num}</p>
+                <h3 className={HEADING_CLASS}>{s.title}</h3>
+                {s.body.map((para, j) => (
+                  <p key={j} className={PARAGRAPH_CLASS}>
+                    {para}
+                  </p>
+                ))}
 
-            <p className={PARAGRAPH_CLASS}>
-              Durapayment dynamically routes transactions through different
-              gateways and processors, ensuring optimal payment pathways, and
-              high success rates.
-            </p>
-          </div>
-
-          <div className="flex-1 flex justify-center md:justify-start">
-            <div className={IMAGE_BOX}>
-              <img
-                src="/Smart-Routing.png"
-                className="w-full h-full object-cover"
-                alt="Fair pricing"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* SECTION 03 */}
-        <div className={SECTION_WRAPPER}>
-          <div className="flex-1 flex justify-center md:justify-start">
-            <div className={IMAGE_BOX}>
-              <img
-                src="/Smart-Error.png"
-                className="w-full h-full object-cover"
-                alt="Fair pricing"
-              />
-            </div>
-          </div>
-
-          <div className="flex-1 max-w-xl">
-            <p className="text-[28px] font-bold text-[rgba(1,27,51,0.2)] mb-2">
-              03
-            </p>
-
-            <h3 className={HEADING_CLASS}>Smart Error Resolution</h3>
-
-            <p className={PARAGRAPH_CLASS}>
-              On the rare occasion that a transaction fails, Durapayment
-              proactively suggests alternate payment channels to the customer,
-              so they can try paying through a different method.
-            </p>
-            <p className={PARAGRAPH_CLASS}>
-              For example, if the customer’s card fails, the Durapayment
-              Checkout Form might suggest to the customer to try paying through
-              QR code instead.
-            </p>
-          </div>
+                {/* subtle divider accent */}
+                <div className="mt-8 w-12 h-1 rounded-full bg-green-500/40" />
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

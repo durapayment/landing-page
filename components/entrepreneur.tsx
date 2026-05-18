@@ -1,281 +1,302 @@
 "use client";
 
 import { useState } from "react";
-import { Play, ChevronRight, Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { Play, ChevronRight, Check, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/site";
-import Image from "next/image";
 
-// MID SECTION STYLES
-const HEADING_CLASS =
-  "text-[52px] sm:text-[30px] md:text-[40px] font-bold text-[rgb(1,27,51)] leading-[0,5] mb-4";
+/* ── DESIGN TOKENS ── */
+const SECTION =
+  "w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 py-20 px-6 xl:px-0";
+const IMG =
+  "w-full max-w-[520px] h-[340px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl flex-shrink-0";
+const H2 =
+  "text-[26px] sm:text-[32px] md:text-[38px] font-bold text-[rgb(1,27,51)] leading-tight";
+const BODY =
+  "text-[15px] md:text-[17px] text-[rgba(1,27,51,0.65)] leading-[28px] mt-4";
+const TAG =
+  "text-[11px] font-black tracking-[0.22em] uppercase text-green-500 mb-3";
 
-const PARAGRAPH_CLASS =
-  "text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7";
-
-const SECTION_WRAPPER =
-  "w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 py-16";
-
-const IMAGE_BOX =
-  "w-full max-w-[500px] h-[320px] md:h-[400px] rounded-2xl overflow-hidden";
-
-const AnimatedTick = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
-    <motion.path
-      d="M20 6L9 17l-5-5"
-      stroke="#00a650"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      initial={{ pathLength: 0 }}
-      whileInView={{ pathLength: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
-    />
-  </svg>
+const Accent = () => (
+  <div className="mt-8 w-10 h-1 rounded-full bg-green-400/50" />
 );
 
+const Fade = ({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.5, delay }}
+    className={className}>
+    {children}
+  </motion.div>
+);
+
+const Img = ({ src, alt }: { src: string; alt: string }) => (
+  <div className={IMG}>
+    <img
+      src={src}
+      alt={alt}
+      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+    />
+  </div>
+);
+
+const List = ({ items }: { items: string[] }) => (
+  <ul className="mt-6 space-y-3">
+    {items.map((item, i) => (
+      <motion.li
+        key={i}
+        initial={{ opacity: 0, x: -8 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: i * 0.07 }}
+        className="flex items-start gap-3">
+        <span className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0 mt-0.5">
+          <Check className="w-3 h-3 text-green-600" />
+        </span>
+        <span className="text-[14px] text-[rgb(1,27,51)] leading-6">
+          {item}
+        </span>
+      </motion.li>
+    ))}
+  </ul>
+);
+
+const logos = [
+  "/dominos-plain.svg",
+  "/mtn-group-grayscale.svg",
+  "/bolt.svg",
+  "/axa.svg",
+];
+
 export const Entrepreneur = () => {
-  const handleRedirect = () => {
-    window.open("https://online.durapayment.com", "_blank");
-  };
   const [videoOpen, setVideoOpen] = useState(false);
 
-  const logos = [
-    "/dominos-plain.svg",
-    "/mtn-group-grayscale.svg",
-    "/bolt.svg",
-    "/axa.svg",
-  ];
-
-  const setOpenVideo = (open: boolean) => {
-    setVideoOpen(open);
-  };
+  const handleRedirect = () =>
+    window.open("https://online.durapayment.com", "_blank");
 
   return (
-    <section className="w-full bg-tertiary/10">
-      {/* NAV */}
-      <div className="max-w-310 mx-auto flex items-center justify-between py-5 px-5 sm:px-8 md:px-12 lg:px-0">
-        <button className="lg:hidden"></button>
-      </div>
+    <section className="w-full font-sans">
+      {/* ══ HERO ══ */}
+      <div className="relative w-full bg-[#011B33] overflow-hidden pt-36 pb-28 px-6">
+        {/* bg rings */}
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-white/[0.04]" />
+        <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full border border-white/[0.04]" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 rounded-full bg-green-500/5 blur-3xl" />
 
-      {/* HERO */}
-      <div className="max-w-310 mx-auto px-5 sm:px-8 md:px-12 lg:px-6 xl:px-0">
-        <div className="py-15 md:py-30 lg:grid lg:grid-cols-2 items-center gap-10 lg:gap-20">
-          <div className="w-full text-left justify-self-start">
-            <p className="text-xs font-bold mb-4">
-              DURAPAYMENT FOR ENTREPRENEURS
-            </p>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[11px] font-black tracking-[0.25em] uppercase text-green-400 mb-5">
+            Durapayment for Entrepreneurs
+          </motion.p>
 
-            <h1
-              style={{
-                fontFamily:
-                  'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-                fontWeight: 800,
-                lineHeight: "1.1",
-                color: "rgb(1, 27, 51)",
-              }}
-              className="max-w-150 mb-5 sm:mb-6 tracking-[-0.03em] text-[30px] sm:text-[36px] md:text-[42px] lg:text-[48px] md:leading-[1.1]">
-              Get paid quickly with simple, powerful tools
-            </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-white font-extrabold text-[36px] sm:text-[46px] md:text-[56px] leading-[1.1] tracking-tight max-w-3xl mb-6">
+            Get paid quickly with{" "}
+            <span className="text-green-400">simple, powerful tools</span>
+          </motion.h1>
 
-            <p className="text-[#011B33] mb-7 text-sm sm:text-base md:text-lg leading-7">
-              {siteConfig.name} helps entrepreneurs like you accept payments
-              online.
-              <br />
-              Fast set up. Quick payouts. No long stories.
-            </p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18 }}
+            className="text-white/50 text-[16px] md:text-[18px] leading-[30px] max-w-xl mb-10">
+            {siteConfig.name} helps entrepreneurs like you accept payments
+            online. Fast set up. Quick payouts. No long stories.
+          </motion.p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-              <button
-                onClick={handleRedirect}
-                className="bg-accent cursor-pointer text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-md text-sm font-medium hover:bg-tertiary transition w-full sm:w-auto">
-                Create a free account
-              </button>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.26 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <button
+              onClick={handleRedirect}
+              className="bg-green-500 hover:bg-green-400 text-white px-7 py-3 rounded-xl text-[15px] font-semibold transition-colors">
+              Create a free account
+            </button>
+          </motion.div>
         </div>
 
-        {/* PARTNERS */}
-        <div className="border-t border-green-20 py-10">
-          <div className="flex flex-col md:flex-row items-start lg:items-center justify-between gap-8">
-            <div className="text-left w-full lg:w-auto">
-              <p className="text-sm font-medium text-[#011B33] mb-3">
-                Built for over 200,000 businesses
-              </p>
-
-              <div className="flex flex-nowrap items-center gap-3 sm:gap-4">
-                {logos.slice(0, 3).map((logo, i) => (
-                  <div
-                    key={i}
-                    className="w-22.5 sm:w-25 h-7 flex items-center justify-center shrink-0">
-                    <img
-                      src={logo}
-                      className="object-contain max-h-full"
-                      alt="logo"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="w-full flex justify-start lg:justify-end">
-              <div className="flex flex-row items-center gap-3 max-w-117.5">
-                <p className="text-sm sm:text-base text-[#011B33] md:text-end font-semibold leading-6 sm:leading-7 md:max-w-[320px]">
-                  Watch {siteConfig.name}
-                </p>
-
-                <button
-                  onClick={() => setOpenVideo(true)}
-                  className="w-10 h-10 bg-tertiary rounded-full flex items-center justify-center">
-                  <Play className="text-white w-4 h-4" />
-                </button>
-              </div>
+        {/* Partners bar */}
+        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+          <div>
+            <p className="text-white/40 text-sm mb-3">
+              Built for over 200,000 businesses
+            </p>
+            <div className="flex items-center gap-6 opacity-40 grayscale brightness-200">
+              {logos.slice(0, 3).map((logo, i) => (
+                <img key={i} src={logo} className="h-6" alt="logo" />
+              ))}
             </div>
           </div>
+
+          <button
+            onClick={() => setVideoOpen(true)}
+            className="flex items-center gap-3 group">
+            <div className="w-11 h-11 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center group-hover:bg-green-500 transition-colors">
+              <Play className="w-4 h-4 text-green-400 group-hover:text-white" />
+            </div>
+            <span className="text-white/50 text-sm font-medium group-hover:text-white transition-colors">
+              Watch {siteConfig.name}
+            </span>
+          </button>
         </div>
       </div>
 
-      {/* MID SECTION */}
-      <section className="w-full bg-white px-6 sm:px-8 md:px-12">
-        <div className={SECTION_WRAPPER}>
+      {/* Video Modal */}
+      <AnimatePresence>
+        {videoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center px-4"
+            onClick={() => setVideoOpen(false)}>
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="w-full max-w-3xl aspect-video bg-black rounded-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}>
+              <div className="w-full h-full flex items-center justify-center text-white/30 text-sm">
+                Video placeholder
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ══ CONTENT ══ */}
+      <div className="w-full bg-white">
+        {/* Intro — text left, image right */}
+        <Fade className={SECTION}>
           <div className="flex-1 max-w-xl">
-            <h3 className={HEADING_CLASS}>
+            <p className={TAG}>Our Impact</p>
+            <h2 className={H2}>
               {siteConfig.name} pays out over $20 million to Nigerian businesses
               every month
-            </h3>
-
-            <p className={PARAGRAPH_CLASS}>
+            </h2>
+            <p className={BODY}>
               {siteConfig.name} helps businesses like yours get paid quickly and
               securely from anyone, anywhere in the world. Whether you're
               selling on Instagram, in a physical store, or even without a
-              website, {siteConfig.name}'s collection of payments tools will
-              help you get paid.
+              website — we've got the tools.
             </p>
+            <Accent />
           </div>
-          <div className="flex-1 flex justify-center md:justify-start">
-            <div className={IMAGE_BOX}>
-              <img
-                src="/acceptpay.jpg"
-                className="w-full h-full object-cover"
-                alt="payment"
+          <Img
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&auto=format&fit=crop"
+            alt="Entrepreneurs getting paid"
+          />
+        </Fade>
+
+        {/* 01 — No website needed: image left, text right */}
+        <div className="w-full bg-[#f4f6f9]">
+          <Fade className={SECTION}>
+            <Img
+              src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=900&auto=format&fit=crop"
+              alt="Payment link on phone"
+            />
+            <div className="flex-1 max-w-xl">
+              <p className={TAG}>01 — Payment Pages</p>
+              <h2 className={H2}>Get paid even if you don't have a website</h2>
+              <p className={BODY}>
+                Create a Payment Page in 2 mins, and share that link via SMS,
+                Instagram DM, WhatsApp chat, or however you communicate with
+                your customers.
+              </p>
+              <List
+                items={[
+                  "No developers needed",
+                  "Your customers will be able to click and pay you instantly",
+                ]}
               />
-            </div>
-          </div>
-        </div>
-
-        {/* SECTION 01 */}
-        <div className={SECTION_WRAPPER}>
-          <div className="flex-1 flex justify-center md:justify-start">
-            <div className={IMAGE_BOX}>
-              <img
-                src="/gettingpaid.jpg"
-                className="w-full h-full object-cover"
-                alt="payment"
-              />
-            </div>
-          </div>
-
-          <div className="flex-1 max-w-xl">
-            <h3 className={HEADING_CLASS}>
-              Get paid even if you don’t have a website
-            </h3>
-
-            <p className={PARAGRAPH_CLASS}>
-              Create a Payment Page in 2 mins, and share that link via SMS,
-              Instagram DM, WhatsApp chat, or however you communicate with your
-              customers.
-            </p>
-
-            <ul className="mt-6 space-y-3">
-              {[
-                "No developers needed",
-                "Your customers will be able to click and pay you instantly",
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <Check className="text-green-600 w-4 h-4" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex items-center gap-2 mt-6 cursor-pointer">
-              <div className="w-6 h-6 rounded-full border border-green-500 flex items-center justify-center">
-                <ChevronRight className="w-4 h-4 text-green-600" />
+              <div className="flex items-center gap-2 mt-6 group cursor-pointer">
+                <div className="w-7 h-7 rounded-full border border-green-500 flex items-center justify-center group-hover:bg-green-500 transition-colors">
+                  <ArrowRight className="w-3.5 h-3.5 text-green-600 group-hover:text-white" />
+                </div>
+                <p className="text-[14px] font-semibold text-green-600 group-hover:underline">
+                  Learn more about payment pages
+                </p>
               </div>
-              <p>Learn more about payment pages and other commercial tools</p>
+              <Accent />
             </div>
-          </div>
+          </Fade>
         </div>
-        {/* SECTION 02 */}
-        <div className={`${SECTION_WRAPPER} mt-10`}>
-          <div className="flex-1 max-w-xl">
-            <h3 className={HEADING_CLASS}>
-              Build trust with a beautiful, branded Checkout Form
-            </h3>
 
-            <p className={PARAGRAPH_CLASS}>
+        {/* 02 — Checkout form: text left, image right */}
+        <Fade className={SECTION}>
+          <div className="flex-1 max-w-xl">
+            <p className={TAG}>02 — Checkout</p>
+            <h2 className={H2}>
+              Build trust with a beautiful, branded Checkout Form
+            </h2>
+            <p className={BODY}>
               Give customers confidence in your business with a beautiful
               checkout form that shows off your brand.
             </p>
-            <ul className="mt-6 space-y-3">
-              {[
-                "No redirects - keep customers on the same page",
+            <List
+              items={[
+                "No redirects — keep customers on the same page",
                 "Multiple payment channels",
-                "If transaction fails, the Paystack Checkout Form smartly suggests other payment channels",
+                "Smart suggestions when a transaction fails",
                 "Automatic translation (Coming Soon)",
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <Check className="text-green-600 w-4 h-4" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+              ]}
+            />
+            <Accent />
           </div>
-          <div className="flex-1 flex justify-center md:justify-start">
-            <div className={IMAGE_BOX}>
-              <img
-                src="/checkoutform.png"
-                className="w-full h-full object-cover"
-                alt="payment"
+          <Img
+            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&auto=format&fit=crop"
+            alt="Beautiful branded checkout form"
+          />
+        </Fade>
+
+        {/* 03 — Seamless experience: image left, text right */}
+        <div className="w-full bg-[#f4f6f9]">
+          <Fade className={`${SECTION} pb-24`}>
+            <Img
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&auto=format&fit=crop"
+              alt="Seamless payment experience"
+            />
+            <div className="flex-1 max-w-xl">
+              <p className={TAG}>03 — Payment Channels</p>
+              <h2 className={H2}>
+                Delight customers with a seamless payments experience
+              </h2>
+              <p className={BODY}>
+                Give your customers the gift of modern, frictionless, painless
+                payments. Integrate {siteConfig.name} once and let your
+                customers pay you however they want.
+              </p>
+              <List
+                items={[
+                  "Mobile Money",
+                  "Card",
+                  "Apple Pay",
+                  "Bank Transfer",
+                  "USSD",
+                ]}
               />
+              <Accent />
             </div>
-          </div>
+          </Fade>
         </div>
-        {/* SECTION 03 */}
-        <div className={SECTION_WRAPPER}>
-          <div className="flex-1 flex justify-center md:justify-start">
-            <div className={IMAGE_BOX}>
-              <img
-                src="/getpaid.gif"
-                className="w-full h-full object-cover"
-                alt="payment"
-              />
-            </div>
-          </div>
-
-          <div className="flex-1 max-w-xl">
-            <h3 className={HEADING_CLASS}>
-              Delight customers with a seamless payments experience
-            </h3>
-
-            <p className={PARAGRAPH_CLASS}>
-              Give your customers the gift of modern, frictionless, painless
-              payments. Integrate {siteConfig.name} once and let your customers
-              pay you however they want.
-            </p>
-
-            <ul className="mt-6 space-y-3">
-              {["Mobile Money", "Card", "Apple Pay"].map((item, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <Check className="text-green-600 w-4 h-4" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      </div>
     </section>
   );
 };

@@ -52,7 +52,7 @@ export const NavBar = () => {
     <nav
       ref={navRef}
       className={`w-full fixed top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 shadow-sm" : "bg-tertiary/2"
+        scrolled ? "bg-white/90 shadow-sm" : "bg-white"
       }`}>
       {/* NAV CONTAINER */}
       <div className="max-w-[1300px] mx-auto flex items-center justify-between h-16 px-6">
@@ -94,13 +94,11 @@ export const NavBar = () => {
 
         {/* RIGHT MENU (DESKTOP) */}
         <div className="hidden lg:flex items-center gap-6 text-[14px] font-medium text-black list-none">
-          <NavDropdown
-            label="Developers"
-            id="developers"
-            openMenu={activeDropdown}
-            toggleMenu={toggleDropdown}
-            small
-          />
+          <Link
+            href={siteConfig.links.documentation}
+            className="cursor-pointer font-bold hover:text-black">
+            Developers
+          </Link>
 
           {/* <NavDropdown
             label="Support"

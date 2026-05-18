@@ -62,7 +62,7 @@ export const WhyDurapayMidSection = () => {
         </div>
       </div>
 
-      {/* SECTION 02 */}
+      {/* SECTION 02 — pricing/transparent fees */}
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 max-w-xl">
           <p className="text-[28px] font-bold text-[rgba(1,27,51,0.2)] mb-2">
@@ -87,10 +87,11 @@ export const WhyDurapayMidSection = () => {
 
         <div className="flex-1 flex justify-center md:justify-start">
           <div className={IMAGE_BOX}>
+            {/* Replaced: transparent/fair pricing visual */}
             <img
-              src="/fair.png"
+              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop"
               className="w-full h-full object-cover"
-              alt=""
+              alt="Fair transparent pricing"
             />
           </div>
         </div>
@@ -105,9 +106,9 @@ export const WhyDurapayMidSection = () => {
           viewport={{ once: true }}>
           <div className={IMAGE_BOX}>
             <img
-              src="/collect.gif"
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop"
               className="w-full h-full object-cover"
-              alt=""
+              alt="Seamless payments experience"
             />
           </div>
         </motion.div>
@@ -176,22 +177,23 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-end">
           <div className={IMAGE_BOX}>
             <img
-              src="/smart.png"
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
               className="w-full h-full object-cover"
-              alt=""
+              alt="High transaction success rates"
             />
           </div>
         </div>
       </div>
 
-      {/* SECTION 05 */}
+      {/* SECTION 05 — fraud detection / security */}
       <div className={`${SECTION_WRAPPER} mb-24`}>
         <div className="flex-1 flex justify-center md:justify-start">
           <div className={IMAGE_BOX}>
+            {/* Replaced: security/shield/fraud protection visual */}
             <img
-              src="/image1.jpg"
+              src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop"
               className="w-full h-full object-cover"
-              alt=""
+              alt="Advanced fraud detection and security"
             />
           </div>
         </div>
@@ -206,7 +208,7 @@ export const WhyDurapayMidSection = () => {
           </h3>
 
           <p className={PARAGRAPH_CLASS}>
-            {siteConfig.name}’s combination of automated and manual fraud
+            {siteConfig.name}'s combination of automated and manual fraud
             systems protect you from fraudulent transactions.
           </p>
 
@@ -225,7 +227,7 @@ export const WhyDurapayMidSection = () => {
         </div>
       </div>
 
-      {/* SECTION 06 */}
+      {/* SECTION 06 — developer / API */}
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 max-w-xl">
           <p className="text-[28px] font-bold text-[rgba(1,27,51,0.2)] mb-2">
@@ -275,14 +277,16 @@ export const WhyDurapayMidSection = () => {
 
         <div className="flex-1 flex justify-center md:justify-end">
           <div className={IMAGE_BOX}>
+            {/* Replaced: developer writing code / API documentation visual */}
             <img
-              src="/collect.gif"
-              alt="API experience"
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop"
+              alt="Developer API experience"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
       </div>
+
       {/* SECTION 07 */}
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 flex justify-center md:justify-start">
@@ -326,7 +330,7 @@ export const WhyDurapayMidSection = () => {
         </div>
       </div>
 
-      {/* SECTION 08 */}
+      {/* SECTION 08 — fast settlement / 24-hour payout */}
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 max-w-xl">
           <p className="text-[28px] font-bold text-[rgba(1,27,51,0.2)] mb-2">
@@ -344,10 +348,11 @@ export const WhyDurapayMidSection = () => {
 
         <div className="flex-1 flex justify-center md:justify-end">
           <div className={IMAGE_BOX}>
+            {/* Replaced: fast bank transfer / money movement visual */}
             <img
-              src="/videoframe.png"
+              src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&auto=format&fit=crop"
               className="w-full h-full object-cover"
-              alt=""
+              alt="Fast 24-hour bank settlement"
             />
           </div>
         </div>
@@ -358,9 +363,9 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-start">
           <div className={IMAGE_BOX}>
             <img
-              src="/getpaid.gif"
+              src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&auto=format&fit=crop"
               className="w-full h-full object-cover"
-              alt=""
+              alt="Accept payments from anywhere in the world"
             />
           </div>
         </div>
@@ -396,7 +401,7 @@ export const WhyDurapayMidSection = () => {
 
           <p className={PARAGRAPH_CLASS}>
             Our Customer Success team is available around the clock to support
-            you, and they’re empowered to resolve issues as quickly as possible.
+            you, and they're empowered to resolve issues as quickly as possible.
           </p>
         </div>
 
@@ -465,20 +470,20 @@ export const WhyDurapayMidSection = () => {
 
           <p className={PARAGRAPH_CLASS}>
             Above all, over 200,000 businesses love {siteConfig.name} because
-            we’re a team that’s obsessed with your company’s growth. The mission
+            we're a team that's obsessed with your company's growth. The mission
             of {siteConfig.name} is to help businesses in Nigeria be profitable,
             envied, and loved, and every thing we do - from the features we
             build to how we hire - is done with a single goal: to guarantee your
-            business’ success.
+            business' success.
           </p>
         </div>
 
         <div className="flex-1 flex justify-center md:justify-end">
           <div className={IMAGE_BOX}>
             <img
-              src="/paystack-team.png"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop"
               className="w-full h-full object-cover"
-              alt=""
+              alt="A team obsessed with your growth"
             />
           </div>
         </div>

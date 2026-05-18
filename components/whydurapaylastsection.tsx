@@ -6,19 +6,25 @@ import { ChevronRight } from "lucide-react";
 export const WhyDurapayLastSection = () => {
   const cards = [
     {
-      image: "/for-international.svg",
+      // Replaced /for-international.svg → global/world map imagery
+      image:
+        "https://images.unsplash.com/photo-1493514789931-586cb221d7a7?w=400&auto=format&fit=crop",
       title: "Durapayment for Global Brands",
       text: "We help global brands accept payments from across Africa",
       footer: "Learn More",
     },
     {
-      image: "/for-Entrepreneurs.svg",
+      // Replaced /for-Entrepreneurs.svg → confident entrepreneur/founder
+      image:
+        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format&fit=crop",
       title: "Durapayment for Entrepreneurs",
       text: "Grow your business with our intuitive payment solutions designed for entrepreneurs.",
       footer: "Learn More",
     },
     {
-      image: "/for-Large-Corporations.svg",
+      // Replaced /for-Large-Corporations.svg → corporate office building
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&auto=format&fit=crop",
       title: "Durapayment for Large Corporations",
       text: `${siteConfig.name} helps many of the largest corporate and government organizations in Nigeria get paid quickly and securely.`,
       footer: "Learn More",
@@ -40,7 +46,7 @@ export const WhyDurapayLastSection = () => {
               color: "rgb(1, 27, 51)",
             }}
             className="mb-4 sm:mb-6 text-[24px] sm:text-[32px] md:text-[48px]">
-            See how Paystack can help your specific business
+            See how {siteConfig.name} can help your specific business
           </h1>
         </div>
 
@@ -51,11 +57,11 @@ export const WhyDurapayLastSection = () => {
               key={index}
               className="bg-white rounded-2xl shadow-md p-5 sm:p-6 flex flex-col gap-4 sm:gap-5">
               {/* IMAGE */}
-              <div className="w-full max-w-[140px]">
+              <div className="w-full h-[140px] rounded-xl overflow-hidden">
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
 

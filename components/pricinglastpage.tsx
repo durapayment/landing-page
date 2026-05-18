@@ -1,24 +1,67 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { Check, ChevronDown, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
 
-// STYLES
-const HEADING_CLASS =
-  "text-[52px] sm:text-[30px] md:text-[40px] font-bold text-[rgb(1,27,51)] leading-[1.2] mb-4";
+/* ── STYLES ── */
+const SECTION =
+  "w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16 py-20 px-6 xl:px-0";
+const IMG =
+  "w-full max-w-[520px] h-[340px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl flex-shrink-0";
+const H2 =
+  "text-[26px] sm:text-[32px] md:text-[38px] font-bold text-[rgb(1,27,51)] leading-tight";
+const BODY =
+  "text-[15px] md:text-[17px] text-[rgba(1,27,51,0.65)] leading-[28px] mt-4";
+const TAG =
+  "text-[11px] font-black tracking-[0.22em] uppercase text-green-500 mb-3";
 
-const PARAGRAPH_CLASS =
-  "text-[16px] md:text-[18px] text-[rgb(1,27,51)] leading-7";
+const Accent = () => (
+  <div className="mt-8 w-10 h-1 rounded-full bg-green-400/50" />
+);
 
-const SECTION_WRAPPER =
-  "w-full max-w-310 mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-12 py-16";
+const Fade = ({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.5, delay }}
+    className={className}>
+    {children}
+  </motion.div>
+);
 
-const IMAGE_BOX =
-  "w-full max-w-[500px] h-[320px] md:h-[400px] rounded-2xl overflow-hidden";
+const List = ({ items }: { items: string[] }) => (
+  <ul className="mt-6 space-y-3">
+    {items.map((item, i) => (
+      <motion.li
+        key={i}
+        initial={{ opacity: 0, x: -8 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: i * 0.07 }}
+        className="flex items-start gap-3">
+        <span className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0 mt-0.5">
+          <Check className="w-3 h-3 text-green-600" />
+        </span>
+        <span className="text-[14px] text-[rgb(1,27,51)] leading-6">
+          {item}
+        </span>
+      </motion.li>
+    ))}
+  </ul>
+);
 
+/* ── FAQ DATA ── */
 const faqs = [
   {
     question: "How long does it take for me to get my money?",
@@ -27,7 +70,8 @@ const faqs = [
   },
   {
     question: "How much does it cost to integrate Durapayment?",
-    answer: "It's 100% free to integrate Durapayment!",
+    answer:
+      "It's 100% free to integrate Durapayment! No setup fees, no maintenance fees — ever.",
   },
   {
     question: "Is it possible to get settled in USD?",
@@ -37,96 +81,108 @@ const faqs = [
   {
     question: "Do you offer transaction volume discounts?",
     answer:
-      "Yup! Merchants who process large volumes enjoy a discount on the transaction fee.",
+      "Yup! Merchants who process large volumes enjoy a discount on the transaction fee. Contact our sales team to learn more.",
   },
 ];
 
+/* ── MAIN COMPONENT ── */
 export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="w-full py-20 px-4 md:px-10 lg:px-24 bg-white">
-      <div className="max-w-310 mx-auto flex flex-col md:flex-row">
-        {/* LEFT SIDE */}
-        <div className="md:w-1/3 md:pr-24 lg:pr-40 mb-10 md:mb-0">
-          <h2 className="text-3xl mb-10 md:text-4xl font-bold">
-            Common Questions
-          </h2>
-          <p className="text-gray-500 mt-45">Have more questions?</p>
-
-          {/* HELP DESK LINK */}
-          <Link
-            href="/help"
-            className="mt-3 inline-flex items-center gap-3 group">
-            {/* ICON CIRCLE */}
-            <div className="w-4 h-4 rounded-full border border-accent flex items-center justify-center transition group-hover:bg-green-500">
-              <MdKeyboardArrowRight
-                size={15}
-                className="text-accent transition-transform group-hover:translate-x-1"
-              />
-            </div>
-
-            {/* TEXT */}
-            <span className="text-sm font-medium text-accent group-hover:text-black transition">
-              Check out our help desk
-            </span>
-          </Link>
-        </div>
-
-        {/* RIGHT SIDE */}
-        <div className="md:w-2/3 space-y-4">
-          {faqs.map((item, index) => (
-            <div
-              key={index}
-              className="border rounded-xl p-5 md:p-6 cursor-pointer transition hover:shadow-sm"
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}>
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="text-base md:text-lg font-semibold text-left">
-                  {item.question}
-                </h3>
-
-                <div className="text-accent">
-                  <RiArrowDropDownLine className="text-4xl" />
-                </div>
+    <section className="w-full bg-white">
+      {/* ══ FAQ ══ */}
+      <div className="w-full bg-[#f4f6f9] py-24 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16">
+          {/* LEFT */}
+          <Fade className="md:w-[36%] shrink-0">
+            <p className={TAG}>Common Questions</p>
+            <h2
+              className="text-[32px] sm:text-[38px] font-extrabold text-[#011B33] leading-tight mb-4"
+              style={{
+                fontFamily:
+                  'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              }}>
+              Got questions?
+            </h2>
+            <p className="text-[rgba(1,27,51,0.55)] text-[15px] leading-7 mb-8">
+              Everything you need to know about our pricing and payments.
+            </p>
+            <Link href="/help" className="inline-flex items-center gap-2 group">
+              <div className="w-7 h-7 rounded-full border border-green-500 flex items-center justify-center group-hover:bg-green-500 transition-colors">
+                <ArrowRight className="w-3.5 h-3.5 text-green-600 group-hover:text-white transition-colors" />
               </div>
+              <span className="text-[14px] font-semibold text-green-600 group-hover:underline">
+                Visit our help desk
+              </span>
+            </Link>
+          </Fade>
 
-              {openIndex === index && (
-                <p className="mt-4 text-gray-600 text-sm md:text-base leading-relaxed">
-                  {item.answer}
-                </p>
-              )}
-            </div>
-          ))}
+          {/* RIGHT — accordion */}
+          <div className="flex-1 space-y-3">
+            {faqs.map((item, i) => (
+              <Fade key={i} delay={i * 0.06}>
+                <div
+                  className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer"
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}>
+                  <div className="flex items-center justify-between gap-4 px-6 py-5">
+                    <h3 className="text-[15px] font-semibold text-[#011B33] leading-snug">
+                      {item.question}
+                    </h3>
+                    <motion.div
+                      animate={{ rotate: openIndex === i ? 180 : 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="shrink-0 w-7 h-7 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center">
+                      <ChevronDown className="w-4 h-4 text-gray-400" />
+                    </motion.div>
+                  </div>
+
+                  <AnimatePresence initial={false}>
+                    {openIndex === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden">
+                        <p className="px-6 pb-6 text-[14px] text-[rgba(1,27,51,0.6)] leading-7">
+                          {item.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </Fade>
+            ))}
+          </div>
         </div>
       </div>
-      <section className="w-full bg-white px-6 md:px-12">
-        <div className={SECTION_WRAPPER}>
-          <div className="flex-1 max-w-xl">
-            <h3 className={HEADING_CLASS}>What do you get for this price?</h3>
 
-            <p className={PARAGRAPH_CLASS}>
-              Durapayment is a complete payments solution for businesses of
-              every type, and at every scale.
-            </p>
-          </div>
-        </div>
-      </section>
-      <div className={`${SECTION_WRAPPER}  mt-20`}>
-        <div className="flex-1 flex justify-center">
-          <div className={IMAGE_BOX}>
-            <img src="/collect.gif" className="w-full h-full object-cover" />
-          </div>
-        </div>
-        <div className="flex-1 max-w-xl">
-          <h3 className={HEADING_CLASS}>
+      {/* ══ WHAT DO YOU GET ══ */}
+      <div className="w-full bg-white py-16 px-6">
+        <Fade className="max-w-6xl mx-auto">
+          <p className={TAG + " text-center"}>Included in every plan</p>
+          <h2 className={`${H2} text-center max-w-xl mx-auto`}>
+            What do you get for this price?
+          </h2>
+          <p className={`${BODY} text-center max-w-lg mx-auto`}>
+            Durapayment is a complete payments solution for businesses of every
+            type, and at every scale.
+          </p>
+        </Fade>
+      </div>
+
+      {/* ══ SECTION 1 — Seamless payments: text left, image right ══ */}
+      <Fade className={SECTION}>
+        <div className="flex-1">
+          <p className={TAG}>01 — Payment Channels</p>
+          <h2 className={H2}>
             Delight customers with a seamless payments experience
-          </h3>
-
-          <p className={PARAGRAPH_CLASS}>
+          </h2>
+          <p className={BODY}>
             Give your customers the gift of modern, frictionless payments.
           </p>
-
-          <ul className="mt-6 grid grid-cols-2 gap-2 text-sm">
+          <div className="mt-6 grid grid-cols-2 gap-3">
             {[
               "Card",
               "Bank Account",
@@ -137,122 +193,118 @@ export const FAQSection = () => {
               "Mobile Money",
               "POS",
             ].map((item, i) => (
-              <li key={i} className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-600" />
-                {item}
-              </li>
+              <div key={i} className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-green-600" />
+                </span>
+                <span className="text-[14px] font-medium text-[rgb(1,27,51)]">
+                  {item}
+                </span>
+              </div>
             ))}
-          </ul>
+          </div>
+          <Accent />
         </div>
-      </div>
-      {/* SECTION 5 */}
-      <div className={SECTION_WRAPPER}>
-        <div className="flex-1 max-w-xl">
-          <h3 className={HEADING_CLASS}>
+        <div className={IMG}>
+          <img
+            src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&auto=format&fit=crop"
+            alt="Seamless payment experience"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+      </Fade>
+
+      {/* ══ SECTION 2 — APIs: image left, text right ══ */}
+      <Fade className={`${SECTION} bg-[#f4f6f9] rounded-none py-20`}>
+        <div className={IMG}>
+          <img
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&auto=format&fit=crop"
+            alt="Developer APIs"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+        <div className="flex-1">
+          <p className={TAG}>02 — Developer APIs</p>
+          <h2 className={H2}>
             Build custom payments experiences with well-documented APIs
-          </h3>
-
-          <p className={PARAGRAPH_CLASS}>
+          </h2>
+          <p className={BODY}>
             Developers love our thorough, well-documented APIs that let you
-            build everything from simple weekend projects, to complex financial
-            products serving hundreds of thousands of customers. If you can
-            imagine it, you can build it with Durapayment.
+            build everything from simple weekend projects to complex financial
+            products.
           </p>
-
-          <ul className="mt-6 space-y-3">
-            {[
+          <List
+            items={[
               "Collect one-time and recurring payments from your app or website",
               "Make instant transfers",
               "Retrieve all your transaction and customer data",
               "Verify the identity of customers",
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-green-600 mt-1" />
-                <span className="text-sm text-[#011B33]">{item}</span>
-              </li>
-            ))}
-          </ul>
+            ]}
+          />
+          <Accent />
         </div>
-        <div className="flex-1 flex justify-center">
-          <div className={IMAGE_BOX}>
-            <img src="/robust.png" className="w-full h-full object-cover" />
-          </div>
-        </div>
-      </div>
-      {/* SECTION 6 */}
-      <div className={SECTION_WRAPPER}>
-        <div className="flex-1 flex justify-center">
-          <div className={IMAGE_BOX}>
-            <img
-              src="/videoframe.png"
-              className="w-full h-full object-cover"
-              alt="fraud protection"
-            />
-          </div>
-        </div>
-        <div className="flex-1 max-w-xl">
-          <h3 className={HEADING_CLASS}>
+      </Fade>
+
+      {/* ══ SECTION 3 — Fraud detection: text left, image right ══ */}
+      <Fade className={SECTION}>
+        <div className="flex-1 ">
+          <p className={TAG}>03 — Security</p>
+          <h2 className={H2}>
             Protect yourself and your customers with advanced fraud detection
-          </h3>
-
-          <p className={PARAGRAPH_CLASS}>
-            Durapayment’s combination of automated and manual fraud systems protect
-            you from fraudulent transactions and associated chargeback claims.
+          </h2>
+          <p className={BODY}>
+            Durapayment's combination of automated and manual fraud systems
+            protect you from fraudulent transactions and associated chargeback
+            claims.
           </p>
-
-          <ul className="mt-6 space-y-3">
-            {[
+          <List
+            items={[
               "PCI-DSS-certified systems",
               "Automated fraud monitoring",
-              "When a fraud attempt is discovered with any Paystack merchant, ALL Paystack merchants become protected from further attempts",
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-green-600 mt-1" />
-                <span className="text-sm text-[#011B33] leading-6">{item}</span>
-              </li>
-            ))}
-          </ul>
+              "Network-wide fraud protection — when fraud is detected, all merchants are protected",
+            ]}
+          />
+          <Accent />
         </div>
-      </div>
-      {/* SECTION 7 */}
-      <div className={SECTION_WRAPPER}>
-        {/* TEXT RIGHT */}
-        <div className="flex-1 max-w-xl">
-          <h3 className={HEADING_CLASS}>
-            Delight customers with memorable, in-person payment experiences
-          </h3>
+        <div className={IMG}>
+          <img
+            src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=900&auto=format&fit=crop"
+            alt="Fraud detection security"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+      </Fade>
 
-          <p className={PARAGRAPH_CLASS}>
+      {/* ══ SECTION 4 — In-person: image left, text right ══ */}
+      <Fade className={`${SECTION} bg-[#f4f6f9] rounded-none py-20 mb-10`}>
+        <div className={IMG}>
+          <img
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&auto=format&fit=crop"
+            alt="In-person payments"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+        <div className="flex-1">
+          <p className={TAG}>04 — In-Person Payments</p>
+          <h2 className={H2}>
+            Delight customers with memorable, in-person payment experiences
+          </h2>
+          <p className={BODY}>
             Build custom, in-person payment experiences that increase customer
             loyalty and lifetime value.
           </p>
-
-          <ul className="mt-6 space-y-3">
-            {[
+          <List
+            items={[
               "Multiple payment channels (Card, Bank Transfer, USSD)",
               "Delight customers with self-checkout experiences",
               "Reinforce your brand with customized receipts",
-              "Build loyalty programs with deals and discounts customised for each customer",
+              "Build loyalty programs with deals and discounts for each customer",
               "Easy and straightforward reconciliation",
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-green-600 mt-1" />
-                <span className="text-sm text-[#011B33] leading-6">{item}</span>
-              </li>
-            ))}
-          </ul>
+            ]}
+          />
+          <Accent />
         </div>
-        {/* IMAGE LEFT */}
-        <div className="flex-1 flex justify-center md:justify-start">
-          <div className={IMAGE_BOX}>
-            <img
-              src="/user.jpg"
-              className="w-full h-full object-cover"
-              alt="in-person payments"
-            />
-          </div>
-        </div>
-      </div>
+      </Fade>
     </section>
   );
 };

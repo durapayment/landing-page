@@ -1,6 +1,5 @@
 "use client";
 
-import { IoMdArrowDropright } from "react-icons/io";
 import {
   FaFacebookF,
   FaTwitter,
@@ -9,272 +8,167 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import Link from "next/link";
+import { siteConfig } from "@/config/site";
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+type FooterColumn = {
+  heading: string;
+  links: { label: string; href: string }[];
+};
+
+// ─── Nav columns ──────────────────────────────────────────────────────────────
+const columns: FooterColumn[] = [
+  {
+    heading: "Why Durapayment",
+    links: [
+      { label: "Why Choose Durapayment", href: "/why-choose-durapayment" },
+      { label: "Success rates", href: "/success-rates" },
+      { label: "For Entrepreneurs", href: "/entrepreneurs" },
+      { label: "For Corporates", href: "/corporates" },
+      { label: "For Startups", href: "/startups" },
+      { label: "For Global Brands", href: "/global-brands" },
+      { label: "For Fintechs", href: "/for-fintechs" },
+      { label: "For Agencies", href: "/for-agencies" },
+      { label: "For Schools", href: "/for-schools" },
+    ],
+  },
+  {
+    heading: "Developers",
+    links: [
+      { label: "Documentation", href: siteConfig.links.documentation },
+      { label: "Integrations", href: siteConfig.links.documentation },
+      { label: "Status page", href: siteConfig.links.documentation },
+      { label: "API reference", href: siteConfig.links.documentation },
+    ],
+  },
+  {
+    heading: "Learn",
+    links: [
+      { label: "Blog", href: "/blog" },
+      { label: "Guides", href: "/guides" },
+      { label: "Pricing", href: "/coming-soon" },
+      { label: "Slack", href: "/coming-soon" },
+      { label: "Events", href: "/coming-soon" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About us", href: "/company" },
+      { label: "Privacy & Terms", href: "/legal" },
+      { label: "Contact support", href: "/contact-us" },
+      { label: "Testimonials", href: "/coming-soon" },
+      { label: "Case studies", href: "/coming-soon" },
+    ],
+  },
+];
+
+const socials = [
+  { icon: <FaFacebookF />, href: "#", label: "Facebook" },
+  { icon: <FaTwitter />, href: "#", label: "Twitter" },
+  { icon: <FaInstagram />, href: "#", label: "Instagram" },
+  { icon: <FaLinkedinIn />, href: "#", label: "LinkedIn" },
+  { icon: <FaYoutube />, href: "#", label: "YouTube" },
+];
 
 export const Footer = () => {
-  // ✅ GRAPHIK TYPOGRAPHY SYSTEM CLASS
-  const footerText =
-    "font-graphik text-[16px] leading-[24px] font-normal text-[#011b33]";
-
-  const linkClass = "cursor-pointer transition hover:text-black " + footerText;
-
-  const arrowTitles = [
-    "Why Durapayment",
-    "Pricing",
-    "Developers",
-    "About",
-    "Learn",
-    "Community",
-
-    "Customers",
-  ];
-
-  const Title = ({ text }: { text: string }) => {
-    const showArrow = arrowTitles.includes(text);
-
-    return (
-      <h3 className="font-semibold mb-3 flex items-center justify-between text-[#011b33]">
-        <span>{text}</span>
-        {showArrow && (
-          <IoMdArrowDropright className="w-4 h-4 block md:hidden" />
-        )}
-      </h3>
-    );
-  };
-
-  const locations = [
-    {
-      name: "Rivers State HQ",
-      address: " No. 100 off salvation ministries Road",
-      phone: "+234 7043396722",
-    },
-    // { name: "Abuja", address: "CBD", phone: "+234 802 345 6789" },
-    // { name: "Accra", address: "Airport City", phone: "+233 201 234 567" },
-    // { name: "Nairobi", address: "Westlands", phone: "+254 712 345 678" },
-    // { name: "Cape Town", address: "Waterfront", phone: "+27 82 123 4567" },
-    // { name: "London", address: "Canary Wharf", phone: "+44 20 7946 0958" },
-    // { name: "New York", address: "Manhattan", phone: "+1 212 555 0198" },
-  ];
-
   return (
-    <footer className="w-full bg-white pt-20 pb-10 border-t border-gray-200">
-      <div className="max-w-[1300px] mx-auto px-6">
-        {/* MAIN GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* COLUMN 1 */}
-          <div className={footerText}>
-            <Title text="Why Durapayment" />
-            <ul className="hidden md:block space-y-2">
-              <ul>
-                <li className={linkClass}>
-                  <Link href="/why-choose-durapayment">
-                    Why Choose Durapayment
-                  </Link>
-                </li>
+    <footer className="w-full bg-white border-t border-gray-100 pt-16 pb-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12">
+        {/* Top row: brand + nav columns */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-14">
+          {/* Brand column */}
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-5">
+            <span
+              style={{
+                fontFamily: "Boing, Georgia, serif",
+                fontWeight: 700,
+                color: "rgb(1,27,51)",
+                letterSpacing: "-0.01em",
+              }}
+              className="text-xl">
+              {siteConfig.name}
+            </span>
+            <p className="text-sm text-gray-400 leading-relaxed font-light max-w-[200px]">
+              Modern payments for businesses everywhere.
+            </p>
 
-                <li className={linkClass}>
-                  <Link href="/success-rates">Success rates</Link>
-                </li>
+            {/* Socials */}
+            <div className="flex items-center gap-3 mt-1">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className="w-8 h-8 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center text-gray-400 hover:text-[#011B33] hover:border-gray-300 transition text-sm">
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
 
-                <li className={linkClass + " mt-6"}>
-                  <Link href="/entrepreneurs">For Entrepreneurs</Link>
-                </li>
-
-                <li className={linkClass}>
-                  <Link href="/corporates">For Corporates</Link>
-                </li>
-
-                <li className={linkClass}>
-                  <Link href="/startups">For Startups</Link>
-                </li>
-
-                <li className={linkClass}>
-                  <Link href="/global-brands">For International Companies</Link>
-                </li>
-
-                <li className={linkClass + " mt-6"}>
-                  <Link href="/for-fintechs">For Fintechs</Link>
-                </li>
-
-                <li className={linkClass}>
-                  <Link href="/for-agencies">For Agencies</Link>
-                </li>
-
-                <li className={linkClass}>
-                  <Link href="/for-schools">For Schools</Link>
-                </li>
-
-                <li className={linkClass}>
-                  <Link href="/for-sales">For sales</Link>
-                </li>
+          {/* Nav columns */}
+          {columns.map((col) => (
+            <div key={col.heading}>
+              <h3
+                style={{
+                  fontFamily: "Boing, Georgia, serif",
+                  fontWeight: 700,
+                  color: "rgb(1,27,51)",
+                  letterSpacing: "-0.01em",
+                }}
+                className="text-sm mb-4">
+                {col.heading}
+              </h3>
+              <ul className="flex flex-col gap-2.5">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 font-light hover:text-[#011B33] transition">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
-            </ul>
-          </div>
-
-          {/* COLUMN 2 */}
-          <div className={footerText}>
-            <Title text="Pricing" />
-            <ul className="hidden md:block space-y-2">
-              <li className={linkClass}>
-                <Link href="/coming-soon">Nigeria</Link>
-              </li>
-              {/* <li className={linkClass}>
-                <Link href="/coming-soon">Ghana</Link>
-              </li>
-              <li className={linkClass}>
-                <Link href="/coming-soon">South Africa</Link>
-              </li>
-              <li className={linkClass}>
-                <Link href="/coming-soon">Kenya</Link>
-              </li> */}
-              <li className="mt-3 font-semibold text-[#011b33]">Learn</li>
-
-              <li>
-                <Link href="/blog" className={linkClass}>
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides" className={linkClass}>
-                  Guides
-                </Link>
-              </li>
-              <li>
-                <Link href="/api-reference" className={linkClass}>
-                  API Reference
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* COLUMN 3 */}
-          <div className={footerText}>
-            <Title text="Developers" />
-            <ul className="hidden md:block space-y-2">
-              <li className={linkClass}>
-                <Link href="/documentation">Documentation</Link>
-              </li>
-
-              <li className={linkClass}>
-                <Link href="/integrations">Integrations</Link>
-              </li>
-
-              <li className={linkClass}>
-                <Link href="/status-page">Status Page</Link>
-              </li>
-
-              <li className="mt-3 font-semibold text-[#011b33]">Community</li>
-              {/* <li className={linkClass}>Forum</li> */}
-              {[
-                { name: "Slack", href: "/coming-soon" },
-                { name: "Events", href: "/coming-soon" },
-              ].map((item) => (
-                <li key={item.name} className={linkClass}>
-                  <Link href={item.href}>{item.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* COLUMN 4 */}
-          <div className={footerText}>
-            <Title text="About" />
-            <ul className="hidden md:block space-y-2">
-              <li>
-                <Link href="/company">Company</Link>
-              </li>
-              {/* <li className={linkClass}>Careers</li>
-              <li className={linkClass}>Media Kit</li> */}
-              <li className={linkClass}>
-                <Link href="/legal">Privacy & Terms</Link>
-              </li>
-
-              <li className="mt-3 font-semibold text-[#011b33]">Support</li>
-
-              {/* <li>
-                <Link href="/why" className={linkClass}>
-                  Help Center
-                </Link>
-              </li> */}
-              <li>
-                <Link href="/contact-us" className={linkClass}>
-                  Contact Support
-                </Link>
-              </li>
-
-              <li className="mt-3 font-semibold text-[#011b33]">Customers</li>
-              <li>
-                <Link href="/coming-soon" className={linkClass}>
-                  Testimonials
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/coming-soon" className={linkClass}>
-                  Case Studies
-                </Link>
-              </li>
-            </ul>
-          </div>
+            </div>
+          ))}
         </div>
 
-        {/* CONTACT SECTION */}
-        <div className="mt-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* CONTACT */}
-            <div className={footerText}>
-              <h3 className="font-semibold mb-4 text-[#011b33]">Contact</h3>
-
-              <p className={footerText}>hello@durapayment.com</p>
-
-              <div className="flex gap-4 text-lg mt-4">
-                <FaFacebookF className="cursor-pointer hover:text-black" />
-                <FaTwitter className="cursor-pointer hover:text-black" />
-                <FaInstagram className="cursor-pointer hover:text-black" />
-                <FaLinkedinIn className="cursor-pointer hover:text-black" />
-                <FaYoutube className="cursor-pointer hover:text-black" />
-              </div>
+        {/* Divider */}
+        <div className="border-t border-gray-100 pt-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            {/* Left: address */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6">
+              <p className="text-xs text-gray-400">
+                © {new Date().getFullYear()} {siteConfig.name}. All rights
+                reserved.
+              </p>
+              <p className="text-xs text-gray-300 hidden sm:block">·</p>
+              <p className="text-xs text-gray-400">
+                No. 100 off Salvation Ministries Rd, Rivers State
+              </p>
             </div>
 
-            {/* LOCATIONS COL 1 */}
-            <div className="space-y-4">
-              {locations.slice(0, 3).map((loc, i) => (
-                <div key={i} className={footerText}>
-                  <p className="font-semibold">{loc.name}</p>
-                  <p>{loc.address}</p>
-                  <p>{loc.phone}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* LOCATIONS COL 2 */}
-            <div className="space-y-4">
-              {locations.slice(3, 5).map((loc, i) => (
-                <div key={i} className={footerText}>
-                  <p className="font-semibold">{loc.name}</p>
-                  <p>{loc.address}</p>
-                  <p>{loc.phone}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* LOCATIONS COL 3 */}
-            <div className="space-y-4">
-              {locations.slice(5).map((loc, i) => (
-                <div key={i} className={footerText}>
-                  <p className="font-semibold">{loc.name}</p>
-                  <p>{loc.address}</p>
-                  <p>{loc.phone}</p>
-                </div>
-              ))}
+            {/* Right: contact + legal */}
+            <div className="flex items-center gap-5">
+              <a
+                href="mailto:hello@durapayment.com"
+                className="text-xs text-gray-400 hover:text-[#011B33] transition">
+                hello@durapayment.com
+              </a>
+              <Link
+                href="/legal"
+                className="text-xs text-gray-400 hover:text-[#011B33] transition">
+                Privacy
+              </Link>
+              <Link
+                href="/legal"
+                className="text-xs text-gray-400 hover:text-[#011B33] transition">
+                Terms
+              </Link>
             </div>
           </div>
-        </div>
-
-        {/* COPYRIGHT */}
-        <div className="border-t border-gray-200 mt-10 pt-4">
-          <p className={footerText}>
-            © {new Date().getFullYear()} Durapay. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
