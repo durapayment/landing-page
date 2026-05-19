@@ -64,7 +64,7 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
 
 // ─── Feature image card ────────────────────────────────────────────────────────
 const ImageCard = ({ src, alt }: { src: string; alt: string }) => (
-  <div className="w-full sm:w-80 md:w-[340px] aspect-[4/5] bg-gray-100 rounded-2xl overflow-hidden shadow-sm border border-gray-100 shrink-0">
+  <div className="w-full sm:w-80 md:w-85 aspect-4/5 rounded-2xl overflow-hidden shadow-sm border border-gray-100 shrink-0">
     <img src={src} alt={alt} className="w-full h-full object-cover" />
   </div>
 );
@@ -94,7 +94,10 @@ export const MidSection = () => {
         {/* ── BLOCK 1: Seamless payments ── */}
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           {/* Image */}
-          <ImageCard src="/seamless.png" alt="Seamless payment experience" />
+          <ImageCard
+            src="/seamless-payment.gif"
+            alt="Seamless payment experience"
+          />
 
           {/* Content */}
           <div className="flex-1 ">
