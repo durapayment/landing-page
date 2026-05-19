@@ -52,7 +52,7 @@ const growthStages = [
   "Global Brands",
   "Startups",
 ];
-const businessTypes = ["Fintechs", "Agencies", "Schools", "Betting"];
+const businessTypes = ["Fintechs", "Agencies", "Schools", "Sales"];
 
 /* ── LEARN ITEMS ── */
 const learnItems = [
@@ -76,7 +76,7 @@ const learnItems = [
     icon: Video,
     title: "Video Tutorials",
     desc: "Learn DuraPayment step-by-step",
-    href: "/video-tutorials",
+    href: "/video_tutorials",
     iconBg: "bg-blue-50",
     iconColor: "text-blue-600",
   },

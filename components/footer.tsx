@@ -27,9 +27,9 @@ const columns: FooterColumn[] = [
       { label: "For Corporates", href: "/corporates" },
       { label: "For Startups", href: "/startups" },
       { label: "For Global Brands", href: "/global-brands" },
-      { label: "For Fintechs", href: "/for-fintechs" },
-      { label: "For Agencies", href: "/for-agencies" },
-      { label: "For Schools", href: "/for-schools" },
+      { label: "For Fintechs", href: "/fintechs" },
+      { label: "For Agencies", href: "/agencies" },
+      { label: "For Schools", href: "/schools" },
     ],
   },
   {
