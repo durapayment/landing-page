@@ -43,7 +43,7 @@ interface FeaturedInsight {
   category: string;
   readTime: string;
   wide?: boolean;
-  Illustration: () => JSX.Element;
+  Illustration: any;
 }
 
 interface ListInsight {

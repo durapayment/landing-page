@@ -52,10 +52,10 @@ const LearnMoreLink = ({ label = "Learn more" }) => (
 );
 
 // ── Tick list ────────────────────────────────────────────────────
-const TickList = ({ items, cols = 1 }) => (
+const TickList = ({ items, cols = 1 }: { items: any; cols: any }) => (
   <div
     className={`grid gap-y-3 gap-x-8 mt-6 ${cols === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
-    {items.map((item, i) => (
+    {items.map((item: any, i: any) => (
       <motion.div
         key={i}
         className="flex items-start gap-3"
@@ -73,7 +73,15 @@ const TickList = ({ items, cols = 1 }) => (
 );
 
 // ── Animated image wrapper ───────────────────────────────────────
-const AnimImg = ({ src, alt, delay = 0 }) => (
+const AnimImg = ({
+  src,
+  alt,
+  delay = 0,
+}: {
+  src: any;
+  alt: any;
+  delay: any;
+}) => (
   <motion.div
     className={IMAGE_BOX}
     initial={{ opacity: 0, y: 30 }}
@@ -85,7 +93,7 @@ const AnimImg = ({ src, alt, delay = 0 }) => (
 );
 
 // ── Copy block wrapper ───────────────────────────────────────────
-const CopyBlock = ({ step, children }) => (
+const CopyBlock = ({ step, children }: { step: any; children: any }) => (
   <motion.div
     className="flex-1 max-w-xl"
     initial={{ opacity: 0, y: 24 }}
@@ -110,6 +118,7 @@ export const WhyDurapayMidSection = () => {
         <div className="flex-1 flex justify-center md:justify-start">
           <AnimImg
             src="/instant-payment.png"
+            delay={0}
             alt="Start accepting payments instantly"
           />
         </div>
@@ -154,6 +163,7 @@ export const WhyDurapayMidSection = () => {
           <AnimImg
             src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop"
             alt="Seamless payments experience"
+            delay={0}
           />
         </div>
         <CopyBlock step={3}>
@@ -212,6 +222,7 @@ export const WhyDurapayMidSection = () => {
           <AnimImg
             src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop"
             alt="Advanced fraud detection and security"
+            delay={0}
           />
         </div>
         <CopyBlock step={5}>
@@ -228,6 +239,7 @@ export const WhyDurapayMidSection = () => {
               "Automated fraud monitoring",
               "Network-wide fraud protection across all merchants",
             ]}
+            cols={1}
           />
         </CopyBlock>
       </div>
@@ -252,6 +264,7 @@ export const WhyDurapayMidSection = () => {
               "Retrieve all your transaction and customer data",
               "Verify the identity of customers",
             ]}
+            cols={1}
           />
           <LearnMoreLink label={`${siteConfig.name} API Quickstart`} />
         </CopyBlock>
@@ -269,7 +282,11 @@ export const WhyDurapayMidSection = () => {
       {/* 07 — Business insights */}
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 flex justify-center md:justify-start">
-          <AnimImg src="/insights.jpg" alt="Business performance insights" />
+          <AnimImg
+            src="/insights.jpg"
+            alt="Business performance insights"
+            delay={0}
+          />
         </div>
         <CopyBlock step={7}>
           <h3 className={HEADING_CLASS}>
@@ -288,6 +305,7 @@ export const WhyDurapayMidSection = () => {
               "Searchable Customer Directory",
               "Analyze customer purchase patterns with Customer Insights",
             ]}
+            cols={2}
           />
         </CopyBlock>
       </div>
@@ -321,6 +339,7 @@ export const WhyDurapayMidSection = () => {
           <AnimImg
             src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&auto=format&fit=crop"
             alt="Accept payments from anywhere in the world"
+            delay={0}
           />
         </div>
         <CopyBlock step={9}>
@@ -364,7 +383,11 @@ export const WhyDurapayMidSection = () => {
       {/* 11 — Beautiful checkout */}
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 flex justify-center md:justify-start">
-          <AnimImg src="/checkout.png" alt="Modern checkout experience" />
+          <AnimImg
+            src="/checkout.png"
+            alt="Modern checkout experience"
+            delay={0}
+          />
         </div>
         <CopyBlock step={11}>
           <h3 className={HEADING_CLASS}>
@@ -379,6 +402,7 @@ export const WhyDurapayMidSection = () => {
               "No redirects — keep your customers on your own page",
               "Automatic error resolution — if a transaction fails, the checkout form smartly suggests other payment options",
             ]}
+            cols={1}
           />
         </CopyBlock>
       </div>
