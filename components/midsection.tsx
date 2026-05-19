@@ -93,11 +93,13 @@ export const MidSection = () => {
       <div className="max-w-6xl mx-auto flex flex-col gap-28">
         {/* ── BLOCK 1: Seamless payments ── */}
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-          {/* Image */}
-          <ImageCard
-            src="/seamless-payment.gif"
-            alt="Seamless payment experience"
-          />
+          <div className="w-full sm:w-80 md:w-85 aspect-4/5 rounded-2xl overflow-hidden shadow-sm border border-gray-100 shrink-0">
+            <img
+              src="/seamless-payment.gif"
+              alt="Seamless Payment"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
           {/* Content */}
           <div className="flex-1 ">
