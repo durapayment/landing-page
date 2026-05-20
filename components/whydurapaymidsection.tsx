@@ -117,7 +117,7 @@ export const WhyDurapayMidSection = () => {
       <div className={`${SECTION_WRAPPER} mt-16`}>
         <div className="flex-1 flex justify-center md:justify-start">
           <AnimImg
-            src="/instant-payment.png"
+            src="/instant.png"
             delay={0}
             alt="Start accepting payments instantly"
           />
@@ -148,7 +148,7 @@ export const WhyDurapayMidSection = () => {
         </CopyBlock>
         <div className="flex-1 flex justify-center md:justify-end">
           <AnimImg
-            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop"
+            src="/transparent-pricing.png"
             alt="Fair transparent pricing"
             delay={0.1}
           />
@@ -283,7 +283,7 @@ export const WhyDurapayMidSection = () => {
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 flex justify-center md:justify-start">
           <AnimImg
-            src="/insights.jpg"
+            src="/understand-business.png"
             alt="Business performance insights"
             delay={0}
           />
@@ -324,7 +324,7 @@ export const WhyDurapayMidSection = () => {
         </CopyBlock>
         <div className="flex-1 flex justify-center md:justify-end">
           <AnimImg
-            src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&auto=format&fit=crop"
+            src="/hours.png"
             alt="Fast 24-hour bank settlement"
             delay={0.1}
           />
@@ -337,7 +337,7 @@ export const WhyDurapayMidSection = () => {
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 flex justify-center md:justify-start">
           <AnimImg
-            src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&auto=format&fit=crop"
+            src="/global.png"
             alt="Accept payments from anywhere in the world"
             delay={0}
           />
@@ -384,7 +384,7 @@ export const WhyDurapayMidSection = () => {
       <div className={SECTION_WRAPPER}>
         <div className="flex-1 flex justify-center md:justify-start">
           <AnimImg
-            src="/checkout.png"
+            src="/understand.png"
             alt="Modern checkout experience"
             delay={0}
           />
@@ -425,7 +425,7 @@ export const WhyDurapayMidSection = () => {
         </CopyBlock>
         <div className="flex-1 flex justify-center md:justify-end">
           <AnimImg
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop"
+            src="customer.jpggit"
             alt="A team obsessed with your growth"
             delay={0.1}
           />
