@@ -12,7 +12,7 @@ const cards = [
     logoWidth: "w-20",
   },
   {
-    image: "/VISA.png",
+    image: "/visa.png",
     quote:
       "Our investment aligns perfectly with the kind of companies we back — ones that move fast and build for scale.",
     avatar: "/otto-williams.jpeg",
