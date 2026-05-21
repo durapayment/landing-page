@@ -130,8 +130,7 @@ const buildPaymentSections = (name: string) => [
   },
   {
     tag: "Security",
-    image:
-      "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=900&auto=format&fit=crop",
+    image: "/protection.gif",
     title: "Protect yourself and your customers with advanced fraud detection",
     text: `${name}'s combination of automated and manual fraud systems protect you from fraudulent transactions and associated chargeback claims.`,
     points: [
@@ -165,7 +164,7 @@ const buildPaymentSections = (name: string) => [
   },
   {
     tag: "Customer Insights",
-    image: "/insights.jpg",
+    image: "/pay-nigeria-business.png",
     title: "Understand customer purchase patterns",
     text: `Your ${name} Dashboard surfaces useful customer insights from your payments data.`,
     points: [
@@ -195,8 +194,7 @@ const buildPaymentSections = (name: string) => [
   },
   {
     tag: "In-Person Payments",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&auto=format&fit=crop",
+    image: "/get-paid.png",
     title: "Delight customers with memorable, in-person payment experiences",
     text: "Build custom, in-person payment experiences that increase customer loyalty and lifetime value.",
     points: [
@@ -223,7 +221,7 @@ const buildPaymentSections = (name: string) => [
   },
   {
     tag: "Support",
-    image: "/customer.jpg",
+    image: "/image1.jpg",
     title: "World-class support from a dedicated Relationship Manager",
     text: "Large volume merchants receive a dedicated Relationship Manager able to support in a vast range of ways. Your Relationship Manager will:",
     points: [
@@ -235,7 +233,7 @@ const buildPaymentSections = (name: string) => [
   },
   {
     tag: "Pricing",
-    image: "/fair.png",
+    image: "/transparent-pricing.png",
     title: "Fair, transparent pricing",
     text: `${name} only charges a tiny fee per transaction, which means we literally only make money when you do, and we work hard to ensure every transaction succeeds.`,
     points: [
