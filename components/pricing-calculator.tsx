@@ -33,7 +33,7 @@ function FeeCalculator() {
 
   const fee = useMemo(() => {
     if (amount === 0) return 0;
-    const calculated = amount * FEE_RATEg;
+    const calculated = amount * FEE_RATE;
     return Math.min(calculated, FEE_CAP);
   }, [amount]);
 
