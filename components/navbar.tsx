@@ -188,7 +188,7 @@ export const NavBar = () => {
       </div>
 
       {/* MOBILE MENU */}
-      <MobileMenu open={mobileOpen} />
+      <MobileMenu open={mobileOpen} onClose={closeAll} />
     </nav>
   );
 };
