@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowLeftRight, Landmark, CreditCard } from "lucide-react";
+import Link from "next/link";
 
 /* ── DATA ── */
 const sections = [
@@ -132,9 +133,11 @@ export const TransfersSection = () => {
           viewport={{ once: true }}
           className="text-center text-[13px] text-gray-400 pt-4">
           Need a custom plan for high volumes?{" "}
-          <span className="text-green-600 font-semibold cursor-pointer hover:underline">
-            Contact our sales team →
-          </span>
+          <Link
+            href="/contactsales"
+            className="text-green-600 font-semibold hover:underline transition-colors">
+            Talk to our sales team →
+          </Link>
         </motion.p>
       </div>
     </section>

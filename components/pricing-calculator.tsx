@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Check, Calculator } from "lucide-react";
+import { Check, Calculator, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { siteConfig } from "@/config/site";
 
 /* ================= CALCULATOR ================= */
 
@@ -48,7 +50,7 @@ function FeeCalculator() {
   return (
     <div className="w-full max-w-lg bg-[#011B33] rounded-3xl overflow-hidden shadow-2xl">
       {/* header bar */}
-      <div className="h-1.5 w-full bg-gradient-to-r from-green-400 to-emerald-500" />
+      <div className="h-1.5 w-full bg-linear-to-r from-green-400 to-emerald-500" />
 
       <div className="px-8 py-10">
         {/* title */}
@@ -133,7 +135,7 @@ function FeeCalculator() {
         )}
 
         {/* perks list */}
-        <div className="space-y-3 border-t border-white/10 pt-6">
+        <div className="space-y-3 border-t border-white/10 pt-6 mb-8">
           {perks.map((perk, i) => (
             <div key={i} className="flex items-center justify-between gap-3">
               <p className="text-white/50 text-[12px] leading-5">{perk}</p>
@@ -143,6 +145,16 @@ function FeeCalculator() {
             </div>
           ))}
         </div>
+
+        {/* CTA BUTTON */}
+        <Link
+          href={siteConfig.links.register}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full min-h-[52px] bg-green-500 hover:bg-green-400 active:scale-[0.98] active:bg-green-600 text-white rounded-2xl text-[15px] font-semibold flex items-center justify-center gap-2 transition-all touch-manipulation">
+          Create free account
+          <ArrowRight className="w-4 h-4 shrink-0" />
+        </Link>
       </div>
     </div>
   );
@@ -180,7 +192,7 @@ export default function CalculatorSection() {
               complete transparency — what you see is what you get.
             </p>
 
-            <div className="space-y-3">
+            <div className="space-y-3 mb-8">
               {[
                 "No monthly fees or commitments",
                 "Pay only when you earn",
@@ -202,6 +214,16 @@ export default function CalculatorSection() {
                 </motion.div>
               ))}
             </div>
+
+            {/* CTA BUTTON — text side */}
+            <Link
+              href={siteConfig.links.register}
+              target=""
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 min-h-[52px] px-7 bg-[#011B33] hover:bg-[#02284d] active:scale-[0.98] text-white rounded-2xl text-[15px] font-semibold transition-all touch-manipulation">
+              Get started free
+              <ArrowRight className="w-4 h-4 shrink-0" />
+            </Link>
           </motion.div>
 
           {/* CALCULATOR */}

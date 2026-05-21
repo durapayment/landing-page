@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Check, ArrowRight, Zap, Globe } from "lucide-react";
+import Link from "next/link";
+import { siteConfig } from "@/config/site";
 
 const features = {
   local: [
@@ -73,11 +75,9 @@ export const PricingPage = () => {
           {/* LOCAL */}
           <FadeIn delay={0.05}>
             <div className="bg-white rounded-3xl shadow-lg overflow-hidden h-full flex flex-col">
-              {/* top accent */}
               <div className="h-1.5 w-full bg-gradient-to-r from-green-400 to-emerald-500" />
 
               <div className="p-8 sm:p-10 flex flex-col flex-1">
-                {/* icon + label */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center">
                     <Zap className="w-5 h-5 text-green-600" />
@@ -87,7 +87,6 @@ export const PricingPage = () => {
                   </span>
                 </div>
 
-                {/* price */}
                 <div className="mb-2">
                   <span className="text-[48px] sm:text-[56px] font-extrabold text-[#011B33] leading-none tracking-tight">
                     1.5%
@@ -100,10 +99,8 @@ export const PricingPage = () => {
                   per successful transaction
                 </p>
 
-                {/* divider */}
                 <div className="w-full h-px bg-gray-100 mb-8" />
 
-                {/* features */}
                 <ul className="space-y-4 flex-1">
                   {features.local.map((item, i) => (
                     <motion.li
@@ -124,13 +121,14 @@ export const PricingPage = () => {
                 </ul>
 
                 {/* CTA */}
-                <motion.button
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="mt-10 w-full bg-[#011B33] text-white py-3.5 rounded-xl font-semibold text-[14px] flex items-center justify-center gap-2 hover:bg-[#02284d] transition-colors">
+                <Link
+                  href={siteConfig.links.register}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 w-full bg-[#011B33] hover:bg-[#02284d] active:scale-[0.98] text-white py-3.5 rounded-xl font-semibold text-[14px] flex items-center justify-center gap-2 transition-all touch-manipulation">
                   Get started free
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                </Link>
               </div>
             </div>
           </FadeIn>
@@ -138,11 +136,9 @@ export const PricingPage = () => {
           {/* INTERNATIONAL */}
           <FadeIn delay={0.12}>
             <div className="bg-[#011B33] rounded-3xl shadow-lg overflow-hidden h-full flex flex-col">
-              {/* top accent */}
               <div className="h-1.5 w-full bg-gradient-to-r from-blue-400 to-indigo-500" />
 
               <div className="p-8 sm:p-10 flex flex-col flex-1">
-                {/* icon + label */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
                     <Globe className="w-5 h-5 text-blue-400" />
@@ -152,7 +148,6 @@ export const PricingPage = () => {
                   </span>
                 </div>
 
-                {/* price */}
                 <div className="mb-2">
                   <span className="text-[48px] sm:text-[56px] font-extrabold text-white leading-none tracking-tight">
                     3.9%
@@ -165,10 +160,8 @@ export const PricingPage = () => {
                   per successful transaction
                 </p>
 
-                {/* divider */}
                 <div className="w-full h-px bg-white/10 mb-8" />
 
-                {/* features */}
                 <ul className="space-y-4 flex-1">
                   {features.international.map((item, i) => (
                     <motion.li
@@ -189,13 +182,14 @@ export const PricingPage = () => {
                 </ul>
 
                 {/* CTA */}
-                <motion.button
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="mt-10 w-full bg-white text-[#011B33] py-3.5 rounded-xl font-semibold text-[14px] flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors">
+                <Link
+                  href={siteConfig.links.register}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 w-full bg-white hover:bg-gray-100 active:scale-[0.98] text-[#011B33] py-3.5 rounded-xl font-semibold text-[14px] flex items-center justify-center gap-2 transition-all touch-manipulation">
                   Get started free
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                </Link>
               </div>
             </div>
           </FadeIn>
@@ -206,9 +200,11 @@ export const PricingPage = () => {
           <div className="mt-10 text-center">
             <p className="text-[13px] text-gray-400">
               Need a custom plan for high-volume transactions?{" "}
-              <span className="text-green-600 font-semibold cursor-pointer hover:underline">
-                Contact our sales team →
-              </span>
+              <Link
+                href="/contactsales"
+                className="text-green-600 font-semibold hover:underline transition-colors">
+                Talk to our sales team →
+              </Link>
             </p>
           </div>
         </FadeIn>

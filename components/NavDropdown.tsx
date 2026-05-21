@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import {
   ChevronDown,
   ArrowRight,
@@ -18,7 +18,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-/* ── WHY DURAPAY ITEMS ── */
+/* ── DATA ── */
 const whyItems = [
   {
     icon: Zap,
@@ -45,7 +45,6 @@ const whyItems = [
     iconColor: "text-purple-600",
   },
 ];
-
 const growthStages = [
   "Entrepreneurs",
   "Corporates",
@@ -53,8 +52,6 @@ const growthStages = [
   "Startups",
 ];
 const businessTypes = ["Fintechs", "Agencies", "Schools", "Sales"];
-
-/* ── LEARN ITEMS ── */
 const learnItems = [
   {
     icon: BookOpen,
@@ -89,10 +86,7 @@ const learnItems = [
     iconColor: "text-purple-600",
   },
 ];
-
 const companyLinks = ["About", "Careers", "Brand"];
-
-/* ── SUPPORT ITEMS ── */
 const supportItems = [
   {
     icon: HelpCircle,
@@ -120,7 +114,7 @@ const supportItems = [
   },
 ];
 
-/* ── LINK ROW COMPONENT ── */
+/* ── ICON ROW ── */
 const IconRow = ({
   icon: Icon,
   title,
@@ -138,7 +132,7 @@ const IconRow = ({
 }) => (
   <Link
     href={href}
-    className="flex items-start gap-3 group rounded-xl p-2.5 -mx-2.5 hover:bg-gray-50 transition-colors">
+    className="flex items-start gap-3 group rounded-xl p-2.5 -mx-2.5 hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation min-h-[44px]">
     <div
       className={`w-8 h-8 rounded-lg ${iconBg} flex items-center justify-center shrink-0 mt-0.5`}>
       <Icon className={`w-4 h-4 ${iconColor}`} />
@@ -152,7 +146,6 @@ const IconRow = ({
   </Link>
 );
 
-/* ── DIVIDER ── */
 const Divider = () => <div className="w-full h-px bg-gray-100 my-1" />;
 
 /* ── MAIN COMPONENT ── */
@@ -166,25 +159,24 @@ export const NavDropdown = ({
   const open = openMenu === id;
   const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  const handleOpen = () => {
+  const handleOpen = useCallback(() => {
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
       closeTimeout.current = null;
     }
     toggleMenu(id);
-  };
+  }, [id, toggleMenu]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     closeTimeout.current = setTimeout(() => toggleMenu(null), 150);
-  };
+  }, [toggleMenu]);
 
-  // Developers — plain link
   if (id === "developers") {
     return (
       <li className="list-none">
         <Link
           href="/developers"
-          className="text-[13px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] transition-colors cursor-pointer">
+          className="text-[13px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] transition-colors">
           Developers
         </Link>
       </li>
@@ -193,13 +185,19 @@ export const NavDropdown = ({
 
   return (
     <li
-      className={`relative cursor-pointer list-none ${focus ? "ring-2 ring-green-500 rounded-md" : ""}`}
+      className={`relative list-none ${focus ? "ring-2 ring-green-500 rounded-md" : ""}`}
       tabIndex={0}
       onClick={() => toggleMenu(open ? null : id)}
       onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}>
-      {/* ── TRIGGER ── */}
-      <div className="flex items-center gap-1 text-[13px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] transition-colors select-none">
+      onMouseLeave={handleClose}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleMenu(open ? null : id);
+        }
+      }}>
+      {/* TRIGGER */}
+      <div className="flex items-center gap-1 text-[13px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] transition-colors select-none cursor-pointer min-h-[40px]">
         <span>{label}</span>
         <motion.div
           animate={{ rotate: open ? 180 : 0 }}
@@ -208,7 +206,7 @@ export const NavDropdown = ({
         </motion.div>
       </div>
 
-      {/* ── DROPDOWN ── */}
+      {/* DROPDOWN */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -216,18 +214,17 @@ export const NavDropdown = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute top-10 left-0 bg-white shadow-2xl shadow-black/10 rounded-2xl z-50 border border-gray-100 overflow-hidden"
-            style={{ minWidth: 520 }}
+            className="absolute top-10 left-0 bg-white shadow-2xl shadow-black/10 rounded-2xl z-50 border border-gray-100 overflow-hidden max-w-[calc(100vw-2rem)]"
+            style={{ minWidth: id === "support" ? 300 : 480 }}
             onMouseEnter={handleOpen}
-            onMouseLeave={handleClose}>
-            {/* top accent */}
+            onMouseLeave={handleClose}
+            onClick={(e) => e.stopPropagation()}>
             <div className="h-0.5 w-full bg-gradient-to-r from-green-400 to-emerald-500" />
 
-            {/* ── WHY DURAPAY ── */}
+            {/* WHY DURAPAY */}
             {id === "whydurapay" && (
-              <div className="flex gap-0 p-1">
-                {/* LEFT */}
-                <div className="w-[280px] p-4 space-y-1">
+              <div className="flex flex-col sm:flex-row p-1">
+                <div className="sm:w-[280px] p-4 space-y-1">
                   <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 px-2.5 mb-3">
                     Overview
                   </p>
@@ -235,12 +232,9 @@ export const NavDropdown = ({
                     <IconRow key={item.title} {...item} />
                   ))}
                 </div>
-
-                {/* DIVIDER */}
-                <div className="w-px bg-gray-100 my-4" />
-
-                {/* RIGHT */}
-                <div className="w-[200px] p-4">
+                <div className="hidden sm:block w-px bg-gray-100 my-4" />
+                <div className="sm:hidden h-px bg-gray-100 mx-4" />
+                <div className="sm:w-[200px] p-4">
                   <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 px-2.5 mb-3">
                     For your stage
                   </p>
@@ -249,15 +243,13 @@ export const NavDropdown = ({
                       <Link
                         key={item}
                         href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="flex items-center justify-between px-2.5 py-2 rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 transition-colors group">
+                        className="flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
                         {item}
                         <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-green-500" />
                       </Link>
                     ))}
                   </div>
-
                   <Divider />
-
                   <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 px-2.5 my-3">
                     Business type
                   </p>
@@ -266,7 +258,7 @@ export const NavDropdown = ({
                       <Link
                         key={item}
                         href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="flex items-center justify-between px-2.5 py-2 rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 transition-colors group">
+                        className="flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
                         {item}
                         <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-green-500" />
                       </Link>
@@ -276,11 +268,10 @@ export const NavDropdown = ({
               </div>
             )}
 
-            {/* ── LEARN ── */}
+            {/* LEARN */}
             {id === "learn" && (
-              <div className="flex gap-0 p-1">
-                {/* LEFT */}
-                <div className="w-[300px] p-4 space-y-1">
+              <div className="flex flex-col sm:flex-row p-1">
+                <div className="sm:w-[300px] p-4 space-y-1">
                   <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 px-2.5 mb-3">
                     Resources
                   </p>
@@ -288,12 +279,9 @@ export const NavDropdown = ({
                     <IconRow key={item.title} {...item} />
                   ))}
                 </div>
-
-                {/* DIVIDER */}
-                <div className="w-px bg-gray-100 my-4" />
-
-                {/* RIGHT */}
-                <div className="w-[160px] p-4">
+                <div className="hidden sm:block w-px bg-gray-100 my-4" />
+                <div className="sm:hidden h-px bg-gray-100 mx-4" />
+                <div className="sm:w-[160px] p-4">
                   <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 px-2.5 mb-3">
                     Company
                   </p>
@@ -302,7 +290,7 @@ export const NavDropdown = ({
                       <Link
                         key={item}
                         href={item === "About" ? "/about" : "/coming-soon"}
-                        className="flex items-center justify-between px-2.5 py-2 rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 transition-colors group">
+                        className="flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
                         {item}
                         <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-green-500" />
                       </Link>
@@ -312,9 +300,9 @@ export const NavDropdown = ({
               </div>
             )}
 
-            {/* ── SUPPORT ── */}
+            {/* SUPPORT */}
             {id === "support" && (
-              <div className="p-4 w-[300px] space-y-1">
+              <div className="p-4 w-full sm:w-[300px] space-y-1">
                 <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 px-2.5 mb-3">
                   Help & Support
                 </p>

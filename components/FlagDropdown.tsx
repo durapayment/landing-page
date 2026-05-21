@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Check } from "lucide-react";
+import { ChevronDown, Check, Clock } from "lucide-react";
 
 const countries = [
   { code: "ng", label: "Nigeria", flag: "/ng.svg" },
@@ -75,23 +75,30 @@ export const FlagDropdown = () => {
 
             {/* list */}
             <ul className="px-2 pb-2">
-              {countries.map((country, i) => {
+              {countries.map((country) => {
                 const isSelected = selected.code === country.code;
+                const isNigeria = country.code === "ng";
                 const isLast = country.code === "others";
+                const isDisabled = !isNigeria;
 
                 return (
                   <li key={country.code}>
                     {isLast && <div className="h-px bg-gray-100 mx-2 my-1" />}
                     <button
+                      disabled={isDisabled}
                       onClick={() => {
+                        if (isDisabled) return;
                         setSelected(country);
                         setOpen(false);
                       }}
-                      className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-colors ${
-                        isSelected
-                          ? "bg-green-50 text-green-700"
-                          : "text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-[#011B33]"
-                      }`}>
+                      className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-colors
+                        ${
+                          isDisabled
+                            ? "opacity-40 cursor-not-allowed"
+                            : isSelected
+                              ? "bg-green-50 text-green-700"
+                              : "text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-[#011B33]"
+                        }`}>
                       <div className="flex items-center gap-2.5">
                         <img
                           src={country.flag}
@@ -102,8 +109,15 @@ export const FlagDropdown = () => {
                         />
                         <span>{country.label}</span>
                       </div>
-                      {isSelected && (
+
+                      {/* Show checkmark for selected, coming soon for disabled */}
+                      {isSelected && !isDisabled && (
                         <Check className="w-3.5 h-3.5 text-green-600 shrink-0" />
+                      )}
+                      {isDisabled && (
+                        <span className="text-[9px] font-bold tracking-wide uppercase text-gray-300 shrink-0">
+                          Soon
+                        </span>
                       )}
                     </button>
                   </li>
