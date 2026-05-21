@@ -102,7 +102,7 @@ const cards = [
 const buildPaymentSections = (name: string) => [
   {
     tag: "Payment Channels",
-    image: "/collect.gif",
+    image: "/gettingpaid.jpg",
     title: "Delight customers with a seamless payments experience",
     text: `Give your customers the gift of modern, frictionless, painless payments. Integrate ${name} once and let your customers pay you however they want.`,
     points: [

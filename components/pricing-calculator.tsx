@@ -8,9 +8,8 @@ import { siteConfig } from "@/config/site";
 
 /* ================= CALCULATOR ================= */
 
-const FEE_RATE = 0.015;
+const FEE_RATE = 0.017;
 const FEE_CAP = 2000;
-const FLAT_FEE = 100;
 
 const perks = [
   "Free, automatic settlement within 24 hours",
@@ -34,7 +33,7 @@ function FeeCalculator() {
 
   const fee = useMemo(() => {
     if (amount === 0) return 0;
-    const calculated = amount * FEE_RATE + FLAT_FEE;
+    const calculated = amount * FEE_RATEg;
     return Math.min(calculated, FEE_CAP);
   }, [amount]);
 
