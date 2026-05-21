@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 import {
   ChevronDown,
   ArrowRight,
@@ -159,6 +159,12 @@ export const NavDropdown = ({
   const open = openMenu === id;
   const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
+  // ✅ Fix: prevent hydration mismatch — only apply focus ring after client mount
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // ✅ Hover open — only fires on real pointer devices
   const handleMouseEnter = useCallback(() => {
     if (closeTimeout.current) {
@@ -187,7 +193,10 @@ export const NavDropdown = ({
 
   return (
     <li
-      className={`relative list-none ${focus ? "ring-2 ring-green-500 rounded-md" : ""}`}
+      // ✅ Fix: gate focus class on `mounted` so server and client render the same HTML on first pass
+      className={`relative list-none ${
+        mounted && focus ? "ring-2 ring-green-500 rounded-md" : ""
+      }`}
       tabIndex={0}
       // ✅ Desktop: hover controls open/close — no click toggle
       onMouseEnter={handleMouseEnter}
@@ -304,7 +313,7 @@ export const NavDropdown = ({
               </div>
             )}
 
-            {/* SUPPORT */}
+            {/* SUPPORT
             {id === "support" && (
               <div className="p-4 w-full sm:w-[300px] space-y-1">
                 <p className="text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 px-2.5 mb-3">
@@ -314,7 +323,7 @@ export const NavDropdown = ({
                   <IconRow key={item.title} {...item} />
                 ))}
               </div>
-            )}
+            )} */}
           </motion.div>
         )}
       </AnimatePresence>

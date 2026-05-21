@@ -421,7 +421,7 @@ export const WhyDurapayMidSection = () => {
         </CopyBlock>
         <div className="flex-1 flex justify-center md:justify-end">
           <AnimImg
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop"
+            src="/team.jpg"
             alt="A team obsessed with your growth"
             delay={0.1}
           />

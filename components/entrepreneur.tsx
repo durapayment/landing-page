@@ -188,8 +188,8 @@ export const Entrepreneur = () => {
           <div className="flex-1 max-w-xl">
             <p className={TAG}>Our Impact</p>
             <h2 className={H2}>
-              {siteConfig.name} pays out over $20 million to Nigerian businesses
-              every month
+              {siteConfig.name} pays out millions of naira to Nigerian
+              businesses every month
             </h2>
             <p className={BODY}>
               {siteConfig.name} helps businesses like yours get paid quickly and
@@ -199,19 +199,13 @@ export const Entrepreneur = () => {
             </p>
             <Accent />
           </div>
-          <Img
-            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&auto=format&fit=crop"
-            alt="Entrepreneurs getting paid"
-          />
+          <Img src="/pay-biz.png" alt="Entrepreneurs getting paid" />
         </Fade>
 
         {/* 01 — No website needed: image left, text right */}
         <div className="w-full bg-[#f4f6f9]">
           <Fade className={SECTION}>
-            <Img
-              src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=900&auto=format&fit=crop"
-              alt="Payment link on phone"
-            />
+            <Img src="/get-paid.png" alt="Payment link on phone" />
             <div className="flex-1 max-w-xl">
               <p className={TAG}>01 — Payment Pages</p>
               <h2 className={H2}>Get paid even if you don't have a website</h2>

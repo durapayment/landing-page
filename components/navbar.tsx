@@ -132,17 +132,19 @@ export const NavBar = () => {
         {/* RIGHT — Desktop Actions */}
         <div className="hidden lg:flex items-center gap-6 text-[14px] font-medium text-black list-none">
           <Link
+            target="_blank"
+            rel="noopener noreferrer"
             href={siteConfig.links.documentation}
             className="text-[13px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] transition-colors">
             Developers
           </Link>
 
-          <NavDropdown
+          {/* <NavDropdown
             label="Support"
             id="support"
             openMenu={activeDropdown}
             toggleMenu={toggleDropdown}
-          />
+          /> */}
 
           <Link
             href={siteConfig.links.login}
@@ -152,8 +154,6 @@ export const NavBar = () => {
 
           <Link
             href={siteConfig.links.register}
-            target="_blank"
-            rel="noopener noreferrer"
             className="bg-[#011B33] hover:bg-[#02284d] active:scale-[0.98] text-white px-4 py-2 rounded-lg text-[13px] font-semibold transition-all">
             Create free account
           </Link>
