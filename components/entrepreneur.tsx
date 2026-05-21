@@ -254,19 +254,13 @@ export const Entrepreneur = () => {
             />
             <Accent />
           </div>
-          <Img
-            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&auto=format&fit=crop"
-            alt="Beautiful branded checkout form"
-          />
+          <Img src="/checkout-form.jpg" alt="Beautiful branded checkout form" />
         </Fade>
 
         {/* 03 — Seamless experience: image left, text right */}
         <div className="w-full bg-[#f4f6f9]">
           <Fade className={`${SECTION} pb-24`}>
-            <Img
-              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&auto=format&fit=crop"
-              alt="Seamless payment experience"
-            />
+            <Img src="/gettingpaid.jpg" alt="Seamless payment experience" />
             <div className="flex-1 max-w-xl">
               <p className={TAG}>03 — Payment Channels</p>
               <h2 className={H2}>
