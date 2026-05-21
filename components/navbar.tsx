@@ -17,7 +17,8 @@ export const NavBar = () => {
   const navRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = (menu: string | null) => {
-    setActiveDropdown((prev) => (prev === menu ? null : menu));
+    // ✅ Don't toggle — just set directly so hover open/close works cleanly
+    setActiveDropdown(menu);
   };
 
   const closeAll = () => {
@@ -25,15 +26,22 @@ export const NavBar = () => {
     setActiveDropdown(null);
   };
 
-  /* OUTSIDE CLICK */
+  /* OUTSIDE CLICK — only closes mobile menu, not desktop dropdowns */
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
+    const handler = (e: MouseEvent | TouchEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        closeAll();
+        // ✅ Only close mobile menu on outside click
+        // Desktop dropdowns manage themselves via mouse leave
+        setMobileOpen(false);
+        setActiveDropdown(null);
       }
     };
     document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
   }, []);
 
   /* CLOSE MOBILE MENU ON RESIZE TO DESKTOP */
@@ -67,13 +75,14 @@ export const NavBar = () => {
     <nav
       ref={navRef}
       className={`w-full fixed top-0 z-50 transition-all duration-300 ${
-        scrolled || mobileOpen ? "bg-white shadow-sm" : "bg-white"
+        scrolled || mobileOpen
+          ? "bg-white/95 backdrop-blur-sm shadow-sm"
+          : "bg-white"
       }`}>
       {/* NAV CONTAINER */}
       <div className="max-w-[1300px] mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
         {/* LEFT — Logo + Desktop Nav */}
         <div className="flex items-center gap-5 lg:gap-10">
-          {/* LOGO */}
           <Link
             href="/"
             onClick={closeAll}
@@ -155,8 +164,6 @@ export const NavBar = () => {
         {/* MOBILE RIGHT — Flag + Hamburger */}
         <div className="lg:hidden flex items-center gap-3">
           <FlagDropdown />
-
-          {/* Hamburger — 48px tap target */}
           <button
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}

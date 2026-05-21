@@ -159,7 +159,8 @@ export const NavDropdown = ({
   const open = openMenu === id;
   const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  const handleOpen = useCallback(() => {
+  // ✅ Hover open — only fires on real pointer devices
+  const handleMouseEnter = useCallback(() => {
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
       closeTimeout.current = null;
@@ -167,8 +168,9 @@ export const NavDropdown = ({
     toggleMenu(id);
   }, [id, toggleMenu]);
 
-  const handleClose = useCallback(() => {
-    closeTimeout.current = setTimeout(() => toggleMenu(null), 150);
+  // ✅ Delayed close — gives time to move mouse into dropdown panel
+  const handleMouseLeave = useCallback(() => {
+    closeTimeout.current = setTimeout(() => toggleMenu(null), 200);
   }, [toggleMenu]);
 
   if (id === "developers") {
@@ -187,14 +189,16 @@ export const NavDropdown = ({
     <li
       className={`relative list-none ${focus ? "ring-2 ring-green-500 rounded-md" : ""}`}
       tabIndex={0}
-      onClick={() => toggleMenu(open ? null : id)}
-      onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}
+      // ✅ Desktop: hover controls open/close — no click toggle
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      // ✅ Keyboard support
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           toggleMenu(open ? null : id);
         }
+        if (e.key === "Escape") toggleMenu(null);
       }}>
       {/* TRIGGER */}
       <div className="flex items-center gap-1 text-[13px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] transition-colors select-none cursor-pointer min-h-[40px]">
@@ -216,9 +220,9 @@ export const NavDropdown = ({
             transition={{ duration: 0.15, ease: "easeOut" }}
             className="absolute top-10 left-0 bg-white shadow-2xl shadow-black/10 rounded-2xl z-50 border border-gray-100 overflow-hidden max-w-[calc(100vw-2rem)]"
             style={{ minWidth: id === "support" ? 300 : 480 }}
-            onMouseEnter={handleOpen}
-            onMouseLeave={handleClose}
-            onClick={(e) => e.stopPropagation()}>
+            // ✅ Keep open while mouse is inside the panel
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}>
             <div className="h-0.5 w-full bg-gradient-to-r from-green-400 to-emerald-500" />
 
             {/* WHY DURAPAY */}

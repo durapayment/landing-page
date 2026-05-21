@@ -370,7 +370,7 @@ export const WhyDurapayMidSection = () => {
           </p>
         </CopyBlock>
         <div className="flex-1 flex justify-center md:justify-end">
-          <AnimImg src="/customer.jpg" alt="24/7 customer support" delay={0} />
+          <AnimImg src="/pay.png" alt="24/7 customer support" delay={0} />
         </div>
       </div>
 
