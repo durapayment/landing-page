@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 /* ── DATA ── */
 const whyItems = [
@@ -122,6 +123,7 @@ const IconRow = ({
   href,
   iconBg,
   iconColor,
+  onNavigate,
 }: {
   icon: React.ElementType;
   title: string;
@@ -129,10 +131,11 @@ const IconRow = ({
   href: string;
   iconBg: string;
   iconColor: string;
+  onNavigate: (href: string) => void;
 }) => (
-  <Link
-    href={href}
-    className="flex items-start gap-3 group rounded-xl p-2.5 -mx-2.5 hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation min-h-[44px]">
+  <button
+    onClick={() => onNavigate(href)}
+    className="w-full flex items-start gap-3 group rounded-xl p-2.5 -mx-2.5 hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation min-h-[44px] text-left">
     <div
       className={`w-8 h-8 rounded-lg ${iconBg} flex items-center justify-center shrink-0 mt-0.5`}>
       <Icon className={`w-4 h-4 ${iconColor}`} />
@@ -143,7 +146,7 @@ const IconRow = ({
       </p>
       <p className="text-[12px] text-gray-400 mt-0.5 leading-4">{desc}</p>
     </div>
-  </Link>
+  </button>
 );
 
 const Divider = () => <div className="w-full h-px bg-gray-100 my-1" />;
@@ -158,12 +161,22 @@ export const NavDropdown = ({
 }: any) => {
   const open = openMenu === id;
   const closeTimeout = useRef<NodeJS.Timeout | null>(null);
+  const router = useRouter();
 
   // ✅ Fix: prevent hydration mismatch — only apply focus ring after client mount
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // ✅ Close dropdown then navigate
+  const handleNavigate = useCallback(
+    (href: string) => {
+      toggleMenu(null);
+      router.push(href);
+    },
+    [toggleMenu, router],
+  );
 
   // ✅ Hover open — only fires on real pointer devices
   const handleMouseEnter = useCallback(() => {
@@ -193,15 +206,12 @@ export const NavDropdown = ({
 
   return (
     <li
-      // ✅ Fix: gate focus class on `mounted` so server and client render the same HTML on first pass
       className={`relative list-none ${
         mounted && focus ? "ring-2 ring-green-500 rounded-md" : ""
       }`}
       tabIndex={0}
-      // ✅ Desktop: hover controls open/close — no click toggle
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      // ✅ Keyboard support
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -229,7 +239,6 @@ export const NavDropdown = ({
             transition={{ duration: 0.15, ease: "easeOut" }}
             className="absolute top-10 left-0 bg-white shadow-2xl shadow-black/10 rounded-2xl z-50 border border-gray-100 overflow-hidden max-w-[calc(100vw-2rem)]"
             style={{ minWidth: id === "support" ? 300 : 480 }}
-            // ✅ Keep open while mouse is inside the panel
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>
             <div className="h-0.5 w-full bg-gradient-to-r from-green-400 to-emerald-500" />
@@ -242,7 +251,11 @@ export const NavDropdown = ({
                     Overview
                   </p>
                   {whyItems.map((item) => (
-                    <IconRow key={item.title} {...item} />
+                    <IconRow
+                      key={item.title}
+                      {...item}
+                      onNavigate={handleNavigate}
+                    />
                   ))}
                 </div>
                 <div className="hidden sm:block w-px bg-gray-100 my-4" />
@@ -253,13 +266,17 @@ export const NavDropdown = ({
                   </p>
                   <div className="space-y-0.5 mb-4">
                     {growthStages.map((item) => (
-                      <Link
+                      <button
                         key={item}
-                        href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
+                        onClick={() =>
+                          handleNavigate(
+                            `/${item.toLowerCase().replace(/\s+/g, "-")}`,
+                          )
+                        }
+                        className="w-full flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
                         {item}
                         <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-green-500" />
-                      </Link>
+                      </button>
                     ))}
                   </div>
                   <Divider />
@@ -268,13 +285,17 @@ export const NavDropdown = ({
                   </p>
                   <div className="space-y-0.5">
                     {businessTypes.map((item) => (
-                      <Link
+                      <button
                         key={item}
-                        href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
+                        onClick={() =>
+                          handleNavigate(
+                            `/${item.toLowerCase().replace(/\s+/g, "-")}`,
+                          )
+                        }
+                        className="w-full flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
                         {item}
                         <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-green-500" />
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -289,7 +310,11 @@ export const NavDropdown = ({
                     Resources
                   </p>
                   {learnItems.map((item) => (
-                    <IconRow key={item.title} {...item} />
+                    <IconRow
+                      key={item.title}
+                      {...item}
+                      onNavigate={handleNavigate}
+                    />
                   ))}
                 </div>
                 <div className="hidden sm:block w-px bg-gray-100 my-4" />
@@ -300,13 +325,17 @@ export const NavDropdown = ({
                   </p>
                   <div className="space-y-0.5">
                     {companyLinks.map((item) => (
-                      <Link
+                      <button
                         key={item}
-                        href={item === "About" ? "/about" : "/coming-soon"}
-                        className="flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
+                        onClick={() =>
+                          handleNavigate(
+                            item === "About" ? "/about" : "/coming-soon",
+                          )
+                        }
+                        className="w-full flex items-center justify-between px-2.5 min-h-[40px] rounded-lg text-[13px] text-[rgba(1,27,51,0.7)] hover:bg-gray-50 hover:text-green-600 active:bg-gray-100 transition-colors group touch-manipulation">
                         {item}
                         <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-green-500" />
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -320,7 +349,7 @@ export const NavDropdown = ({
                   Help & Support
                 </p>
                 {supportItems.map((item) => (
-                  <IconRow key={item.title} {...item} />
+                  <IconRow key={item.title} {...item} onNavigate={handleNavigate} />
                 ))}
               </div>
             )} */}
