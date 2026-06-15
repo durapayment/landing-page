@@ -22,7 +22,7 @@ const AnimatedTick = () => (
 
 export const MidSection = () => {
   return (
-    <section className="w-full bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
+    <section className="w-full mt-10 bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
       {/* SECTION HEADING */}
       <div className="w-full flex flex-col gap-1 max-w-310 mx-auto text-left mb-14">
         <h2
@@ -32,7 +32,7 @@ export const MidSection = () => {
             fontWeight: 800,
             color: "rgb(1, 27, 51)",
           }}
-          className="text-[25px] md:text-[48px] leading-tight tracking-[-0.02em]"
+          className="text-[25px] md:text-[35px] leading-tight tracking-[-0.02em]"
         >
           Simple, easy payments
         </h2>

@@ -99,7 +99,7 @@ export const Hero = () => {
             {/* LEFT */}
             <div className="text-left w-full lg:w-auto">
               <p className="text-sm font-medium text-[#011B33] mb-3">
-                Trusted by over 200,000 businesses
+                Trusted by over 100 businesses
               </p>
 
               <div className="flex flex-nowrap items-center gap-3 sm:gap-4">
