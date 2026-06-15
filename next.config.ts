@@ -118,7 +118,7 @@ const nextConfig: NextConfig = {
 
       // ── Never cache API proxy responses ──────────────────────
       {
-        source: "/api/(.*)",
+        source: "/(.*)\\.(png|jpg|jpeg|gif|webp|svg|ico|woff2|woff|ttf|otf)",
         headers: [
           {
             key: "Cache-Control",
@@ -136,6 +136,10 @@ const nextConfig: NextConfig = {
           {
             key: "Access-Control-Allow-Methods",
             value: "GET, POST, OPTIONS",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
           },
           {
             key: "Access-Control-Allow-Headers",

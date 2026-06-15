@@ -34,7 +34,8 @@ const Fade = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-60px" }}
     transition={{ duration: 0.5, delay }}
-    className={className}>
+    className={className}
+  >
     {children}
   </motion.div>
 );
@@ -48,7 +49,8 @@ const List = ({ items, grid = false }: { items: string[]; grid?: boolean }) => (
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ delay: i * 0.07 }}
-        className="flex items-start gap-3">
+        className="flex items-start gap-3"
+      >
         <span className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0 mt-0.5">
           <Check className="w-3 h-3 text-green-600" />
         </span>
@@ -275,7 +277,8 @@ export const CorpTestimonial = () => {
               style={{
                 fontFamily:
                   'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-              }}>
+              }}
+            >
               Trusted by{" "}
               <span className="text-green-400">40,000+ businesses</span>
             </h2>
@@ -293,7 +296,8 @@ export const CorpTestimonial = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col justify-between">
+                className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col justify-between"
+              >
                 <Quote className="w-6 h-6 text-green-400 opacity-60 mb-5" />
                 <p className="text-white/70 text-[14px] leading-7 flex-1 mb-6">
                   {card.text}
@@ -316,7 +320,8 @@ export const CorpTestimonial = () => {
                     </div>
                   </div>
                   <div
-                    className={`${card.logoWidth} opacity-40 grayscale brightness-200`}>
+                    className={`${card.logoWidth} opacity-40 grayscale brightness-200`}
+                  >
                     <img
                       src={card.logo}
                       alt={card.name}
@@ -339,7 +344,8 @@ export const CorpTestimonial = () => {
           return (
             <div
               key={index}
-              className={hasBg ? "w-full bg-[#f4f6f9]" : "w-full bg-white"}>
+              className={hasBg ? "w-full bg-[#f4f6f9]" : "w-full bg-white"}
+            >
               <Fade className={SECTION}>
                 {isOdd ? (
                   <>
@@ -396,7 +402,8 @@ export const CorpTestimonial = () => {
               style={{
                 fontFamily:
                   'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-              }}>
+              }}
+            >
               We power growth for amazing businesses
             </h2>
             <p className="text-[rgba(1,27,51,0.6)] text-[16px] leading-[28px] max-w-xl">
