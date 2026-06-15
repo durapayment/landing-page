@@ -11,6 +11,8 @@ const isDev = process.env.NODE_ENV === "development";
 // per-request values.
 // ─────────────────────────────────────────────────────────
 
+const PRODUCTION_ORIGIN = "https://www.durapayment.com";
+
 const staticSecurityHeaders = [
   // Clickjacking — belt-and-suspenders alongside CSP frame-ancestors
   { key: "X-Frame-Options", value: "DENY" },
@@ -39,6 +41,56 @@ const staticSecurityHeaders = [
 
   // Prevent browsers from sending DNS prefetch requests for external domains
   { key: "X-DNS-Prefetch-Control", value: "off" },
+
+  // ── CORS — override Vercel's default wildcard ──────────
+  // Vercel CDN injects access-control-allow-origin: * on cached responses.
+  // We explicitly restrict it to our own origin so cross-origin requests
+  // from arbitrary domains are blocked.
+  {
+    key: "Access-Control-Allow-Origin",
+    value: isDev ? "http://localhost:3000" : PRODUCTION_ORIGIN,
+  },
+
+  // Only allow the methods the app actually uses
+  {
+    key: "Access-Control-Allow-Methods",
+    value: "GET, POST, OPTIONS",
+  },
+
+  // Allow Authorization + Content-Type headers in cross-origin requests
+  {
+    key: "Access-Control-Allow-Headers",
+    value: "Authorization, Content-Type, X-Requested-With",
+  },
+
+  // Do not expose cookies/credentials to cross-origin requests
+  {
+    key: "Access-Control-Allow-Credentials",
+    value: "false",
+  },
+
+  // ── Fallback CSP for cached/prerendered pages ──────────
+  // middleware.ts sets a nonce-based CSP per request, but Vercel's edge
+  // cache can serve static pages that bypass middleware entirely
+  // (x-vercel-cache: HIT). This static CSP acts as a safety net for
+  // those cached responses. It is intentionally strict but without a
+  // nonce — the middleware CSP takes precedence on dynamic requests.
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      "script-src 'self'", // no unsafe-inline, no unsafe-eval
+      "style-src 'self' 'unsafe-inline'", // inline styles needed for Next.js
+      "img-src 'self' data: blob: https:",
+      "font-src 'self' data:",
+      "connect-src 'self' https:",
+      "frame-ancestors 'none'", // belt-and-suspenders with X-Frame-Options
+      "base-uri 'self'",
+      "form-action 'self'",
+      "object-src 'none'",
+      "upgrade-insecure-requests",
+    ].join("; "),
+  },
 ];
 
 const nextConfig: NextConfig = {
@@ -59,7 +111,6 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       // ── Static security headers on every route ──────────────
-      // CSP is excluded here — it's set dynamically in middleware.ts
       {
         source: "/(.*)",
         headers: staticSecurityHeaders,
@@ -76,6 +127,24 @@ const nextConfig: NextConfig = {
           { key: "Pragma", value: "no-cache" },
           // Prevent API responses from being framed
           { key: "X-Frame-Options", value: "DENY" },
+          // API routes must never be accessible cross-origin
+          // (overrides the global CORS header above)
+          {
+            key: "Access-Control-Allow-Origin",
+            value: isDev ? "http://localhost:3000" : PRODUCTION_ORIGIN,
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, POST, OPTIONS",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value: "Authorization, Content-Type, X-Requested-With",
+          },
+          {
+            key: "Access-Control-Allow-Credentials",
+            value: "false",
+          },
         ],
       },
 
@@ -87,6 +156,9 @@ const nextConfig: NextConfig = {
             key: "Cache-Control",
             value: "public, max-age=86400, stale-while-revalidate=604800",
           },
+          // Assets are public — allow any origin to load them (fonts, images)
+          // This is intentionally * for static assets only
+          { key: "Access-Control-Allow-Origin", value: "*" },
         ],
       },
     ];
