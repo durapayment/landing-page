@@ -6,6 +6,8 @@ import { MidSection } from "@/components/midsection";
 import { MobileMenu } from "@/components/MobileDrawer";
 import { NavDropdown } from "@/components/NavDropdown";
 import { OurPartners } from "@/components/ourpartners";
+import { TryDurapayNow } from "@/components/trydurapaymentnow";
+import { Footer } from "@/components/footer";
 import Image from "next/image";
 
 // testing
@@ -17,7 +19,7 @@ export default function Home() {
         <Hero />
         <MidSection />
         <BusinessGrowth />
-        <OurPartners />
+        {/* <OurPartners /> */}
         <GlobalPartners />
       </main>
     </div>
