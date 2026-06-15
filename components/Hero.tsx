@@ -247,15 +247,13 @@ export const Hero = () => {
         </div>
 
         {/* PARTNERS */}
-        <div className="border-t border-green-20 py-10">
+        {/* <div className="border-t border-green-20 py-10">
           <div className="flex flex-col md:flex-row slg:flex-row items-start lg:items-center justify-between gap-8">
-            {/* LEFT */}
             <div className="text-left w-full lg:w-auto">
               <p className="text-sm font-medium text-[#011B33] mb-3">
                 Trusted by over 200,000 businesses
               </p>
 
-              {/* Center — trust pills */}
               <div className="flex flex-wrap items-center gap-2">
                 {[
                   {
@@ -274,7 +272,6 @@ export const Hero = () => {
                 ))}
               </div>
 
-              {/* Right — watch demo */}
               <div className="flex items-center gap-2.5 shrink-0">
                 <p className="text-xs text-gray-400 font-medium">
                   Watch a demo
@@ -289,7 +286,7 @@ export const Hero = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* VIDEO MODAL */}
