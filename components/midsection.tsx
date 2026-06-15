@@ -39,7 +39,8 @@ const LinkButton = ({
 }) => (
   <a
     href={href}
-    className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-800 transition group">
+    className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-800 transition group"
+  >
     <span className="w-6 h-6 rounded-full bg-emerald-600 flex items-center justify-center group-hover:bg-emerald-700 transition shrink-0">
       <ArrowRight className="text-white w-3 h-3" />
     </span>
@@ -57,7 +58,8 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
       color: "rgb(1, 27, 51)",
       letterSpacing: "-0.025em",
     }}
-    className="text-[26px] sm:text-[32px] md:text-[38px] mb-4">
+    className="text-[26px] sm:text-[32px] md:text-[38px] mb-4"
+  >
     {children}
   </h3>
 );
@@ -89,22 +91,6 @@ const routingFeatures = [
 
 export const MidSection = () => {
   return (
-<<<<<<< HEAD
-    <section className="w-full mt-10 bg-white px-6 sm:px-8 md:px-12 py-5  overflow-hidden">
-      {/* SECTION HEADING */}
-      <div className="w-full flex flex-col gap-1 max-w-310 mx-auto text-left mb-14">
-        <h2
-          style={{
-            fontFamily:
-              'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-            fontWeight: 800,
-            color: "rgb(1, 27, 51)",
-          }}
-          className="text-[25px] md:text-[35px] leading-tight tracking-[-0.02em]"
-        >
-          Simple, easy payments
-        </h2>
-=======
     <section className="w-full bg-white px-5 sm:px-8 md:px-12 py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col gap-28">
         {/* ── BLOCK 1: Seamless payments ── */}
@@ -116,7 +102,6 @@ export const MidSection = () => {
               className="w-full h-full object-cover"
             />
           </div>
->>>>>>> refs/remotes/origin/main
 
           {/* Content */}
           <div className="flex-1 ">
@@ -190,7 +175,8 @@ export const MidSection = () => {
                     route.active
                       ? "bg-emerald-50 border-emerald-200"
                       : "bg-white border-gray-100"
-                  }`}>
+                  }`}
+                >
                   <div className="flex items-center gap-2">
                     <motion.div
                       className={`w-2 h-2 rounded-full ${route.active ? "bg-emerald-500" : "bg-gray-300"}`}
@@ -202,7 +188,8 @@ export const MidSection = () => {
                       }}
                     />
                     <p
-                      className={`text-xs font-medium ${route.active ? "text-emerald-700" : "text-gray-400"}`}>
+                      className={`text-xs font-medium ${route.active ? "text-emerald-700" : "text-gray-400"}`}
+                    >
                       {route.label}
                     </p>
                   </div>
@@ -217,7 +204,8 @@ export const MidSection = () => {
                       />
                     </div>
                     <p
-                      className={`text-[10px] font-semibold w-6 text-right ${route.active ? "text-emerald-600" : "text-gray-300"}`}>
+                      className={`text-[10px] font-semibold w-6 text-right ${route.active ? "text-emerald-600" : "text-gray-300"}`}
+                    >
                       {route.score}%
                     </p>
                   </div>
@@ -242,7 +230,8 @@ export const MidSection = () => {
                 <motion.div
                   className="bg-emerald-500 rounded-full px-2.5 py-1"
                   animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}>
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
                   <p className="text-[10px] font-semibold text-white">
                     Approved
                   </p>
@@ -256,7 +245,8 @@ export const MidSection = () => {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="bg-white border border-gray-100 rounded-xl px-2 py-2 text-center">
+                    className="bg-white border border-gray-100 rounded-xl px-2 py-2 text-center"
+                  >
                     <p className="text-[9px] text-gray-400 uppercase tracking-widest mb-0.5">
                       {stat.label}
                     </p>
@@ -309,7 +299,8 @@ export const MidSection = () => {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}>
+              transition={{ delay: 0.1 }}
+            >
               <p className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
                 Monthly volume
               </p>
@@ -318,7 +309,8 @@ export const MidSection = () => {
                 style={{
                   fontFamily: "Boing, Georgia, serif",
                   letterSpacing: "-0.02em",
-                }}>
+                }}
+              >
                 ₦1.84M
               </p>
               <p className="text-[10px] text-emerald-400 mt-1">
@@ -331,7 +323,8 @@ export const MidSection = () => {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.25 }}>
+              transition={{ delay: 0.25 }}
+            >
               <p className="text-[10px] uppercase tracking-widest text-white/50 mb-3">
                 Success rate
               </p>
@@ -352,7 +345,8 @@ export const MidSection = () => {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}>
+              transition={{ delay: 0.4 }}
+            >
               <p className="text-[10px] uppercase tracking-widest text-white/50 mb-2">
                 Top channels
               </p>
@@ -405,7 +399,8 @@ export const MidSection = () => {
               ].map((card) => (
                 <div
                   key={card.title}
-                  className="bg-gray-50 border border-gray-100 rounded-xl p-4">
+                  className="bg-gray-50 border border-gray-100 rounded-xl p-4"
+                >
                   <p className="text-sm font-semibold text-[rgb(1,27,51)] mb-1">
                     {card.title}
                   </p>
