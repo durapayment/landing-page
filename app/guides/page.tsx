@@ -9,7 +9,7 @@ import { ChevronRight, BookOpen } from "lucide-react";
 const sections = [
   {
     title: "Getting Started",
-    icon: "🚀",
+    // icon: "🚀",
     content: `Welcome to ${siteConfig.name}. This guide will help you understand how to set up your account, accept payments, and manage your business efficiently using our platform.
 
 Getting started takes less than 15 minutes. Once you create an account, you'll have immediate access to your merchant dashboard where you can configure your payment preferences, add team members, and start accepting payments.
@@ -18,7 +18,7 @@ This guide walks you through every step — from account creation to your first 
   },
   {
     title: "Creating an Account",
-    icon: "👤",
+    // icon: "👤",
     content: `Sign up using your email address, verify your identity, and access your merchant dashboard in minutes.
 
 To create an account, visit our signup page and provide your email address and a secure password. You'll receive a verification email — click the link to confirm your address and activate your account.
@@ -27,7 +27,7 @@ Once verified, you'll be guided through a short onboarding flow where you provid
   },
   {
     title: "Setting Up Your Business",
-    icon: "🏢",
+    // icon: "🏢",
     content: `Add your business details, bank account information, and verify compliance requirements to start receiving payments.
 
 Navigate to Settings → Business Profile to add your registered business name, address, industry, and website. This information appears on payment receipts and helps build trust with your customers.
@@ -36,7 +36,7 @@ To enable live payments and settlements, complete the KYC verification process b
   },
   {
     title: "Accepting Payments",
-    icon: "💳",
+    // icon: "💳",
     content: `Use ${siteConfig.name} APIs or payment links to start accepting card, bank transfer, and mobile money payments instantly.
 
 The simplest way to accept payments is via Payment Links — shareable URLs you can send to customers via WhatsApp, email, or SMS with no code required. For custom integrations, use our Checkout API to embed a payment form directly in your app or website.
@@ -45,7 +45,7 @@ Supported channels include: Debit/Credit Cards, Bank Transfer, USSD, Apple Pay, 
   },
   {
     title: "Understanding Transactions",
-    icon: "📊",
+    // icon: "📊",
     content: `All transactions are tracked in real-time, showing status, reference IDs, fees, and settlement timelines.
 
 Every transaction on ${siteConfig.name} has a unique reference ID you can use to look up, dispute, or reconcile payments. Transaction statuses include: Pending, Successful, Failed, and Abandoned.
@@ -54,7 +54,7 @@ From your dashboard, you can filter transactions by date range, status, channel,
   },
   {
     title: "Payouts & Settlements",
-    icon: "🏦",
+    // icon: "🏦",
     content: `Funds are settled into your bank account on a scheduled basis, depending on your account configuration and risk profile.
 
 By default, ${siteConfig.name} settles all successful transactions to your registered bank account by 10 AM the next business day (T+1). You can view upcoming and completed settlements in the Settlements tab of your dashboard.
@@ -63,7 +63,7 @@ For high-volume merchants, intraday settlements may be available. USD settlement
   },
   {
     title: "Webhooks & Integrations",
-    icon: "🔗",
+    // icon: "🔗",
     content: `Use webhooks to receive real-time updates on payments, refunds, and chargebacks. Easily integrate with your backend systems.
 
 Webhooks are HTTP callbacks that ${siteConfig.name} sends to your server when events occur — such as a successful payment or a failed charge. To set up a webhook, navigate to Settings → Webhooks and add your endpoint URL.
@@ -72,7 +72,7 @@ Always validate webhook signatures using the secret key provided in your dashboa
   },
   {
     title: "Security Best Practices",
-    icon: "🔐",
+    // icon: "🔐",
     content: `Always secure your API keys, validate webhook signatures, and follow PCI compliance standards when handling payments.
 
 Never expose your secret API key in client-side code, version control, or public repositories. Use environment variables to store keys securely. Rotate your keys immediately if you suspect a compromise.
@@ -96,7 +96,8 @@ export default function GuidePage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative z-10 max-w-2xl mx-auto">
+          className="relative z-10 max-w-2xl mx-auto"
+        >
           <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-1.5 mb-6">
             <BookOpen className="w-3.5 h-3.5 text-green-400" />
             <span className="text-green-400 text-[11px] font-bold tracking-widest uppercase">
@@ -108,7 +109,8 @@ export default function GuidePage() {
             style={{
               fontFamily:
                 'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-            }}>
+            }}
+          >
             {siteConfig.name} Guide
           </h1>
           <p className="text-white/50 text-[15px] leading-[26px]">
@@ -125,7 +127,8 @@ export default function GuidePage() {
           initial={{ opacity: 0, x: -16 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full lg:w-[260px] lg:sticky lg:top-24 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex-shrink-0">
+          className="w-full lg:w-[260px] lg:sticky lg:top-24 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex-shrink-0"
+        >
           <div className="px-5 py-4 border-b border-gray-100">
             <p className="text-[11px] font-black tracking-[0.2em] uppercase text-gray-400">
               Sections
@@ -140,9 +143,10 @@ export default function GuidePage() {
                     active === i
                       ? "bg-[#011B33] text-white"
                       : "text-[rgba(1,27,51,0.65)] hover:bg-gray-50 hover:text-[#011B33]"
-                  }`}>
+                  }`}
+                >
                   <div className="flex items-center gap-2.5">
-                    <span className="text-[15px]">{s.icon}</span>
+                    {/* <span className="text-[15px]">{s.icon}</span> */}
                     <span className="leading-snug">{s.title}</span>
                   </div>
                   <ChevronRight
@@ -163,13 +167,14 @@ export default function GuidePage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
+            >
               {/* card header */}
-              <div className="h-1 w-full bg-gradient-to-r from-green-400 to-emerald-500" />
+              <div className="h-1 w-full bg-linear-to-r from-green-400 to-emerald-500" />
               <div className="px-8 py-7 border-b border-gray-100 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#f4f6f9] flex items-center justify-center text-[20px] shrink-0">
+                {/* <div className="w-10 h-10 rounded-xl bg-[#f4f6f9] flex items-center justify-center text-[20px] shrink-0">
                   {sections[active].icon}
-                </div>
+                </div> */}
                 <div>
                   <p className="text-[11px] font-black tracking-[0.2em] uppercase text-green-600 mb-1">
                     Step {active + 1} of {sections.length}
@@ -179,7 +184,8 @@ export default function GuidePage() {
                     style={{
                       fontFamily:
                         'Boing, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                    }}>
+                    }}
+                  >
                     {sections[active].title}
                   </h2>
                 </div>
@@ -193,7 +199,8 @@ export default function GuidePage() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.07 }}
-                    className="text-[14px] md:text-[15px] text-[rgba(1,27,51,0.7)] leading-[28px] mb-5 last:mb-0">
+                    className="text-[14px] md:text-[15px] text-[rgba(1,27,51,0.7)] leading-[28px] mb-5 last:mb-0"
+                  >
                     {para}
                   </motion.p>
                 ))}
@@ -203,7 +210,8 @@ export default function GuidePage() {
                   <button
                     onClick={() => setActive((p) => Math.max(0, p - 1))}
                     disabled={active === 0}
-                    className="flex items-center gap-2 text-[13px] font-semibold text-[rgba(1,27,51,0.5)] hover:text-[#011B33] disabled:opacity-30 disabled:cursor-not-allowed transition-colors">
+                    className="flex items-center gap-2 text-[13px] font-semibold text-[rgba(1,27,51,0.5)] hover:text-[#011B33] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  >
                     <ChevronRight className="w-4 h-4 rotate-180" />
                     Previous
                   </button>
@@ -217,7 +225,8 @@ export default function GuidePage() {
                       setActive((p) => Math.min(sections.length - 1, p + 1))
                     }
                     disabled={active === sections.length - 1}
-                    className="flex items-center gap-2 text-[13px] font-semibold text-green-600 hover:text-green-500 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">
+                    className="flex items-center gap-2 text-[13px] font-semibold text-green-600 hover:text-green-500 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  >
                     Next
                     <ChevronRight className="w-4 h-4" />
                   </button>
