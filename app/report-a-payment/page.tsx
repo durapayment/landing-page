@@ -122,6 +122,8 @@ export default function ReportPaymentPage() {
     );
   }
 
+  // sc
+
   return (
     <div className="min-h-screen px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 pb-16 bg-gray-50">
       <div className="max-w-xl md:max-w-2xl mx-auto">
