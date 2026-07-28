@@ -59,6 +59,7 @@ const columns: FooterColumn[] = [
       { label: "Contact support", href: "/contact-us" },
       { label: "Testimonials", href: "/coming-soon" },
       { label: "Case studies", href: "/coming-soon" },
+      { label: "Report Payment", href: "/report-a-payment" },
     ],
   },
 ];
@@ -86,7 +87,8 @@ export const Footer = () => {
                 color: "rgb(1,27,51)",
                 letterSpacing: "-0.01em",
               }}
-              className="text-xl">
+              className="text-xl"
+            >
               {siteConfig.name}
             </span>
             <p className="text-sm text-gray-400 leading-relaxed font-light max-w-[200px]">
@@ -100,7 +102,8 @@ export const Footer = () => {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-8 h-8 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center text-gray-400 hover:text-[#011B33] hover:border-gray-300 transition text-sm">
+                  className="w-8 h-8 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center text-gray-400 hover:text-[#011B33] hover:border-gray-300 transition text-sm"
+                >
                   {s.icon}
                 </a>
               ))}
@@ -117,7 +120,8 @@ export const Footer = () => {
                   color: "rgb(1,27,51)",
                   letterSpacing: "-0.01em",
                 }}
-                className="text-sm mb-4">
+                className="text-sm mb-4"
+              >
                 {col.heading}
               </h3>
               <ul className="flex flex-col gap-2.5">
@@ -125,7 +129,8 @@ export const Footer = () => {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-400 font-light hover:text-[#011B33] transition">
+                      className="text-sm text-gray-400 font-light hover:text-[#011B33] transition"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -154,17 +159,20 @@ export const Footer = () => {
             <div className="flex items-center gap-5">
               <a
                 href="mailto:hello@durapayment.com"
-                className="text-xs text-gray-400 hover:text-[#011B33] transition">
+                className="text-xs text-gray-400 hover:text-[#011B33] transition"
+              >
                 hello@durapayment.com
               </a>
               <Link
                 href="/legal"
-                className="text-xs text-gray-400 hover:text-[#011B33] transition">
+                className="text-xs text-gray-400 hover:text-[#011B33] transition"
+              >
                 Privacy
               </Link>
               <Link
                 href="/legal"
-                className="text-xs text-gray-400 hover:text-[#011B33] transition">
+                className="text-xs text-gray-400 hover:text-[#011B33] transition"
+              >
                 Terms
               </Link>
             </div>
