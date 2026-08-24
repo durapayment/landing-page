@@ -18,6 +18,7 @@ import {
   CreditCard,
 } from "lucide-react";
 import { useState } from "react";
+import { siteConfig } from "@/config/site";
 
 /* ── DATA ── */
 const whyItems = [
@@ -129,14 +130,17 @@ const AccordionSection = ({
     <motion.div
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ delay }}>
+      transition={{ delay }}
+    >
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between min-h-[48px] px-3 rounded-xl text-[15px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation">
+        className="w-full flex items-center justify-between min-h-[48px] px-3 rounded-xl text-[15px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation"
+      >
         {label}
         <motion.div
           animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}>
+          transition={{ duration: 0.2 }}
+        >
           <ChevronDown className="w-4 h-4 text-gray-400" />
         </motion.div>
       </button>
@@ -148,7 +152,8 @@ const AccordionSection = ({
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22, ease: "easeInOut" }}
-            className="overflow-hidden">
+            className="overflow-hidden"
+          >
             <div className="ml-3 pl-3 border-l-2 border-gray-100 pb-1 space-y-0.5">
               {items.map((item) => {
                 const Icon = item.icon;
@@ -157,9 +162,11 @@ const AccordionSection = ({
                     key={item.label}
                     href={item.href}
                     onClick={onClose}
-                    className="flex items-center gap-3 min-h-[44px] px-2 py-2 rounded-xl active:bg-gray-100 hover:bg-gray-50 transition-colors touch-manipulation">
+                    className="flex items-center gap-3 min-h-[44px] px-2 py-2 rounded-xl active:bg-gray-100 hover:bg-gray-50 transition-colors touch-manipulation"
+                  >
                     <div
-                      className={`w-7 h-7 rounded-lg ${item.iconBg} flex items-center justify-center shrink-0`}>
+                      className={`w-7 h-7 rounded-lg ${item.iconBg} flex items-center justify-center shrink-0`}
+                    >
                       <Icon className={`w-3.5 h-3.5 ${item.iconColor}`} />
                     </div>
                     <span className="text-[14px] font-medium text-[rgba(1,27,51,0.8)]">
@@ -192,7 +199,8 @@ export const MobileMenu = ({
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.25, ease: "easeInOut" }}
-          className="lg:hidden border-t border-gray-100 bg-white overflow-y-auto max-h-[calc(100dvh-4rem)]">
+          className="lg:hidden border-t border-gray-100 bg-white overflow-y-auto max-h-[calc(100dvh-4rem)]"
+        >
           <div className="px-4 py-3 space-y-0.5">
             {/* Accordion dropdowns */}
             <AccordionSection
@@ -220,11 +228,13 @@ export const MobileMenu = ({
                 key={link.label}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.16 + i * 0.04 }}>
+                transition={{ delay: 0.16 + i * 0.04 }}
+              >
                 <Link
                   href={link.href}
                   onClick={onClose}
-                  className="flex items-center justify-between min-h-[48px] px-3 rounded-xl text-[15px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation">
+                  className="flex items-center justify-between min-h-[48px] px-3 rounded-xl text-[15px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation"
+                >
                   {link.label}
                   <ArrowRight className="w-3.5 h-3.5 text-gray-300 shrink-0" />
                 </Link>
@@ -243,11 +253,13 @@ export const MobileMenu = ({
             <motion.div
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.34 }}>
+              transition={{ delay: 0.34 }}
+            >
               <Link
-                href="/login"
+                href={siteConfig.links.login}
                 onClick={onClose}
-                className="flex items-center gap-2.5 min-h-[48px] px-3 rounded-xl text-[15px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation">
+                className="flex items-center gap-2.5 min-h-[48px] px-3 rounded-xl text-[15px] font-semibold text-[rgba(1,27,51,0.75)] hover:text-[#011B33] hover:bg-gray-50 active:bg-gray-100 transition-colors touch-manipulation"
+              >
                 <LogIn className="w-4 h-4 shrink-0" />
                 Login
               </Link>
@@ -258,13 +270,15 @@ export const MobileMenu = ({
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="pt-2 pb-4">
+              className="pt-2 pb-4"
+            >
               <Link
                 href="https://online.durapayment.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className="w-full min-h-[52px] bg-[#011B33] hover:bg-[#02284d] active:scale-[0.98] active:bg-[#02284d] text-white rounded-xl text-[15px] font-semibold flex items-center justify-center gap-2 transition-all touch-manipulation">
+                className="w-full min-h-[52px] bg-[#011B33] hover:bg-[#02284d] active:scale-[0.98] active:bg-[#02284d] text-white rounded-xl text-[15px] font-semibold flex items-center justify-center gap-2 transition-all touch-manipulation"
+              >
                 Create free account
                 <ArrowRight className="w-4 h-4 shrink-0" />
               </Link>
